@@ -26,20 +26,21 @@ const meta = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    callToAction={{ text: 'Start din nettbutikk', href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ?autoplay=1', icon: 'tabler:download' }}
-    callToAction2={{ text: 'Les mer om Okane', href: '#features' }}
+    callToAction={{ text: 'Kom i gang', href: '#kontakt-oss' }}
     image={{ src: import('~/assets/images/hero.png'), alt: 'AstroWind Hero Image' }}
-  >
+    >
     <Fragment slot="title">
       <span class="hidden xl:inline"> Gjør nettbutikk enkelt med</span><b></b>
-      <span class="text-accent dark:text-white highlight">Okane</span>   </Fragment>
+      <span class="text-accent dark:text-white highlight">Okane</span>
+    </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
         Velkommen til
-        <span class="font-semibold">Okane</span>, din vei til suksessrike nettbutikk! Vi skaper skreddersydde løsninger som tar din e-handel til nye høyder. Uansett om du er nyoppstartet eller ønsker å utvide din eksisterende virksomhet, er vi her for å hjelpe.  <br/>Ta det første skrittet mot suksess i dag!</span
+        <span class="font-semibold">Okane</span>, din vei til suksessrike nettbutikk! Vi skaper skreddersydde løsninger
+        som tar din e-handel til nye høyder. Uansett om du er nyoppstartet eller ønsker å utvide din eksisterende
+        virksomhet, er vi her for å hjelpe. <br />Ta det første skrittet mot suksess i dag!</span
       >
-    
     </Fragment>
   </Hero>
 
@@ -259,17 +260,18 @@ const meta = {
   /> -->
 
   <!-- HubspotForm Widget ************ -->
-  <Sectionhead>
-    <Fragment slot="title">Kontakt oss</Fragment>
-    <Fragment slot="desc">Vi tar gjerne en uforpliktende prat</Fragment>
-  </Sectionhead>
-  <ContactUs />
+  <section id="kontakt-oss">
+    <Sectionhead>
+      <Fragment slot="title">Kontakt oss</Fragment>
+      <Fragment slot="desc">Vi tar gjerne en uforpliktende prat</Fragment>
+    </Sectionhead>
+    <ContactUs />
+  </section>
 
   <!-- HighlightedPosts Widget ******* -->
 
   <LatestPosts
     title="Finn mer innhold i vår blogg"
-    
     postIds={[
       'get-started-website-with-astro-tailwind-css.md',
       'how-to-customize-astrowind-to-your-brand.md',
@@ -324,7 +326,7 @@ const meta = {
  -->
   <!-- Stats Widget ****************** -->
 
-<!--   <Stats
+  <!--   <Stats
     items={[
       { name: 'Downloads', value: '132K' },
       { name: 'Stars', value: '24.8K' },
