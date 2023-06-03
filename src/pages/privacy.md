@@ -29,7 +29,7 @@ Sigurd Hoels vei 49
 
 0655 Oslo
 
-E-post: marensius.pettersen+gdpr@gmail.com
+E-post: post@okane.com
 
 <!-- Telefon: +47 381 33 333 -->
 
