@@ -66,7 +66,7 @@ export const headerData = {
     },
     {
       text: 'Kontakt oss',
-      href: '#',
+      href: '/contact',
     },
     {
       text: 'Om oss',
@@ -114,7 +114,7 @@ export const footerData = {
     {
       title: 'Support',
       links: [
-        { text: 'Kontakt oss', href: '#' },
+        { text: 'Kontakt oss', href: '/contact' },
         // { text: 'Community Forum', href: '#' },
         // { text: 'Professional Services', href: '#' },
         // { text: 'Skills', href: '#' },
