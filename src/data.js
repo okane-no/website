@@ -1,84 +1,116 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
-export const headerData = {
+const tjenesterLinks = {
+  text: 'Tjenester',
   links: [
     {
-      text: 'Landing',
-      links: [
-        {
-          text: 'Sass',
-          href: getPermalink('/landing/saas'),
-        },
-        {
-          text: 'Startup',
-          href: getPermalink('/landing/startup'),
-        },
-        {
-          text: 'Mobile App',
-          href: getPermalink('/landing/mobile-app'),
-        },
-      ],
-    },
-    {
-      text: 'Pages',
-      links: [
-        {
-          text: 'Features',
-          href: '#',
-        },
-        {
-          text: 'Pricing',
-          href: '#',
-        },
-        {
-          text: 'About us',
-          href: '#',
-        },
-        {
-          text: 'Contact',
-          href: '#',
-        },
-        {
-          text: 'Terms',
-          href: getPermalink('/terms'),
-        },
-        {
-          text: 'Privacy policy',
-          href: getPermalink('/privacy'),
-        },
-      ],
-    },
-    {
-      text: 'Widgets',
+      text: 'E - handel',
       href: '#',
     },
     {
-      text: 'Blog',
-      href: getBlogPermalink(),
+      text: 'B2C - nettbutikk',
+      href: '#',
+    },
+    {
+      text: 'B2B - nettbutikk',
+      href: '#',
+    },
+    {
+      text: 'Markedsplass',
+      href: '#',
+    },
+    {
+      text: 'Shopify',
+      href: '#',
+    },
+    {
+      text: 'Vendure',
+      href: '#',
     },
   ],
- /*  actions: [
+};
+
+const integrasjonerLinks = {
+  text: 'Integrasjoner',
+  links: [
+    { text: 'Visma', href: '#' },
+    { text: 'Tripletex', href: '#' },
+    { text: 'Fiken', href: '#' },
+  ],
+};
+
+export const headerData = {
+  links: [
+    // {
+    //   text: 'Landing',
+    //   links: [
+    //     {
+    //       text: 'Sass',
+    //       href: getPermalink('/landing/saas'),
+    //     },
+    //     {
+    //       text: 'Startup',
+    //       href: getPermalink('/landing/startup'),
+    //     },
+    //     {
+    //       text: 'Mobile App',
+    //       href: getPermalink('/landing/mobile-app'),
+    //     },
+    //   ],
+    // },
+    tjenesterLinks,
+    integrasjonerLinks,
+    {
+      text: 'Blogg',
+      href: getBlogPermalink(),
+    },
+    {
+      text: 'Kontakt oss',
+      href: '#',
+    },
+    {
+      text: 'Om oss',
+      href: '#',
+    },
+    // {
+    //   text: 'Pages',
+    //   links: [
+    //     {
+    //       text: 'Features',
+    //       href: '#',
+    //     },
+    //     {
+    //       text: 'Pricing',
+    //       href: '#',
+    //     },
+    //     {
+    //       text: 'About us',
+    //       href: '#',
+    //     },
+    //     {
+    //       text: 'Contact',
+    //       href: '#',
+    //     },
+    //     {
+    //       text: 'Terms',
+    //       href: getPermalink('/terms'),
+    //     },
+    //     {
+    //       text: 'Privacy policy',
+    //       href: getPermalink('/privacy'),
+    //     },
+    //   ],
+    // },
+  ],
+  /*  actions: [
     { type: 'button', text: 'Download', href: 'https://github.com/onwidget/astrowind' }
   ], */
 };
 
 export const footerData = {
   links: [
-    {
-      title: 'Tjenester',
-      links: [
-        { text: 'Shopify', href: '#' },
-        { text: 'Vendure', href: '#' },
-      ],
-    },
-    {
-      title: 'Integrasjoner',
-      links: [
-        { text: 'Visma', href: '#' },
-        { text: 'Tripletex', href: '#' },
-        { text: 'Fiken', href: '#' },
-      ],
-    },
+    { ...tjenesterLinks, ...{ title: tjenesterLinks.text } },
+    { ...integrasjonerLinks, ...{ title: integrasjonerLinks.text } },
     {
       title: 'Support',
       links: [
