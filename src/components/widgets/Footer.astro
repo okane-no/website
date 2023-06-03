@@ -1,7 +1,9 @@
 ---
 import { Icon } from 'astro-icon';
+import partnerLogo from '../../assets/images/ShopifyPlus_Secondary.png'
 import { SITE } from '~/config.mjs';
 import { getHomePermalink } from '~/utils/permalinks';
+import { Image } from '@astrojs/image/components'
 
 interface Link {
   text?: string;
@@ -44,6 +46,10 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
               />
             ))
           }
+        </div>
+        <div class="align-bottom mt-8">
+          <Image src={partnerLogo} height={25} />
+          <span class="text-xs font-light">Shopify partner id: 2247208</span>
         </div>
       </div>
       {
