@@ -1,12 +1,13 @@
 ---
 import { Icon } from "astro-icon";
+import ContactForm from "../common/ContactForm.svelte";
 ---
 
 <!-- Force push -->
 
 <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
       <div>
-        <h2 class="font-medium text-2xl text-gray-800 dark:text-white">Kontakt informasjon</h2>
+        <!-- <h2 class="font-medium text-2xl text-gray-800 dark:text-white">Kontakt informasjon</h2> -->
         <p class="text-muted dark:text-gray-400">
             Ta gjerne kontakt med oss via telefon eller e-post
         </p>
@@ -25,5 +26,8 @@ import { Icon } from "astro-icon";
             >
           </div>
         </div>
+      </div>
+      <div>
+        <ContactForm />
       </div>
     </div>

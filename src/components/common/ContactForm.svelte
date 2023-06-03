@@ -5,9 +5,6 @@
 </script>
 
 <form method="POST" class="w-full max-w-lg" id="contact-form" data-hs-do-not-collect="true">
-  <div class="pb-8">
-    <span class="text-2xl">Kontakt oss for en uforpliktende prat</span>
-  </div>
 
   <div class="flex flex-wrap mb-6">
     <label

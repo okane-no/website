@@ -5,33 +5,24 @@ import Layout from '~/layouts/PageLayout.astro';
 import Sectionhead from '~/components/common/Sectionhead.astro';
 import ContactUs from '~/components/widgets/ContactUs.astro';
 
-
-
-
 const meta = {
   title: SITE.title,
   description: SITE.description,
   dontUseTitleTemplate: true,
 };
-
-
 ---
 
 <Layout {meta}>
-<!-- Sectionhead common ************ -->
-    <Sectionhead>
-        <Fragment slot="title">Kontakt oss</Fragment>
-        <Fragment slot="desc">Vi er her for å hjelpe til.</Fragment>
-      </Sectionhead>
+  <!-- Sectionhead common ************ -->
+  <Sectionhead>
+    <Fragment slot="title">Kontakt oss</Fragment>
+    <Fragment slot="desc">Vi er her for å hjelpe til.</Fragment>
+  </Sectionhead>
 
+  <!-- Contact Widget ************ -->
+  <ContactUs />
 
-<!-- Contact Widget ************ -->
-<ContactUs/>
-
-
-
-
- <!-- FAQs Widget ******************* -->
+  <!-- FAQs Widget ******************* -->
   <FAQs
     title="Ofte stilte spørsmål"
     subtitle="Finn svar på vanlige spørsmål om vårt produkt/tjeneste"
@@ -39,41 +30,38 @@ const meta = {
     items={[
       [
         {
-            question: 'Hvordan kan jeg komme i gang med Okane for å lage en nettbutikk?',
+          question: 'Hvordan kan jeg komme i gang med Okane for å lage en nettbutikk?',
           answer:
-            "Du kan enkelt komme i gang ved å ta kontakt med oss via telefon eller e-post. Vi vil gjerne planlegge en inledende samtale for å diskutere dine behov og mål. Deretter vil vi veilede deg gjennom prosessen med å lage en nettbutikk som oppfyller dine forventninger og gir deg den digitale plattformen du trenger for å lykkes.",
-        
-          },
+            'Du kan enkelt komme i gang ved å ta kontakt med oss via telefon eller e-post. Vi vil gjerne planlegge en inledende samtale for å diskutere dine behov og mål. Deretter vil vi veilede deg gjennom prosessen med å lage en nettbutikk som oppfyller dine forventninger og gir deg den digitale plattformen du trenger for å lykkes.',
+        },
         {
           question: 'Hvilke steg er involvert i prosessen med å lage en nettbutikk med Okane?',
           answer:
-            "Vår prosess inkluderer en grundig behovsanalyse, design og tilpasning av nettbutikken, produktorganisering, implementering av betalingsløsninger, tilpasning av fraktalternativer og testing før lansering. Vi veileder deg gjennom hvert steg for å sikre at nettbutikken oppfyller dine krav og mål.",
+            'Vår prosess inkluderer en grundig behovsanalyse, design og tilpasning av nettbutikken, produktorganisering, implementering av betalingsløsninger, tilpasning av fraktalternativer og testing før lansering. Vi veileder deg gjennom hvert steg for å sikre at nettbutikken oppfyller dine krav og mål.',
         },
         {
-          question: "Kan dere hjelpe med søkemotoroptimalisering (SEO) for nettbutikken min?",
+          question: 'Kan dere hjelpe med søkemotoroptimalisering (SEO) for nettbutikken min?',
           answer:
-            "Ja, vi kan hjelpe med å optimalisere nettbutikken din for søkemotorer. Dette inkluderer riktig bruk av nøkkelord, optimalisering av produktsider og metatagger, oppsett av en søkevennlig URL-struktur og andre SEO-taktikker for å forbedre synligheten og rangeringen av nettbutikken din i søkemotorresultatene.",
+            'Ja, vi kan hjelpe med å optimalisere nettbutikken din for søkemotorer. Dette inkluderer riktig bruk av nøkkelord, optimalisering av produktsider og metatagger, oppsett av en søkevennlig URL-struktur og andre SEO-taktikker for å forbedre synligheten og rangeringen av nettbutikken din i søkemotorresultatene.',
         },
       ],
       [
         {
-          question: "Kan dere integrere sosiale medieknapper og delingsfunksjoner på nettbutikken min?",
+          question: 'Kan dere integrere sosiale medieknapper og delingsfunksjoner på nettbutikken min?',
           answer:
-            "Absolutt! Vi kan integrere sosiale medieknapper som Facebook, Instagram og Twitter på nettbutikken din, slik at besøkende enkelt kan dele produkter eller innhold. Dette hjelper med å øke synligheten og markedsføringen av nettbutikken din på sosiale medieplattformer.",
+            'Absolutt! Vi kan integrere sosiale medieknapper som Facebook, Instagram og Twitter på nettbutikken din, slik at besøkende enkelt kan dele produkter eller innhold. Dette hjelper med å øke synligheten og markedsføringen av nettbutikken din på sosiale medieplattformer.',
         },
         {
           question: 'Hva er deres priser og betalingsbetingelser for konsulenttjenestene deres?',
           answer:
-            "Våre priser for konsulenttjenestene varierer avhengig av omfanget av prosjektet og spesifikke behov. Vi tilbyr fleksible betalingsbetingelser, og prisen vil bli diskutert i detalj i en personlig konsultasjon for å sikre at vi tilbyr en skreddersydd løsning som passer til din virksomhet og budsjett.",
+            'Våre priser for konsulenttjenestene varierer avhengig av omfanget av prosjektet og spesifikke behov. Vi tilbyr fleksible betalingsbetingelser, og prisen vil bli diskutert i detalj i en personlig konsultasjon for å sikre at vi tilbyr en skreddersydd løsning som passer til din virksomhet og budsjett.',
         },
         {
-            question: 'Hva er fordelene med å bruke en konsulent for å lage nettbutikken min?',
+          question: 'Hva er fordelene med å bruke en konsulent for å lage nettbutikken min?',
           answer:
             'Ved å bruke en konsulent får du tilgang til ekspertise og erfaring innen nettbutikkutvikling. Vi hjelper deg med å skape en skreddersydd nettbutikk som er optimalisert for å tiltrekke kunder, drive salg og skape en positiv brukeropplevelse.',
         },
       ],
     ]}
   />
-
-
 </Layout>

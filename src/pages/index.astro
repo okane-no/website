@@ -9,7 +9,8 @@ import Features from '~/components/widgets/Features.astro';
 import Steps from '~/components/widgets/Steps.astro';
 /* import Content from '~/components/widgets/Content.astro'; */
 import LatestPosts from '~/components/blog/LatestPosts.astro';
-import ContactFormSection from '~/components/widgets/ContactFormSection.astro';
+import ContactUs from '~/components/widgets/ContactUs.astro';
+import Sectionhead from '~/components/common/Sectionhead.astro';
 /* import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro'; */
@@ -258,7 +259,11 @@ const meta = {
   /> -->
 
   <!-- HubspotForm Widget ************ -->
-  <ContactFormSection />
+  <Sectionhead>
+    <Fragment slot="title">Kontakt oss</Fragment>
+    <Fragment slot="desc">Vi tar gjerne en uforpliktende prat</Fragment>
+  </Sectionhead>
+  <ContactUs />
 
   <!-- HighlightedPosts Widget ******* -->
 
