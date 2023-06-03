@@ -4,7 +4,8 @@
   }
 </script>
 
-<form method="POST" class="w-full max-w-lg" id="contact-form" data-hs-do-not-collect="true">
+<!-- <form method="POST" class="w-full max-w-lg" id="contact-form" data-hs-do-not-collect="true"> -->
+<form method="POST" class="w-full max-w-lg" id="contact-form">
 
   <div class="flex flex-wrap mb-6">
     <label
