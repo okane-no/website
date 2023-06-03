@@ -126,11 +126,6 @@ export const footerData = {
       links: [
         { text: 'Blogg', href: '#' },
         { text: 'Om oss', href: '#' },
-        // { text: 'Careers', href: '#' },
-        // { text: 'Press', href: '#' },
-        // { text: 'Inclusion', href: '#' },
-        // { text: 'Social Impact', href: '#' },
-        // { text: 'Shop', href: '#' },
       ],
     },
   ],
