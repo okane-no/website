@@ -5,13 +5,13 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+/* import Features2 from '~/components/widgets/Features2.astro'; */
 import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
+/* import Content from '~/components/widgets/Content.astro'; */
 import LatestPosts from '~/components/blog/LatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
+/* import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro'; */
 
 const meta = {
   title: SITE.title,
@@ -29,16 +29,15 @@ const meta = {
     image={{ src: import('~/assets/images/hero.png'), alt: 'AstroWind Hero Image' }}
   >
     <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white highlight"> Astro 2.0</span> + Tailwind CSS    </Fragment>
+      <span class="hidden xl:inline"> Gjør nettbutikk enkelt med</span><b></b>
+      <span class="text-accent dark:text-white highlight">Okane</span>   </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 2.0 +
-        Tailwind CSS.</span
+        Velkommen til
+        <span class="font-semibold">Okane</span>, din vei til suksessrike nettbutikk! Vi skaper skreddersydde løsninger som tar din e-handel til nye høyder. Uansett om du er nyoppstartet eller ønsker å utvide din eksisterende virksomhet, er vi her for å hjelpe.  <br/>Ta det første skrittet mot suksess i dag!</span
       >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span> Suitable for Startups,
-      Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs.
+    
     </Fragment>
   </Hero>
 
@@ -49,47 +48,47 @@ const meta = {
   <!-- Features Widget *************** -->
 
   <Features
-    highlight="Features"
-    title="What you get with AstroWind"
-    subtitle="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae."
+    highlight="Fordeler"
+    title="Hva får du med Okane"
+    subtitle="Oppdag Okane: Din nøkkel til en vellykket digital tilstedeværelse."
     items={[
       [
         {
-          title: 'Astro + Tailwind CSS Integration',
+          title: 'Skreddersydde nettbutikker:',
           description:
-            'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
+            'Vi leverer skreddersydde nettbutikker på Shopify-plattformen som er designet for å passe perfekt til din virksomhet. Fra brukervennlig navigasjon til enestående visuell appell, sikrer vi at din nettbutikk skiller seg ut og gir en imponerende opplevelse for kundene.',
           icon: 'tabler:brand-tailwind',
         },
         {
-          title: 'Ready-to-use Components',
+          title: 'E-handelsstrategi og rådgivning:',
           description:
-            'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
+            'Vårt ekspertteam gir deg omfattende e-handelsstrategi og rådgivning for å hjelpe deg med å maksimere salg og vekst. Vi analyserer din målgruppe, konkurrenter og markedssegmenter for å utvikle skreddersydde strategier som passer til din unike virksomhet.',
           icon: 'tabler:components',
         },
         {
-          title: 'Best Practices',
+          title: 'Integrerte betalings- og fraktløsninger',
           description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla.',
+            'Vi hjelper deg med å implementere og optimalisere integrerte betalings- og fraktløsninger som gjør det enkelt for kundene å fullføre kjøpene. Vi sikrer at sikkerheten og brukervennligheten er i toppklasse, slik at dine kunder kan handle trygt og smidig.',
           icon: 'tabler:list-check',
         },
       ],
       [
         {
-          title: 'Excellent Page Speed',
+          title: 'Optimalisert brukeropplevelse',
           description:
-            'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
+            'Vi fokuserer på å skape en sømløs brukeropplevelse som øker konverteringer og engasjement. Fra responsivt design til intuitiv navigasjon og rask lasting, sørger vi for at kundene dine får en enkel og behagelig opplevelse når de besøker nettbutikken din.',
           icon: 'tabler:rocket',
         },
         {
-          title: 'Search Engine Optimization (SEO)',
+          title: 'Optimalisert for synlighet(SEO)',
           description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla.',
+            'Med Okane får du en nettbutikk som er nøye optimalisert for søkemotorer. Vi implementerer beste praksis for SEO, inkludert riktig bruk av søkeord, optimalisering av metadata, optimal sidestruktur og mobilvennlighet. Dette hjelper deg med å øke synligheten din i søkemotorresultatene, slik at potensielle kunder lettere finner deg og øker sjansene for organisk trafikk og salg.',
           icon: 'tabler:arrows-right-left',
         },
         {
-          title: 'Open to new ideas and contributions',
+          title: 'Kontinuerlig støtte og oppdateringer',
           description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla.',
+            'Vi er her for deg også etter at nettbutikken er lansert. Vårt dedikerte supportteam gir kontinuerlig støtte og oppdateringer for å sikre at nettbutikken din fungerer problemfritt og holder tritt med de siste trender og krav.',
           icon: 'tabler:bulb',
         },
       ],
@@ -98,7 +97,7 @@ const meta = {
 
   <!-- Content Widget **************** -->
 
-  <Content
+  <!-- <Content
     highlight="Inside template"
     title="And what's inside? ..."
     items={[
@@ -128,64 +127,62 @@ const meta = {
       Ne dicta praesent ocurreret has, diam theophrastus at pro. Eos etiam regione ut, persius eripuit quo id. Sit te euismod
       tacimates.
     </Fragment>
-  </Content>
+  </Content> -->
 
   <!-- Content Widget **************** -->
 
-  <Content
+  <!-- <Content
     isReversed
     isAfterContent
     items={[
       {
-        title: 'Per ei quaeque sensibus',
+        title: 'Ekspertise',
       },
       {
-        title: 'Cu imperdiet posidonium sed',
+        title: 'Tilpasset design',
       },
       {
-        title: 'Nulla omittam sadipscing mel ne',
+        title: 'Optimalisert brukeropplevelse',
       },
       {
-        title: 'Per ei quaeque sensibus',
+        title: 'Integrerte betalings- og fraktløsninger',
       },
       {
-        title: 'Cu imperdiet posidonium sed',
+        title: 'Responsivt design',
       },
-      {
-        title: 'Nulla omittam sadipscing mel ne',
-      },
+
     ]}
     image={{
       src: import('~/assets/images/vintage.jpg'),
       alt: 'Vintage Image',
     }}
   />
-
+ -->
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="Get your dream website up and running in no time with AstroWind."
+    title="Oppnå drømme nettbutikken din på tre enkle steg."
     items={[
       {
-        title: 'Step 1: <span class="font-medium">Download</span>',
+        title: 'Steg 1: <span class="font-medium">Utforsk</span>',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mirisus tempus nulla, sed porttitor est nibh at nulla. Praesent placerat enim ut ex tincidunt vehicula.',
+          'Forstå dine behov og mål. Vi samarbeider tett for å identifisere hva som er viktig for din nettbutikk.',
         icon: 'tabler:package',
       },
       {
-        title: 'Step 2: <span class="font-medium">Add content</em>',
+        title: 'Steg 2: <span class="font-medium">Skreddersy</em>',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mirisus tempus nulla, sed porttitor est nibh at nulla.',
+          'Skap en unik løsning. Vårt team designer og utvikler en nettbutikk som reflekterer din merkevare og tilbyr en engasjerende opplevelse.',
         icon: 'tabler:letter-case',
       },
       {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
+        title: 'Steg 3: <span class="font-medium">Lanser</span>',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mirisus tempus nulla, sed porttitor est nibh at nulla. Praesent placerat enim ut ex tincidunt vehicula. Fusce sit amet dui tellus.',
+          'Gå live med nettbutikken din. Vi sikrer en sømløs opplevelse på tvers av enheter og optimaliserer nettbutikken for suksess.',
         icon: 'tabler:paint',
       },
       {
-        title: 'Ready!',
+        title: 'Klar!',
         icon: 'tabler:check',
       },
     ]}
@@ -197,7 +194,7 @@ const meta = {
 
   <!-- Features2 Widget ************** -->
 
-  <Features2
+  <!-- <Features2
     title="Most used widgets"
     subtitle="Provides frequently used components for building websites using Tailwind CSS"
     highlight="Components"
@@ -257,16 +254,13 @@ const meta = {
         icon: 'icon-park:page-template',
       },
     ]}
-  />
+  /> -->
 
   <!-- HighlightedPosts Widget ******* -->
 
   <LatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
+    title="Finn mer innhold i vår blogg"
+    
     postIds={[
       'get-started-website-with-astro-tailwind-css.md',
       'how-to-customize-astrowind-to-your-brand.md',
@@ -277,7 +271,7 @@ const meta = {
 
   <!-- FAQs Widget ******************* -->
 
-  <FAQs
+  <!-- <FAQs
     title="Frequently Asked Questions"
     subtitle="Duis turpis dui, fringilla mattis sem nec, fringilla euismod neque. Morbi tincidunt lacus nec tortor scelerisque pulvinar."
     highlight="FAQs"
@@ -318,21 +312,21 @@ const meta = {
       ],
     ]}
   />
-
+ -->
   <!-- Stats Widget ****************** -->
 
-  <Stats
+<!--   <Stats
     items={[
       { name: 'Downloads', value: '132K' },
       { name: 'Stars', value: '24.8K' },
       { name: 'Forks', value: '10.3K' },
       { name: 'Users', value: '48.4K' },
     ]}
-  />
+  /> -->
 
   <!-- CallToAction Widget *********** -->
 
-  <CallToAction
+  <!-- <CallToAction
     callToAction={{
       text: 'Get template',
       href: 'https://github.com/onwidget/astrowind',
@@ -347,5 +341,5 @@ const meta = {
       Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
       waste more time! :P
     </Fragment>
-  </CallToAction>
+  </CallToAction> -->
 </Layout>
