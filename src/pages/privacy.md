@@ -29,7 +29,7 @@ Sigurd Hoels vei 49
 
 0655 Oslo
 
-E-post: post@okane.com
+E-post: post@okane.no
 
 <!-- Telefon: +47 381 33 333 -->
 
