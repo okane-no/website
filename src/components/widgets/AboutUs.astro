@@ -1,0 +1,79 @@
+---
+
+import { Image } from "@astrojs/image/components";
+import TeamImg1 from '../../assets/images/teamImg1.png'
+import TeamImg2 from '../../assets/images/teamImg2.jpg'
+import TeamImg3 from '../../assets/images/teamImg3.jpg'
+import SocialContact from '~/components/common/SocialContact.astro';
+
+
+const team = [
+  {
+    name: "Marensius Pettersen",
+    title: "Utvikler",
+    avatar: {
+      src: TeamImg1,
+      width: 561,
+      height: 561,
+    },
+    SocialContact: {linkedin: 'marensius', phone: '+47 413 36 337', mail: 'marensius@okane.no'}
+  },
+  {
+    name: "Stian Aspholm",
+    title: "Utvikler",
+    avatar: {
+      src: TeamImg2,
+      width: 561,
+      height: 561,
+    },
+    SocialContact: {linkedin: 'stian-aspholm', phone: '+47 980 69 007', mail: 'stian@okane.no'}
+  },
+  {
+    name: "Emil A. Kjerpeset",
+    title: "Markedsføringssjef",
+    avatar: {
+      src: TeamImg3,
+      width: 561,
+      height: 561,
+    },
+    SocialContact: {linkedin: 'emil-kjerpeset-b90666b0', phone: '+47 980 69 007', mail: 'emil@okane.no'}
+  },
+
+];
+
+
+---
+
+  
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16 " >
+        <h2 class="font-bold text-3xl ">
+            Tverrfaglig ekspertise for innovativ nettbutikkutvikling
+        </h2>
+        <p class="text-lg leading-relaxed ">
+            Vi er et dynamisk team med varierte bakgrunner og unike kompetanser. Hos Okane tror vi på å samle ulike perspektiver for å skape muligheter for alle.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-8 pb-10">
+        {
+          team.map((item) => (
+            <div class="group">
+              <div class="w-full aspect-square">
+                <Image
+                  {...item.avatar}
+                  format="avif"
+                  alt="Team"
+                  class="w-full h-full object-cover rounded-md transition  group-hover:-translate-y-1 group-hover:shadow-xl"
+                />
+              </div>
+  
+              <div class="mt-4 text-center">
+                <h2 class="text-lg "> {item.name}</h2>
+                <h3 class="text-sm "> {item.title}</h3>
+                <SocialContact phone={item.SocialContact.phone} mail={item.SocialContact.mail}  url={item.SocialContact.linkedin} class="mt-5 sm:mt-1 align-middle text-gray-500 dark:text-slate-600" />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+    

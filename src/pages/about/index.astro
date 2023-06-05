@@ -1,0 +1,31 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { SITE } from '~/config.mjs';
+import AboutUs from '~/components/widgets/AboutUs.astro';
+import History from '~/components/widgets/History.astro';
+import Sectionhead from '~/components/common/Sectionhead.astro';
+
+
+
+ const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+}; 
+---
+
+
+<Layout {meta}>
+
+ <!-- Sectionhead common ************ -->
+ <Sectionhead>
+    <Fragment slot="title">Hvem er Okane?</Fragment>
+    <Fragment slot="desc">Vi er et sammensveiset team av dedikerte spesialister.</Fragment>
+  </Sectionhead>
+
+<!-- About Us widget ************ -->
+<History/>
+    <AboutUs/>
+    
+    
+</Layout>
