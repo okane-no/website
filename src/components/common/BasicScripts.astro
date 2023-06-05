@@ -83,6 +83,34 @@ import { SITE } from '~/config.mjs';
       newlink.click();
     });
 
+    attachEvent('[data-aw-social-contact]', 'click', function (_, elem) {
+      const network = elem.getAttribute('data-aw-social-contact');
+      const url = encodeURIComponent(elem.getAttribute('data-aw-url'));
+      const phone = encodeURIComponent(elem.getAttribute('data-aw-phone'));
+      const mail = encodeURIComponent(elem.getAttribute('data-aw-mail'));
+
+      let href;
+      switch (network) {
+        case 'linkedin':
+          href = `https://www.linkedin.com/in/${url}`;
+          break;
+        case 'whatsapp':
+          href = `tel:${phone}`;
+          break;
+        case 'mail':
+          href = `mailto:${mail}`;
+          break;
+
+        default:
+          return;
+      }
+
+      const newlink = document.createElement('a');
+      newlink.target = '_blank';
+      newlink.href = href;
+      newlink.click();
+    });
+
     function appyHeaderStylesOnScroll() {
       const header = document.getElementById('header');
       if (lastKnownScrollPosition > 60 && !header.classList.contains('scroll')) {

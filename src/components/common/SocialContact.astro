@@ -1,0 +1,34 @@
+---
+import { Icon } from 'astro-icon';
+
+export interface Props {
+  mail: string;
+  url: string;
+  phone: string;
+  class?: string;
+}
+
+const { phone, mail, url, class: className = 'inline-block' } = Astro.props;
+---
+
+<div class={className}>
+  <span class="align-super font-bold text-gray-400 dark:text-slate-400"></span>
+  <button class="ml-2" title="Linkedin" data-aw-social-contact="linkedin" data-aw-url={url} 
+    ><Icon
+      name="ri:linkedin-box-fill"
+      class="w-6 h-6 text-gray-400 dark:text-slate-500 hover:text-black dark:hover:text-slate-300"
+    />
+  </button>
+  <button class="ml-2" title="Telefon" data-aw-social-contact="whatsapp" data-aw-phone={phone} 
+    ><Icon
+      name="ri:whatsapp-fill"
+      class="w-6 h-6 text-gray-400 dark:text-slate-500 hover:text-black dark:hover:text-slate-300"
+    />
+  </button>
+  <button class="ml-2" title="Epost" data-aw-social-contact="mail" data-aw-mail={mail} 
+    ><Icon
+      name="ri:mail-fill"
+      class="w-6 h-6 text-gray-400 dark:text-slate-500 hover:text-black dark:hover:text-slate-300"
+    />
+  </button>
+</div>

@@ -70,7 +70,7 @@ export const headerData = {
     },
     {
       text: 'Om oss',
-      href: '#',
+      href: '/about',
     },
     // {
     //   text: 'Pages',
@@ -125,7 +125,7 @@ export const footerData = {
       title: 'Selskap',
       links: [
         { text: 'Blogg', href: '#' },
-        { text: 'Om oss', href: '#' },
+        { text: 'Om oss', href: '/about' },
       ],
     },
   ],
