@@ -1,33 +1,35 @@
 ---
-import { Icon } from "astro-icon";
-import ContactForm from "../common/ContactForm.astro";
+import { Icon } from 'astro-icon';
+import ContactForm from '../common/ContactForm.astro';
+import Sectionhead from '../common/Sectionhead.astro';
+
+const {title, desc} = Astro.props
+
 ---
 
 <!-- Force push -->
-
-<div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
-      <div>
-        <!-- <h2 class="font-medium text-2xl text-gray-800 dark:text-white">Kontakt informasjon</h2> -->
-        <p class="text-muted dark:text-gray-400">
-            Ta gjerne kontakt med oss via telefon eller e-post
-        </p>
-        <div class="mt-5">
-          <div class="flex items-center mt-2 space-x-2 ">
-            <Icon class=" w-4 h-4" name="uil:map-marker" />
-            <span>Sigurd Hoels vei 49, 0655 Oslo</span>
-          </div><div class="flex items-center mt-2 space-x-2 ">
-            <Icon class=" w-4 h-4" name="uil:envelope" /><a
-              href="mailto:post@okane.no"
-              >post@okane.no</a
-            >
-          </div><div class="flex items-center mt-2 space-x-2 ">
-            <Icon class=" w-4 h-4" name="uil:phone" /><a
-              href="tel:+47 413 66 337">+47 413 66 337</a
-            >
-          </div>
+<section>
+  <Sectionhead>
+    <Fragment slot="title">{title}</Fragment>
+    <Fragment slot="desc">{desc}</Fragment>
+  </Sectionhead>
+  <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
+    <div>
+      <!-- <h2 class="font-medium text-2xl text-gray-800 dark:text-white">Kontakt informasjon</h2> -->
+      <p class="text-muted dark:text-gray-400">Ta gjerne kontakt med oss via telefon eller e-post</p>
+      <div class="mt-5">
+        <div class="flex items-center mt-2 space-x-2">
+          <Icon class="w-4 h-4" name="uil:map-marker" />
+          <span>Sigurd Hoels vei 49, 0655 Oslo</span>
+        </div><div class="flex items-center mt-2 space-x-2">
+          <Icon class="w-4 h-4" name="uil:envelope" /><a href="mailto:post@okane.no">post@okane.no</a>
+        </div><div class="flex items-center mt-2 space-x-2">
+          <Icon class="w-4 h-4" name="uil:phone" /><a href="tel:+47 413 66 337">+47 413 66 337</a>
         </div>
       </div>
-      <div>
-        <ContactForm />
-      </div>
     </div>
+    <div>
+      <ContactForm />
+    </div>
+  </div>
+</section>

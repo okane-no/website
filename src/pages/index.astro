@@ -10,7 +10,6 @@ import Steps from '~/components/widgets/Steps.astro';
 /* import Content from '~/components/widgets/Content.astro'; */
 import LatestPosts from '~/components/blog/LatestPosts.astro';
 import ContactUs from '~/components/widgets/ContactUs.astro';
-import Sectionhead from '~/components/common/Sectionhead.astro';
 /* import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro'; */
@@ -28,7 +27,7 @@ const meta = {
   <Hero
     callToAction={{ text: 'Kom i gang', href: '#kontakt-oss' }}
     image={{ src: import('~/assets/images/hero.png'), alt: 'AstroWind Hero Image' }}
-    >
+  >
     <Fragment slot="title">
       <span class="hidden xl:inline"> Gjør nettbutikk enkelt med</span><b></b>
       <span class="text-accent dark:text-white highlight">Okane</span>
@@ -260,13 +259,7 @@ const meta = {
   /> -->
 
   <!-- HubspotForm Widget ************ -->
-  <section id="kontakt-oss">
-    <Sectionhead>
-      <Fragment slot="title">Kontakt oss</Fragment>
-      <Fragment slot="desc">Vi tar gjerne en uforpliktende prat</Fragment>
-    </Sectionhead>
-    <ContactUs />
-  </section>
+  <ContactUs title="Kontakt oss" desc="For en uforpliktende prat i dag!"/>
 
   <!-- HighlightedPosts Widget ******* -->
 
