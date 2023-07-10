@@ -1,0 +1,128 @@
+---
+import SectionContainer from '~/components/common/SectionContainer.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import QuadColumns from '~/components/widgets/DualColumns.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import { SITE } from '~/config.mjs';
+import Layout from '~/layouts/PageLayout.astro';
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+
+const columnData = [
+  {
+    title: 'Skreddersydd eller rett ut-av-boksen?',
+    content: 'Headless nettbutikk eller tradisjonell standard nettbutikk? Vi finner ut av det sammen.',
+  },
+  {
+    title: 'Åpen kildekode',
+    content:
+      'Fleksibel, skalerbar, standard og "ut- av- boksen", eller vi lager det du trenger. Med frihet til å utvide.',
+  },
+  {
+    title: 'B2B eller B2C nettbutikk',
+    content: 'Kanskje begge deler? <br /> Vi fikser en løsning som funger for din bedrift',
+  },
+  {
+    title: 'Markedsplass',
+    content: 'Drømmer du om en markedsplass for en nisje? <br />Vi setter opp markedsplassen fra A til Å!',
+  },
+];
+---
+
+<Layout {meta}>
+  <SectionContainer id="">
+    <h1
+      class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-4xl dark:text-white"
+    >
+      eCommerce
+    </h1>
+
+    <h2 class="text-2xl font-extrabold dark:text-white">
+      Vi er din samarbeidspartner for å skape enestående nettbutikkløsninger!
+    </h2>
+
+    <p>
+      Skap resultater og økonomisk vekst uten å bekymre deg for tekniske utfordringer. Vi tar hånd om alt det tekniske,
+      slik at du kan fokusere på det du er best på - din virksomhet. Uansett om du trenger en B2C- eller en mer avansert
+      B2B-nettbutikk, er vi klare til å tilpasse løsningen etter dine unike behov.
+    </p>
+  </SectionContainer>
+  <SectionContainer id="B2C">
+    <h1
+      class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-4xl dark:text-white"
+    >
+      Selger du til forbuker, forhandler eller en kombinasjon av begge?
+    </h1>
+    <h2 class="text-2xl font-extrabold dark:text-white">
+      Da er våre B2C løsninger spesialutviklet for handelsbedrifter midt i blinken for deg.
+    </h2>
+    <p>
+      Er du i startsfasen og ønsker å tilby dine produkter og tjenester på nettet? Da kan <b>Shopify</b> være løsningen for
+      deg!
+    </p>
+    <br />
+    <p>
+      Eller er du mer etablert og trenger en eCommerce løsning som er tilpasset dine behov? Da kan vi skredersy en <b
+        >Vendure</b
+      > basert eCommerce løsning for din bedrift.
+    </p>
+    <br />
+    <button
+      type="button"
+      onclick="location.href='/b2c'"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+      >Les mer om B2C løsninger</button
+    >
+  </SectionContainer>
+  <SectionContainer id="B2B">
+    <h1
+      class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-4xl dark:text-white"
+    >
+      Er du en produsent, grossist eller distributør?
+    </h1>
+    <h2 class="text-2xl font-extrabold dark:text-white">
+      Med våre B2B løsninger kan vi tilpassse nettbutikkløsninger for dine kunders spesifikke behov.
+    </h2>
+
+    <p>
+      Ved hjelp av vår fleksible eCommerce platform kan vi integrere oss mot dine eksisterende systemer, samt
+      automatisere forretningsprosesser slik at løsningen skalerer ettersom bedriften vokser.
+    </p>
+    <br />
+
+    <button
+      type="button"
+      onclick="location.href='/b2c'"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+      >Les mer om B2B løsninger</button
+    >
+  </SectionContainer>
+  <SectionContainer id="Markedsplass">
+    <h1
+      class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-4xl dark:text-white"
+    >
+      Skap en dynamisk og innovativ eCommercesplattform!
+    </h1>
+    <h2 class="text-2xl font-extrabold dark:text-white">
+      Enten du ønsker å starte en lokal markedsplass eller en global plattform, har vi løsningen.
+    </h2>
+
+    <p>
+      Med vårt kraftige og skalerbare system kan du enkelt koble selgere og kjøpere sammen, og gi dem en sømløs
+      handelsopplevelse. Med vårt brukervennlige grensesnitt og moderne design kan du skape en attraktiv og
+      brukervennlig markedsplass som vil tiltrekke seg både selgere og kjøpere.
+    </p>
+    <br />
+
+    <button
+      type="button"
+      onclick="location.href='/markedsplass'"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+      >Les mer om Markedsplass løsninger</button
+    >
+  </SectionContainer>
+</Layout>
