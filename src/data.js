@@ -3,17 +3,13 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 const tjenesterLinks = {
   text: 'Tjenester',
   links: [
+    // {
+    //   text: 'Digital transformasjon',
+    //   href: '/services/digital-transformasjon  '
+    // },
     {
-      text: 'Nettside',
-      href: '/nettside',
-    },
-    {
-      text: 'eCommerce',
-      href: '/ecommerce',
-    },
-    {
-      text: 'Digital transformasjon',
-      href: '/digital-transformasjon  '
+      text: 'Nettbutikk',
+      href: '/services/nettbutikk',
     }
   ],
 };
@@ -22,16 +18,12 @@ const produktLinks = {
   text: 'Produkter',
   links: [
     {
-      text: 'Shopify',
-      href: '#',
-    },
-    {
-      text: 'Vendure',
-      href: '#',
+      text: 'Okane eCommerce',
+      href: '/products/okane-ecommerce',
     },
     {
       text: 'Okane WMS',
-      href: '#',
+      href: '/products/okane-wms',
     },
   ],
 };
@@ -66,7 +58,7 @@ export const headerData = {
     // },
     tjenesterLinks,
     produktLinks,
-    integrasjonerLinks,
+    // integrasjonerLinks,
     {
       text: 'Blogg',
       href: getBlogPermalink(),

@@ -1,0 +1,16 @@
+---
+import ContactUs from '~/components/widgets/ContactUs.astro'
+import { SITE } from '~/config.mjs';
+import Layout from '~/layouts/PageLayout.astro';
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+---
+
+<Layout {meta}>
+  <!-- HubspotForm Widget ************ -->
+  <ContactUs title="Kontakt oss" desc="For en uforpliktende prat i dag!" />
+</Layout>

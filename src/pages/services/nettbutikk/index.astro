@@ -1,8 +1,8 @@
 ---
 import SectionContainer from '~/components/common/SectionContainer.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import QuadColumns from '~/components/widgets/DualColumns.astro';
-import Stats from '~/components/widgets/Stats.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import ContactUs from '~/components/widgets/ContactUs.astro'
 import { SITE } from '~/config.mjs';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -34,7 +34,7 @@ const columnData = [
 ---
 
 <Layout {meta}>
-  <SectionContainer id="">
+  <!-- <SectionContainer id="">
     <h1
       class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-4xl dark:text-white"
     >
@@ -124,5 +124,90 @@ const columnData = [
       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
       >Les mer om Markedsplass løsninger</button
     >
-  </SectionContainer>
+  </SectionContainer> -->
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    title="Hvorfor nettbutikk fra Okane?"
+    items={[
+      [
+        {
+          title: 'Skreddersydde nettbutikker:',
+          description:
+            'Vi leverer skreddersydde nettbutikker som er designet for å passe perfekt til din virksomhet. Fra brukervennlig navigasjon til enestående visuell appell, sikrer vi at din nettbutikk skiller seg ut og gir en imponerende opplevelse for kundene.',
+          icon: 'tabler:brand-tailwind',
+        },
+        {
+          title: 'E-handelsstrategi og rådgivning:',
+          description:
+            'Vårt ekspertteam gir deg omfattende e-handelsstrategi og rådgivning for å hjelpe deg med å maksimere salg og vekst. Vi analyserer din målgruppe, konkurrenter og markedssegmenter for å utvikle skreddersydde strategier som passer til din unike virksomhet.',
+          icon: 'tabler:components',
+        },
+        {
+          title: 'Integrerte betalings- og fraktløsninger',
+          description:
+            'Vi hjelper deg med å implementere og optimalisere integrerte betalings- og fraktløsninger som gjør det enkelt for kundene å fullføre kjøpene. Vi sikrer at sikkerheten og brukervennligheten er i toppklasse, slik at dine kunder kan handle trygt og smidig.',
+          icon: 'tabler:list-check',
+        },
+      ],
+      [
+        {
+          title: 'Optimalisert brukeropplevelse',
+          description:
+            'Vi fokuserer på å skape en sømløs brukeropplevelse som øker konverteringer og engasjement. Fra responsivt design til intuitiv navigasjon og rask lasting, sørger vi for at kundene dine får en enkel og behagelig opplevelse når de besøker nettbutikken din.',
+          icon: 'tabler:rocket',
+        },
+        {
+          title: 'Optimalisert for synlighet(SEO)',
+          description:
+            'Med Okane får du en nettbutikk som er nøye optimalisert for søkemotorer. Vi implementerer beste praksis for SEO, inkludert riktig bruk av søkeord, optimalisering av metadata, optimal sidestruktur og mobilvennlighet. Dette hjelper deg med å øke synligheten din i søkemotorresultatene, slik at potensielle kunder lettere finner deg og øker sjansene for organisk trafikk og salg.',
+          icon: 'tabler:arrows-right-left',
+        },
+        {
+          title: 'Kontinuerlig støtte og oppdateringer',
+          description:
+            'Vi er her for deg også etter at nettbutikken er lansert. Vårt dedikerte supportteam kan gi kontinuerlig støtte og oppdateringer for å sikre at nettbutikken din fungerer problemfritt og holder tritt med de siste trender og krav.',
+          icon: 'tabler:bulb',
+        },
+      ],
+    ]}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Oppnå drømme nettbutikken din på tre enkle steg."
+    items={[
+      {
+        title: 'Steg 1: <span class="font-medium">Utforsk</span>',
+        description:
+          'Forstå dine behov og mål. Vi samarbeider tett for å identifisere hva som er viktig for din nettbutikk.',
+        icon: 'tabler:package',
+      },
+      {
+        title: 'Steg 2: <span class="font-medium">Skreddersy</em>',
+        description:
+          'Skap en unik løsning. Vårt team designer og utvikler en nettbutikk som reflekterer din merkevare og tilbyr en engasjerende opplevelse.',
+        icon: 'tabler:letter-case',
+      },
+      {
+        title: 'Steg 3: <span class="font-medium">Lanser</span>',
+        description:
+          'Gå live med nettbutikken din. Vi sikrer en sømløs opplevelse på tvers av enheter og optimaliserer nettbutikken for suksess.',
+        icon: 'tabler:paint',
+      },
+      {
+        title: 'Klar!',
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: import('~/assets/images/creativity.jpg'),
+      alt: 'Steps image',
+    }}
+  />
+
+  <!-- HubspotForm Widget ************ -->
+  <ContactUs title="Kontakt oss" desc="For en uforpliktende prat i dag!" />
 </Layout>

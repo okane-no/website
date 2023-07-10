@@ -1,0 +1,33 @@
+---
+import ContactUs from '~/components/widgets/ContactUs.astro';
+import { SITE } from '~/config.mjs';
+import Layout from '~/layouts/PageLayout.astro';
+import SectionContainer from '~/components/common/SectionContainer.astro';
+
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+---
+
+<Layout {meta}>
+
+  <SectionContainer id="">
+    <h1
+      class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-4xl dark:text-white"
+    >
+      Vi lager løsninger som får fart på din bedrift
+    </h1>
+
+    <h2 class="text-2xl font-extrabold dark:text-white">Transfomer data til handling</h2>
+    <p>Se hvordan integrasjoner kan hjelpe dataflyten i organisasjonen,´</p>
+
+    <h2 class="text-2xl font-extrabold dark:text-white">Automatiser forretningsprosesser med arbeidsflyter</h2>
+    <p>Se hvordan man kan bli kvitt repetive arbeidsoppgaver i bedriften, slik at de ansatte kan bidra til å skape mer verdi</p>
+
+    <!-- HubspotForm Widget ************ -->
+    <ContactUs title="Kontakt oss" desc="For en uforpliktende prat i dag!" />
+  </SectionContainer>
+</Layout>
