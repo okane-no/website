@@ -4,27 +4,33 @@ const tjenesterLinks = {
   text: 'Tjenester',
   links: [
     {
-      text: 'E - handel',
-      href: '#',
+      text: 'Nettside',
+      href: '/nettside',
     },
     {
-      text: 'B2C - nettbutikk',
-      href: '#',
+      text: 'eCommerce',
+      href: '/ecommerce',
     },
     {
-      text: 'B2B - nettbutikk',
-      href: '#',
-    },
-    {
-      text: 'Markedsplass',
-      href: '#',
-    },
+      text: 'Digital transformasjon',
+      href: '/digital-transformasjon  '
+    }
+  ],
+};
+
+const produktLinks = {
+  text: 'Produkter',
+  links: [
     {
       text: 'Shopify',
       href: '#',
     },
     {
       text: 'Vendure',
+      href: '#',
+    },
+    {
+      text: 'Okane WMS',
       href: '#',
     },
   ],
@@ -59,6 +65,7 @@ export const headerData = {
     //   ],
     // },
     tjenesterLinks,
+    produktLinks,
     integrasjonerLinks,
     {
       text: 'Blogg',
