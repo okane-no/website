@@ -13,7 +13,7 @@ const tjenesterLinks = {
     },
     {
       text: 'Digital transformasjon',
-      href: '/digital-transformasjon'
+      href: '/digital-transformasjon  '
     }
   ],
 };
