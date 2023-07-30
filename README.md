@@ -20,6 +20,10 @@ All commands are run from the root of the project, from a terminal:
 | `npm run lint:eslint` | Run Eslint                                         |
 | `npm run astro ...`   | Run CLI commands like `astro add`, `astro preview` |
 
+## Umami Tracking
+Deactivate Umami tracking for development clients by setting: umami.disable = true in web browser local storage.
+[Google Chrome Local Stoarge Documentation](https://developer.chrome.com/docs/devtools/storage/localstorage/)
+
 ## Contributing
 
 If you have any idea, suggestions or find any bugs, feel free to open a discussion, an issue or create a pull request.
