@@ -8,8 +8,8 @@ interface Props {
 }
 
 const {
-  title = 'Okane — Start din norske nettbutikk i dag',
-  description = 'Okane er Norges smarteste e-handelsplattform. Vipps, Klarna, Visma og Fiken innebygd. Prøv gratis i 30 dager — ingen kredittkort nødvendig.',
+  title = 'Okane · Netthandel, uten støy.',
+  description = 'Markedets enkleste netthandelsplattform. Alt du trenger for å komme i gang er inkludert.',
   ogImage = '/og-image.png',
 } = Astro.props;
 
@@ -17,7 +17,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
-<html lang="nb" class="scroll-smooth">
+<html lang="nb" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,10 +47,81 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <!-- Google Site Verification -->
     <meta name="google-site-verification" content="orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M" />
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Theme init: runs before paint to prevent FOUC -->
+    <script is:inline>
+      (function () {
+        var t = localStorage.getItem('okane-theme');
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
+
     <!-- Umami Analytics -->
     <script async defer src="https://analytics.umami.is/script.js" data-website-id="73b97339-b616-4173-a84e-e93134211b79"></script>
   </head>
-  <body class="bg-white text-slate-900 antialiased">
+  <body>
     <slot />
+
+    <script is:inline>
+      // Theme toggle
+      (function () {
+        var root = document.documentElement;
+        var btn = document.getElementById('theme-btn');
+        var icon = document.getElementById('theme-icon');
+        if (!btn) return;
+        function setTheme(t) {
+          root.setAttribute('data-theme', t);
+          localStorage.setItem('okane-theme', t);
+          if (icon) {
+            icon.innerHTML = t === 'dark'
+              ? '<path d="M13.5 9.5A5.5 5.5 0 0 1 6.5 2.5 5.5 5.5 0 1 0 13.5 9.5z"/>'
+              : '<path d="M8 1.5v1.2M8 13.3v1.2M2.46 2.46l.85.85M12.69 12.69l.85.85M1.5 8h1.2M13.3 8h1.2M2.46 13.54l.85-.85M12.69 3.31l.85-.85"/><circle cx="8" cy="8" r="3"/>';
+          }
+        }
+        var stored = localStorage.getItem('okane-theme') || 'light';
+        setTheme(stored);
+        btn.addEventListener('click', function () {
+          setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+        });
+      })();
+
+      // Language toggle
+      (function () {
+        var btns = document.querySelectorAll('.lang button');
+        var stored = localStorage.getItem('okane-lang') || 'nb';
+        function apply(lang) {
+          document.documentElement.setAttribute('lang', lang === 'nb' ? 'nb' : 'en');
+          document.querySelectorAll('[data-nb]').forEach(function (el) {
+            var v = el.getAttribute('data-' + lang);
+            if (v == null) return;
+            if (v.indexOf('<br>') !== -1 || v.indexOf('&lt;br&gt;') !== -1) {
+              el.innerHTML = v.replace(/&lt;br&gt;/g, '<br>');
+            } else {
+              el.textContent = v;
+            }
+          });
+          btns.forEach(function (b) {
+            b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false');
+          });
+          localStorage.setItem('okane-lang', lang);
+        }
+        btns.forEach(function (b) {
+          b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); });
+        });
+        apply(stored);
+      })();
+
+      // Scroll reveal
+      (function () {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('in'); });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+      })();
+    </script>
   </body>
 </html>
