@@ -46,5 +46,5 @@ jobs:
         run: |
           kubectl set image deployment/website \
             website=${{ env.IMAGE }}:${{ github.sha }} \
-            -n okane
-          kubectl rollout status deployment/website -n okane --timeout=3m
+            -n ecommerce-test
+          kubectl rollout status deployment/website -n ecommerce-test --timeout=3m

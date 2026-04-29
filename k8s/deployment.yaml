@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: website
-  namespace: okane
+  namespace: ecommerce-test
   labels:
     app: website
 spec:
