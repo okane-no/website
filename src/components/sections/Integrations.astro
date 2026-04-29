@@ -1,0 +1,84 @@
+---
+const categories = [
+  {
+    title: 'Betalinger',
+    integrations: [
+      { name: 'Vipps', color: 'bg-orange-500', letter: 'V', desc: 'Norges mest brukte betaling' },
+      { name: 'Klarna', color: 'bg-pink-500', letter: 'K', desc: 'Del opp betalingen' },
+      { name: 'Stripe', color: 'bg-indigo-500', letter: 'S', desc: 'Kort og digital betaling' },
+      { name: 'Nets', color: 'bg-blue-600', letter: 'N', desc: 'DIBS & betalingsterminaler' },
+    ],
+  },
+  {
+    title: 'Regnskap',
+    integrations: [
+      { name: 'Visma', color: 'bg-teal-600', letter: 'V', desc: 'Norges største regnskapssystem' },
+      { name: 'Tripletex', color: 'bg-blue-700', letter: 'T', desc: 'Skybasert regnskap' },
+      { name: 'Fiken', color: 'bg-green-600', letter: 'F', desc: 'Enkelt for SMB' },
+      { name: 'PowerOffice', color: 'bg-slate-700', letter: 'P', desc: 'For regnskapsbyråer' },
+    ],
+  },
+  {
+    title: 'Frakt & Logistikk',
+    integrations: [
+      { name: 'Bring', color: 'bg-red-600', letter: 'B', desc: 'Posten og pakkelevering' },
+      { name: 'PostNord', color: 'bg-blue-500', letter: 'P', desc: 'Nordic delivery' },
+      { name: 'Helthjem', color: 'bg-yellow-500', letter: 'H', desc: 'Hjemlevering' },
+      { name: 'Instabox', color: 'bg-yellow-400', letter: 'I', desc: 'Selvbetjent henting' },
+    ],
+  },
+];
+---
+
+<section id="integrasjoner" class="py-20 md:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <span class="inline-block px-3 py-1 text-sm font-semibold text-emerald-700 bg-emerald-100 rounded-full mb-4">Integrasjoner</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-5 tracking-tight">
+        Integrert med det du<br />
+        <span class="text-emerald-600">allerede bruker</span>
+      </h2>
+      <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+        Vi kobler Okane til ditt eksisterende verktøy. Sett opp en integrasjon på minutter — ingen utvikler nødvendig.
+      </p>
+    </div>
+
+    <!-- Integration categories -->
+    <div class="grid md:grid-cols-3 gap-8 mb-14">
+      {categories.map(({ title, integrations }) => (
+        <div class="bg-slate-50 rounded-2xl p-6">
+          <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-5">{title}</h3>
+          <div class="space-y-3">
+            {integrations.map(({ name, color, letter, desc }) => (
+              <div class="flex items-center gap-3 p-3 bg-white rounded-xl border border-slate-100 hover:border-slate-200 hover:shadow-sm transition-all">
+                <div class={`w-9 h-9 ${color} rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0 shadow-sm`}>
+                  {letter}
+                </div>
+                <div class="min-w-0">
+                  <div class="font-semibold text-slate-900 text-sm">{name}</div>
+                  <div class="text-xs text-slate-500 truncate">{desc}</div>
+                </div>
+                <div class="ml-auto flex-shrink-0">
+                  <div class="w-2 h-2 bg-green-400 rounded-full" title="Aktiv integrasjon"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Custom integrations CTA -->
+    <div class="text-center p-8 rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50">
+      <svg class="w-10 h-10 text-slate-400 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+      </svg>
+      <h3 class="font-bold text-slate-900 mb-2">Trenger du en spesiell integrasjon?</h3>
+      <p class="text-slate-500 text-sm mb-4 max-w-md mx-auto">Vi har åpent API og kan bygge tilpassede integrasjoner for ditt ERP, WMS eller andre systemer.</p>
+      <a href="#priser" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-blue-700 bg-blue-100 hover:bg-blue-200 rounded-xl transition-colors">
+        Kontakt oss om integrasjoner →
+      </a>
+    </div>
+  </div>
+</section>
