@@ -1,8 +1,6 @@
 # Okane - Website
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9f9efd76-3f67-4cf4-abab-ff85944cff3d/deploy-status)](https://app.netlify.com/sites/incomparable-stroopwafel-4c5d4d/deploys)
-
-This is the public repo hosting the website for our company Okane AS.
+This is the public repo hosting the website for our company Okane AS. Self-hosted on k3s via the GitHub Actions deploy pipeline.
 
 <!-- TODO: Add link to website and subpage that showcases what services we can offer -->
 
