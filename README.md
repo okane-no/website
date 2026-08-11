@@ -1,7 +1,5 @@
 # Okane - Website
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9f9efd76-3f67-4cf4-abab-ff85944cff3d/deploy-status)](https://app.netlify.com/sites/incomparable-stroopwafel-4c5d4d/deploys)
-
 This is the public repo hosting the website for our company Okane AS.
 
 <!-- TODO: Add link to website and subpage that showcases what services we can offer -->
@@ -35,4 +33,4 @@ Theme based on [AstroWind](https://github.com/onwidget/astrowind), initially cre
 
 ## License
 
-**AstroWind** is licensed under the MIT license — see the [LICENSE](./LICENSE.md) file for details.
+**AstroWind** is licensed under the MIT license, see the [LICENSE](./LICENSE.md) file for details.

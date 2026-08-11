@@ -4,13 +4,11 @@ import '~/styles/global.css';
 interface Props {
   title?: string;
   description?: string;
-  ogImage?: string;
 }
 
 const {
-  title = 'Okane · Netthandel, uten støy.',
-  description = 'Markedets enkleste netthandelsplattform. Alt du trenger for å komme i gang er inkludert.',
-  ogImage = '/og-image.png',
+  title = 'Okane · Digitalt håndverk, uten støy.',
+  description = 'Konsulenthus som bygger nettsider, netthandel, mobilapper og integrasjoner. Vi utvikler også egne produkter: Okane Commerce og Digital Mailroom.',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -30,15 +28,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
     <meta property="og:locale" content="nb_NO" />
     <meta property="og:site_name" content="Okane" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
 
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
