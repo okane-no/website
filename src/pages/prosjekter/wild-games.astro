@@ -1,0 +1,124 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/layout/Header.astro';
+import Footer from '~/components/layout/Footer.astro';
+import wgForside from '~/assets/prosjekter/wild-games/forside.webp';
+import wgProdukter from '~/assets/prosjekter/wild-games/produkter.webp';
+import wgMobil from '~/assets/prosjekter/wild-games/mobil.webp';
+---
+
+<Layout
+  title="Wild Games · Prosjekt · Okane"
+  description="Nettbutikk for Wild Games, en spesialbutikk for Magic: The Gathering. Bygget på Shopify."
+>
+  <Header />
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero__eyebrow">
+        <span data-nb="Prosjekt · Nettbutikk" data-en="Project · Online store">Prosjekt · Nettbutikk</span>
+      </div>
+
+      <h1 class="hero__headline hero__headline--page">
+        <span>Wild Games.</span><br>
+        <em data-nb="Netthandel for samlere." data-en="Commerce for collectors.">Netthandel for samlere.</em>
+      </h1>
+
+      <p class="hero__sub" data-nb="Wild Games er en spesialbutikk for Magic: The Gathering, med singles, boosters, commander-decks og tilbehør. Nettbutikken er bygget på Shopify og drives side om side med fysisk butikk." data-en="Wild Games is a specialist Magic: The Gathering shop, selling singles, boosters, commander decks and accessories. The online store is built on Shopify and runs alongside the physical shop.">
+        Wild Games er en spesialbutikk for Magic: The Gathering, med singles, boosters, commander-decks og tilbehør. Nettbutikken er bygget på Shopify og drives side om side med fysisk butikk.
+      </p>
+
+      <div class="hero__cta">
+        <a href="https://www.wildgames.no/" target="_blank" rel="noopener" class="btn btn--primary btn--lg" data-nb="Besøk wildgames.no →" data-en="Visit wildgames.no →">Besøk wildgames.no →</a>
+        <a href="/prosjekter" class="btn btn--secondary btn--lg" data-nb="Alle prosjekter" data-en="All projects">Alle prosjekter</a>
+      </div>
+
+      <div class="hero__meta">
+        <span><b data-nb="Plattform" data-en="Platform">Plattform</b> Shopify</span>
+        <span><b data-nb="Type" data-en="Type">Type</b> <span data-nb="Nettbutikk" data-en="Online store">Nettbutikk</span></span>
+        <span><b data-nb="Status" data-en="Status">Status</b> <span data-nb="I drift" data-en="Live">I drift</span></span>
+      </div>
+
+      <div class="hero__device">
+        <div class="preview">
+          <div class="preview__bar">
+            <div class="lights"><span></span><span></span><span></span></div>
+            <div class="preview__url">wildgames.no</div>
+          </div>
+          <div class="preview__body preview__body--shot">
+            <Image src={wgForside} alt="Forsiden til nettbutikken wildgames.no" widths={[760, 1200, 2000]} sizes="(max-width: 880px) 100vw, 1100px" loading="eager" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <header class="block__header reveal">
+        <div class="block__eyebrow" data-nb="Om prosjektet" data-en="About the project">Om prosjektet</div>
+        <div class="block__sub-wrap">
+          <h2 class="block__title" data-nb="En butikk kunden&lt;br&gt;driver selv." data-en="A store the client&lt;br&gt;runs themselves.">En butikk kunden<br>driver selv.</h2>
+          <p class="block__sub" data-nb="Vi bygger på plattformer kunden eier og kan drifte videre uten oss. For Wild Games betyr det Shopify, med produkter, kampanjer og innhold styrt fra ett adminpanel." data-en="We build on platforms the client owns and can run without us. For Wild Games that means Shopify, with products, campaigns and content managed from one admin panel.">
+            Vi bygger på plattformer kunden eier og kan drifte videre uten oss. For Wild Games betyr det Shopify, med produkter, kampanjer og innhold styrt fra ett adminpanel.
+          </p>
+        </div>
+      </header>
+
+      <div class="caps reveal">
+        <div class="cap">
+          <div class="cap__num">01</div>
+          <div class="cap__body">
+            <h4 data-nb="Shopify som grunnmur" data-en="Shopify as the foundation">Shopify som grunnmur</h4>
+            <p data-nb="En velprøvd plattform med trygg betaling og sjekkut som bare virker. Wild Games slipper å tenke på drift og oppdateringer." data-en="A proven platform with safe payments and a checkout that just works. Wild Games never has to think about hosting or updates.">En velprøvd plattform med trygg betaling og sjekkut som bare virker. Wild Games slipper å tenke på drift og oppdateringer.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">02</div>
+          <div class="cap__body">
+            <h4 data-nb="Bygget for stort sortiment" data-en="Built for a large catalogue">Bygget for stort sortiment</h4>
+            <p data-nb="En Magic-butikk har mange små varelinjer, fra singles til sealed. Strukturen i butikken er lagt opp så kundene finner frem raskt." data-en="A Magic shop carries many small product lines, from singles to sealed. The store is structured so customers find what they need fast.">En Magic-butikk har mange små varelinjer, fra singles til sealed. Strukturen i butikken er lagt opp så kundene finner frem raskt.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">03</div>
+          <div class="cap__body">
+            <h4 data-nb="Klar til å vokse" data-en="Ready to grow">Klar til å vokse</h4>
+            <p data-nb="Nye kategorier, kampanjer og integrasjoner kan legges til etter hvert som butikken vokser, uten å bygge om noe." data-en="New categories, campaigns and integrations can be added as the shop grows, without rebuilding anything.">Nye kategorier, kampanjer og integrasjoner kan legges til etter hvert som butikken vokser, uten å bygge om noe.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="shot-grid reveal">
+        <div class="preview">
+          <div class="preview__bar">
+            <div class="lights"><span></span><span></span><span></span></div>
+            <div class="preview__url">wildgames.no/collections/all</div>
+          </div>
+          <div class="preview__body preview__body--shot">
+            <Image src={wgProdukter} alt="Produktoversikten på wildgames.no med filtre og sortiment" widths={[760, 1200, 2000]} sizes="(max-width: 880px) 100vw, 700px" />
+          </div>
+        </div>
+        <div class="shot-phone">
+          <Image src={wgMobil} alt="Nettbutikken på mobil" widths={[300, 600]} sizes="300px" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2 data-nb="Vil du ha en nettbutikk som denne?" data-en="Want a store like this?">Vil du ha en nettbutikk som denne?</h2>
+      <p data-nb="Fortell oss hva du selger, så svarer vi innen en arbeidsdag." data-en="Tell us what you sell and we'll reply within one working day.">
+        Fortell oss hva du selger, så svarer vi innen en arbeidsdag.
+      </p>
+      <div class="cta__row">
+        <a href="mailto:hei@okane.no?subject=Nettbutikk" class="btn btn--primary btn--xl" data-nb="Start et prosjekt →" data-en="Start a project →">Start et prosjekt →</a>
+        <a href="/prosjekter" class="btn btn--ghost btn--xl" data-nb="Tilbake til prosjekter" data-en="Back to projects">Tilbake til prosjekter</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

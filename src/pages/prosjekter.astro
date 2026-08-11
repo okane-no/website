@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/layout/Header.astro';
+import Footer from '~/components/layout/Footer.astro';
+import wgForside from '~/assets/prosjekter/wild-games/forside.webp';
+---
+
+<Layout
+  title="Prosjekter · Okane"
+  description="Et utvalg av arbeid vi har levert for kunder: nettbutikker, integrasjoner og nettsider."
+>
+  <Header />
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero__eyebrow">
+        <span data-nb="Prosjekter" data-en="Projects">Prosjekter</span>
+      </div>
+
+      <h1 class="hero__headline hero__headline--page">
+        <span data-nb="Ting vi" data-en="Things we">Ting vi</span><br>
+        <em data-nb="har bygget." data-en="have built.">har bygget.</em>
+      </h1>
+
+      <p class="hero__sub" data-nb="Et utvalg av arbeid vi har levert for kunder. Mye av det vi bygger lever bak innlogging, men her er noe av det som er åpent." data-en="A selection of work we have delivered for clients. Much of what we build lives behind a login, but here is some of what is open.">
+        Et utvalg av arbeid vi har levert for kunder. Mye av det vi bygger lever bak innlogging, men her er noe av det som er åpent.
+      </p>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top: 0; border-top: 0;">
+    <div class="container">
+      <div class="proj-grid reveal">
+        <a class="proj" href="/prosjekter/wild-games">
+          <div class="proj__thumb proj__thumb--photo">
+            <Image src={wgForside} alt="Forsiden til nettbutikken wildgames.no" widths={[480, 760, 1200]} sizes="(max-width: 720px) 100vw, 50vw" />
+          </div>
+          <div class="proj__body">
+            <div class="proj__meta">
+              <span class="chip" data-nb="Nettbutikk" data-en="Online store">Nettbutikk</span>
+              <span class="chip">Shopify</span>
+            </div>
+            <h3>Wild Games</h3>
+            <p data-nb="Nettbutikk for Wild Games, en spesialbutikk for Magic: The Gathering. Bygget på Shopify, med stort sortiment av singles, boosters og tilbehør." data-en="Online store for Wild Games, a specialist Magic: The Gathering shop. Built on Shopify, with a large catalogue of singles, boosters and accessories.">
+              Nettbutikk for Wild Games, en spesialbutikk for Magic: The Gathering. Bygget på Shopify, med stort sortiment av singles, boosters og tilbehør.
+            </p>
+          </div>
+        </a>
+
+        <a class="proj proj--next" href="mailto:hei@okane.no?subject=Prosjekt">
+          <div class="proj__body">
+            <div class="proj__meta">
+              <span class="chip" data-nb="Neste" data-en="Next">Neste</span>
+            </div>
+            <h3 data-nb="Ditt prosjekt?" data-en="Your project?">Ditt prosjekt?</h3>
+            <p data-nb="Det neste kortet her kan være ditt. Fortell oss hva du vil bygge, så svarer vi innen en arbeidsdag." data-en="The next card here could be yours. Tell us what you want to build and we'll reply within one working day.">
+              Det neste kortet her kan være ditt. Fortell oss hva du vil bygge, så svarer vi innen en arbeidsdag.
+            </p>
+            <span class="pcard__link" data-nb="Skriv til oss →" data-en="Write to us →">Skriv til oss →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

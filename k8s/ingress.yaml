@@ -4,7 +4,7 @@ metadata:
   name: website
   namespace: ecommerce-test
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: letsencrypt-certificate
 spec:
   ingressClassName: nginx
   tls:
@@ -12,6 +12,9 @@ spec:
         - okane.no
         - www.okane.no
       secretName: okane-tls
+    - hosts:
+        - okane-website.marensiuspettersen.no
+      secretName: okane-website-marensiuspettersen-tls
   rules:
     - host: okane.no
       http:
@@ -24,6 +27,16 @@ spec:
                 port:
                   number: 80
     - host: www.okane.no
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: website
+                port:
+                  number: 80
+    - host: okane-website.marensiuspettersen.no
       http:
         paths:
           - path: /
