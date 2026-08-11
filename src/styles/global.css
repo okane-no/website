@@ -581,11 +581,6 @@ section.block { padding: var(--space-24) 0; border-top: 1px solid var(--border-s
 /* Page hero headline (product pages) */
 .hero__headline--page { font-size: clamp(40px, 6vw, 84px); }
 
-/* Sub-product callout */
-.subproduct { margin-top: var(--space-4); display: flex; gap: var(--space-5); align-items: flex-start; background: var(--bg-canvas); border: 1px solid var(--border-subtle); border-left: 3px solid var(--accent-bg); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6); }
-.subproduct__body h4 { font-size: var(--text-lg); font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--space-2); display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
-.subproduct__body p { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.55; max-width: 72ch; }
-
 /* Flush preview body (mailroom table) */
 .preview__body--flush { padding: var(--space-5); }
 
