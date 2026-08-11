@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/layout/Header.astro';
+import Footer from '~/components/layout/Footer.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('nb-NO', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Layout
+  title="Blogg · Okane"
+  description="Tanker om programvare, drift og digitalt håndverk fra teamet i Okane."
+>
+  <Header />
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero__eyebrow">
+        <span data-nb="Blogg" data-en="Blog">Blogg</span>
+      </div>
+
+      <h1 class="hero__headline hero__headline--page">
+        <span data-nb="Notater fra" data-en="Notes from">Notater fra</span><br>
+        <em data-nb="verkstedet." data-en="the workshop.">verkstedet.</em>
+      </h1>
+
+      <p class="hero__sub" data-nb="Tanker om programvare, drift og digitalt håndverk. Skrevet når vi har noe å si, ikke etter kalender." data-en="Thoughts on software, operations and digital craft. Written when we have something to say, not on a schedule.">
+        Tanker om programvare, drift og digitalt håndverk. Skrevet når vi har noe å si, ikke etter kalender.
+      </p>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top: 0; border-top: 0;">
+    <div class="container">
+      <div class="post-list reveal">
+        {posts.map((post) => (
+          <a class="post" href={`/blogg/${post.id}`}>
+            <div class="post__date mono">{fmt(post.data.date)}</div>
+            <div class="post__body">
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+            </div>
+            {post.data.tag && <span class="chip post__tag">{post.data.tag}</span>}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

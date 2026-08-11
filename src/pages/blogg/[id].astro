@@ -1,0 +1,44 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/layout/Header.astro';
+import Footer from '~/components/layout/Footer.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('nb-NO', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Layout title={`${post.data.title} · Okane`} description={post.data.description}>
+  <Header />
+
+  <article class="article">
+    <div class="container container--narrow">
+      <header class="article__head">
+        <div class="article__meta">
+          <span class="mono">{fmt(post.data.date)}</span>
+          {post.data.tag && <span class="chip">{post.data.tag}</span>}
+        </div>
+        <h1>{post.data.title}</h1>
+        <p class="article__lead">{post.data.description}</p>
+      </header>
+
+      <div class="prose">
+        <Content />
+      </div>
+
+      <footer class="article__foot">
+        <a href="/blogg" data-nb="← Alle innlegg" data-en="← All posts">← Alle innlegg</a>
+      </footer>
+    </div>
+  </article>
+
+  <Footer />
+</Layout>
