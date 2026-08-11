@@ -1,0 +1,94 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/layout/Header.astro';
+import Footer from '~/components/layout/Footer.astro';
+---
+
+<Layout
+  title="Netthandel · Okane"
+  description="Fra første nettbutikk til skreddersydd plattform, med Vipps, Klarna, frakt og regnskap ferdig integrert."
+>
+  <Header />
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero__eyebrow">
+        <span data-nb="Tjeneste fra Okane" data-en="A service by Okane">Tjeneste fra Okane</span>
+      </div>
+
+      <h1 class="hero__headline hero__headline--page">
+        <span data-nb="Netthandel," data-en="E-commerce,">Netthandel,</span><br>
+        <em data-nb="som selger." data-en="that sells.">som selger.</em>
+      </h1>
+
+      <p class="hero__sub" data-nb="Fra første nettbutikk til skreddersydd plattform. Vi har bygget vår egen, så vi vet hva som skaper salg og hva som bare skaper kostnader." data-en="From your first webshop to a bespoke platform. We've built our own, so we know what drives sales and what just drives costs.">
+        Fra første nettbutikk til skreddersydd plattform. Vi har bygget vår egen, så vi vet hva som skaper salg og hva som bare skaper kostnader.
+      </p>
+
+      <div class="hero__cta">
+        <a href="mailto:hei@okane.no?subject=Netthandel" class="btn btn--primary btn--lg" data-nb="Start et prosjekt →" data-en="Start a project →">Start et prosjekt →</a>
+        <a href="/commerce" class="btn btn--secondary btn--lg" data-nb="Se Okane Commerce" data-en="See Okane Commerce">Se Okane Commerce</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <header class="block__header reveal">
+        <div class="block__eyebrow" data-nb="Det får du" data-en="What you get">Det får du</div>
+        <div class="block__sub-wrap">
+          <h2 class="block__title" data-nb="Hele kjeden, ett ansvar." data-en="The whole chain, one responsibility.">Hele kjeden, ett ansvar.</h2>
+          <p class="block__sub" data-nb="Butikk, betaling, frakt, lager og regnskap som henger sammen. Ikke ti leverandører som peker på hverandre." data-en="Store, payments, shipping, inventory and accounting that fit together. Not ten vendors pointing at each other.">
+            Butikk, betaling, frakt, lager og regnskap som henger sammen. Ikke ti leverandører som peker på hverandre.
+          </p>
+        </div>
+      </header>
+
+      <div class="caps reveal">
+        <div class="cap">
+          <div class="cap__num">01</div>
+          <div class="cap__body">
+            <h4 data-nb="Riktig plattform" data-en="The right platform">Riktig plattform</h4>
+            <p data-nb="Shopify, Okane Commerce eller skreddersøm. Vi anbefaler det som passer størrelsen og planene dine, ikke det vi tjener mest på." data-en="Shopify, Okane Commerce or bespoke. We recommend what fits your size and plans, not what pays us the most.">Shopify, Okane Commerce eller skreddersøm. Vi anbefaler det som passer størrelsen og planene dine, ikke det vi tjener mest på.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">02</div>
+          <div class="cap__body">
+            <h4 data-nb="Betaling og frakt" data-en="Payments and shipping">Betaling og frakt</h4>
+            <p data-nb="Vipps, Klarna, Posten og Bring ferdig satt opp. Norske kunder får kassen de forventer." data-en="Vipps, Klarna, Posten and Bring set up and ready. Norwegian customers get the checkout they expect.">Vipps, Klarna, Posten og Bring ferdig satt opp. Norske kunder får kassen de forventer.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">03</div>
+          <div class="cap__body">
+            <h4 data-nb="Regnskap og lager" data-en="Accounting and inventory">Regnskap og lager</h4>
+            <p data-nb="Toveis integrasjon mot regnskap og ERP, og lager som stemmer på tvers av kanaler." data-en="Two-way integration with accounting and ERP, and inventory that adds up across channels.">Toveis integrasjon mot regnskap og ERP, og lager som stemmer på tvers av kanaler.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">04</div>
+          <div class="cap__body">
+            <h4 data-nb="Migrering" data-en="Migration">Migrering</h4>
+            <p data-nb="Vi flytter butikken din med produkter, kunder og ordrehistorikk, uten at salget stopper." data-en="We move your store with products, customers and order history, without stopping sales.">Vi flytter butikken din med produkter, kunder og ordrehistorikk, uten at salget stopper.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2 data-nb="Hva selger du?" data-en="What do you sell?">Hva selger du?</h2>
+      <p data-nb="Fortell oss om butikken din, så svarer vi med plattformvalg, plan og pris." data-en="Tell us about your store and we'll reply with a platform choice, a plan and a price.">
+        Fortell oss om butikken din, så svarer vi med plattformvalg, plan og pris.
+      </p>
+      <div class="cta__row">
+        <a href="mailto:hei@okane.no?subject=Netthandel" class="btn btn--primary btn--xl" data-nb="Skriv til oss →" data-en="Write to us →">Skriv til oss →</a>
+        <a href="/commerce" class="btn btn--ghost btn--xl" data-nb="Se Okane Commerce" data-en="See Okane Commerce">Se Okane Commerce</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
