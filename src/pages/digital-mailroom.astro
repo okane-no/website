@@ -1,0 +1,156 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/layout/Header.astro';
+import Footer from '~/components/layout/Footer.astro';
+---
+
+<Layout
+  title="Digital Mailroom · All post. Ett mottak."
+  description="Digitalt postmottak som samler post fra Altinn, EHF og e-post i én strøm og ruter den automatisk til rett person. Med Altinn Downloader som standard subprodukt."
+>
+  <Header />
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero__eyebrow">
+        <span class="pulse"></span>
+        <span data-nb="Produkt fra Okane · I produksjon" data-en="A product by Okane · In production">Produkt fra Okane · I produksjon</span>
+      </div>
+
+      <h1 class="hero__headline hero__headline--page">
+        <span data-nb="All post." data-en="All mail.">All post.</span><br>
+        <em data-nb="Ett mottak." data-en="One mailroom.">Ett mottak.</em>
+      </h1>
+
+      <p class="hero__sub" data-nb="Viktig post fra Altinn leses for sent, av feil person, eller ikke i det hele tatt. Digital Mailroom samler post fra Altinn, EHF og e-post i én strøm, sorterer og ruter automatisk til rett person." data-en="Important mail from Altinn gets read too late, by the wrong person, or not at all. Digital Mailroom collects mail from Altinn, EHF and email into one stream, then classifies and routes it automatically to the right person.">
+        Viktig post fra Altinn leses for sent, av feil person, eller ikke i det hele tatt. Digital Mailroom samler post fra Altinn, EHF og e-post i én strøm, sorterer og ruter automatisk til rett person.
+      </p>
+
+      <div class="hero__cta">
+        <a href="mailto:hei@okane.no?subject=Demo%20Digital%20Mailroom" class="btn btn--primary btn--lg" data-nb="Se en demo →" data-en="See a demo →">Se en demo →</a>
+        <a href="/#produkter" class="btn btn--secondary btn--lg" data-nb="Alle produkter" data-en="All products">Alle produkter</a>
+      </div>
+
+      <div class="hero__meta">
+        <span><b data-nb="Altinn, EHF og e-post" data-en="Altinn, EHF and email">Altinn, EHF og e-post</b> <span data-nb="i én strøm" data-en="in one stream">i én strøm</span></span>
+        <span><b data-nb="Automatisk" data-en="Automatic">Automatisk</b> <span data-nb="ruting" data-en="routing">ruting</span></span>
+        <span><b data-nb="Full" data-en="Full">Full</b> <span data-nb="sporbarhet" data-en="traceability">sporbarhet</span></span>
+      </div>
+
+      <div class="preview" style="margin-top: var(--space-16); box-shadow: var(--shadow-xl);">
+        <div class="preview__bar">
+          <div class="lights"><span></span><span></span><span></span></div>
+          <div class="preview__url">https://mailroom.okane.no</div>
+        </div>
+        <div class="preview__body preview__body--flush">
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th data-nb="Dokument" data-en="Document">Dokument</th>
+                  <th data-nb="Avsender" data-en="Sender">Avsender</th>
+                  <th data-nb="Kanal" data-en="Channel">Kanal</th>
+                  <th data-nb="Status" data-en="Status">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-nb="Skattemelding 2025" data-en="Tax return 2025">Skattemelding 2025</td>
+                  <td>Skatteetaten</td>
+                  <td><span class="mono">Altinn</span></td>
+                  <td><span class="badge badge--info"><span class="dot"></span><span data-nb="Rutet til økonomi" data-en="Routed to finance">Rutet til økonomi</span></span></td>
+                </tr>
+                <tr>
+                  <td data-nb="Faktura #B-4821" data-en="Invoice #B-4821">Faktura #B-4821</td>
+                  <td>Bring</td>
+                  <td><span class="mono">EHF</span></td>
+                  <td><span class="badge badge--success"><span class="dot"></span><span data-nb="Arkivert" data-en="Archived">Arkivert</span></span></td>
+                </tr>
+                <tr>
+                  <td data-nb="Signert kontrakt" data-en="Signed contract">Signert kontrakt</td>
+                  <td>Nordvik Eiendom</td>
+                  <td><span class="mono" data-nb="E-post" data-en="Email">E-post</span></td>
+                  <td><span class="badge badge--warning"><span class="dot"></span><span data-nb="Til godkjenning" data-en="Awaiting approval">Til godkjenning</span></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <header class="block__header reveal">
+        <div class="block__eyebrow" data-nb="Funksjoner" data-en="Capabilities">Funksjoner</div>
+        <div class="block__sub-wrap">
+          <h2 class="block__title" data-nb="Fra innboks-kaos&lt;br&gt;til ett arkiv." data-en="From inbox chaos&lt;br&gt;to one archive.">Fra innboks-kaos<br>til ett arkiv.</h2>
+          <p class="block__sub" data-nb="Alt inngående samles, sorteres og spores. Ingen post blir liggende ulest i en innboks noen sluttet å sjekke." data-en="Everything inbound is collected, classified and tracked. No mail left unread in an inbox someone stopped checking.">
+            Alt inngående samles, sorteres og spores. Ingen post blir liggende ulest i en innboks noen sluttet å sjekke.
+          </p>
+        </div>
+      </header>
+
+      <div class="caps reveal">
+        <div class="cap">
+          <div class="cap__num">01</div>
+          <div class="cap__body">
+            <h4>Altinn Downloader <span class="badge badge--info"><span class="dot"></span><span data-nb="Standard subprodukt" data-en="Standard sub-product">Standard subprodukt</span></span></h4>
+            <p data-nb="Følger med. Overvåker Altinn-innboksen, laster ned nye meldinger og vedlegg og arkiverer dem automatisk." data-en="Included. Watches your Altinn inbox, downloads new messages and attachments and archives them automatically.">Følger med. Overvåker Altinn-innboksen, laster ned nye meldinger og vedlegg og arkiverer dem automatisk.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">02</div>
+          <div class="cap__body">
+            <h4 data-nb="Automatisk ruting" data-en="Automatic routing">Automatisk ruting</h4>
+            <p data-nb="Dokumenter klassifiseres og sendes til rett person eller avdeling, etter regler dere styrer selv." data-en="Documents are classified and sent to the right person or department, following rules you control.">Dokumenter klassifiseres og sendes til rett person eller avdeling, etter regler dere styrer selv.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">03</div>
+          <div class="cap__body">
+            <h4 data-nb="Ett søkbart arkiv" data-en="One searchable archive">Ett søkbart arkiv</h4>
+            <p data-nb="Alt lagres samlet og søkbart, med historikk på hvem som har sett og godkjent hva." data-en="Everything is stored in one searchable place, with a history of who has seen and approved what.">Alt lagres samlet og søkbart, med historikk på hvem som har sett og godkjent hva.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">04</div>
+          <div class="cap__body">
+            <h4 data-nb="Varsling" data-en="Notifications">Varsling</h4>
+            <p data-nb="Rett person får beskjed når noe krever handling, med frister som følges opp." data-en="The right person is notified when something needs action, with deadlines that are followed up.">Rett person får beskjed når noe krever handling, med frister som følges opp.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">05</div>
+          <div class="cap__body">
+            <h4 data-nb="EHF og e-post" data-en="EHF and email">EHF og e-post</h4>
+            <p data-nb="Faktura og annen post går inn i samme strøm, uansett kanal. Én rutine for alt inngående." data-en="Invoices and other mail enter the same stream, whatever the channel. One routine for everything inbound.">Faktura og annen post går inn i samme strøm, uansett kanal. Én rutine for alt inngående.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">06</div>
+          <div class="cap__body">
+            <h4 data-nb="API og eksport" data-en="API and export">API og eksport</h4>
+            <p data-nb="Koble arkivet til fagsystemene deres, eller hent alt ut når dere vil. Ingen innlåsing." data-en="Connect the archive to your line-of-business systems, or export everything whenever you want. No lock-in.">Koble arkivet til fagsystemene deres, eller hent alt ut når dere vil. Ingen innlåsing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2 data-nb="Få postmottaket på skinner." data-en="Get your mailroom on rails.">Få postmottaket på skinner.</h2>
+      <p data-nb="Send noen linjer om hvordan posten håndteres i dag, så viser vi hva Digital Mailroom ville gjort med den." data-en="Send a few lines about how your mail is handled today, and we'll show you what Digital Mailroom would do with it.">
+        Send noen linjer om hvordan posten håndteres i dag, så viser vi hva Digital Mailroom ville gjort med den.
+      </p>
+      <div class="cta__row">
+        <a href="mailto:hei@okane.no?subject=Demo%20Digital%20Mailroom" class="btn btn--primary btn--xl" data-nb="Se en demo →" data-en="See a demo →">Se en demo →</a>
+        <a href="/" class="btn btn--ghost btn--xl" data-nb="Tilbake til forsiden" data-en="Back to the front page">Tilbake til forsiden</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
