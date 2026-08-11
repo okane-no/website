@@ -1,0 +1,94 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/layout/Header.astro';
+import Footer from '~/components/layout/Footer.astro';
+---
+
+<Layout
+  title="AI-agenter · Okane"
+  description="AI-agenter som leser dokumenter, svarer kunder og automatiserer arbeidsflyter, trygt koblet til dine data."
+>
+  <Header />
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero__eyebrow">
+        <span data-nb="Tjeneste fra Okane" data-en="A service by Okane">Tjeneste fra Okane</span>
+      </div>
+
+      <h1 class="hero__headline hero__headline--page">
+        <span data-nb="AI-agenter," data-en="AI agents,">AI-agenter,</span><br>
+        <em data-nb="som gjør jobben." data-en="that do the work.">som gjør jobben.</em>
+      </h1>
+
+      <p class="hero__sub" data-nb="Automatiser rutinearbeid som i dag krever et menneske i loopen. Agentene leser dokumenter, svarer kunder og holder systemer oppdatert, trygt koblet til dine data." data-en="Automate routine work that needs a human in the loop today. The agents read documents, answer customers and keep systems up to date, safely connected to your data.">
+        Automatiser rutinearbeid som i dag krever et menneske i loopen. Agentene leser dokumenter, svarer kunder og holder systemer oppdatert, trygt koblet til dine data.
+      </p>
+
+      <div class="hero__cta">
+        <a href="mailto:hei@okane.no?subject=AI-agenter" class="btn btn--primary btn--lg" data-nb="Start et prosjekt →" data-en="Start a project →">Start et prosjekt →</a>
+        <a href="/#tjenester" class="btn btn--secondary btn--lg" data-nb="Alle tjenester" data-en="All services">Alle tjenester</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <header class="block__header reveal">
+        <div class="block__eyebrow" data-nb="Det får du" data-en="What you get">Det får du</div>
+        <div class="block__sub-wrap">
+          <h2 class="block__title" data-nb="Automatisering du kan stole på." data-en="Automation you can trust.">Automatisering du kan stole på.</h2>
+          <p class="block__sub" data-nb="Ikke en chatbot limt på nettsiden, men agenter som utfører faktisk arbeid, med kontroll og sporbarhet innebygd." data-en="Not a chatbot glued to your website, but agents doing actual work, with control and traceability built in.">
+            Ikke en chatbot limt på nettsiden, men agenter som utfører faktisk arbeid, med kontroll og sporbarhet innebygd.
+          </p>
+        </div>
+      </header>
+
+      <div class="caps reveal">
+        <div class="cap">
+          <div class="cap__num">01</div>
+          <div class="cap__body">
+            <h4 data-nb="Dokumentforståelse" data-en="Document understanding">Dokumentforståelse</h4>
+            <p data-nb="Agenter som leser, tolker og registrerer innhold fra faktura, kontrakter og skjema, med menneskelig kontroll der det trengs." data-en="Agents that read, interpret and register content from invoices, contracts and forms, with human review where it matters.">Agenter som leser, tolker og registrerer innhold fra faktura, kontrakter og skjema, med menneskelig kontroll der det trengs.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">02</div>
+          <div class="cap__body">
+            <h4 data-nb="Kundeservice" data-en="Customer support">Kundeservice</h4>
+            <p data-nb="Svar på vanlige henvendelser i din tone, med full logg og eskalering til mennesker når det trengs." data-en="Answers to common enquiries in your tone, with a full log and escalation to humans when needed.">Svar på vanlige henvendelser i din tone, med full logg og eskalering til mennesker når det trengs.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">03</div>
+          <div class="cap__body">
+            <h4 data-nb="Automatiserte arbeidsflyter" data-en="Automated workflows">Automatiserte arbeidsflyter</h4>
+            <p data-nb="Flertrinns prosesser på tvers av systemene dine, overvåket og sporbare fra start til slutt." data-en="Multi-step processes across your systems, monitored and traceable from start to finish.">Flertrinns prosesser på tvers av systemene dine, overvåket og sporbare fra start til slutt.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">04</div>
+          <div class="cap__body">
+            <h4 data-nb="Trygghet og kontroll" data-en="Safety and control">Trygghet og kontroll</h4>
+            <p data-nb="Tilgangsstyring på dine data, og full oversikt over hva agenten gjorde og hvorfor." data-en="Access control on your data, and full visibility into what the agent did and why.">Tilgangsstyring på dine data, og full oversikt over hva agenten gjorde og hvorfor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2 data-nb="Hva gjør folkene dine på repeat?" data-en="What do your people do on repeat?">Hva gjør folkene dine på repeat?</h2>
+      <p data-nb="Beskriv rutinearbeidet, så svarer vi med hva en agent kan ta over, og hva som fortsatt bør gjøres av mennesker." data-en="Describe the routine work and we'll reply with what an agent can take over, and what should stay with humans.">
+        Beskriv rutinearbeidet, så svarer vi med hva en agent kan ta over, og hva som fortsatt bør gjøres av mennesker.
+      </p>
+      <div class="cta__row">
+        <a href="mailto:hei@okane.no?subject=AI-agenter" class="btn btn--primary btn--xl" data-nb="Skriv til oss →" data-en="Write to us →">Skriv til oss →</a>
+        <a href="/" class="btn btn--ghost btn--xl" data-nb="Tilbake til forsiden" data-en="Back to the front page">Tilbake til forsiden</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

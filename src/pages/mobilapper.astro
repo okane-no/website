@@ -1,0 +1,94 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/layout/Header.astro';
+import Footer from '~/components/layout/Footer.astro';
+---
+
+<Layout
+  title="Mobilapper · Okane"
+  description="Apper for kunder og internbruk, på iOS og Android fra én kodebase. Fra skisse til App Store og videre."
+>
+  <Header />
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero__eyebrow">
+        <span data-nb="Tjeneste fra Okane" data-en="A service by Okane">Tjeneste fra Okane</span>
+      </div>
+
+      <h1 class="hero__headline hero__headline--page">
+        <span data-nb="Apper," data-en="Apps,">Apper,</span><br>
+        <em data-nb="som brukes." data-en="that get used.">som brukes.</em>
+      </h1>
+
+      <p class="hero__sub" data-nb="For kundene dine eller for feltarbeid og drift internt. iOS og Android fra én kodebase, fra første skisse til App Store." data-en="For your customers or for field work and internal operations. iOS and Android from one codebase, from first sketch to the App Store.">
+        For kundene dine eller for feltarbeid og drift internt. iOS og Android fra én kodebase, fra første skisse til App Store.
+      </p>
+
+      <div class="hero__cta">
+        <a href="mailto:hei@okane.no?subject=Mobilapper" class="btn btn--primary btn--lg" data-nb="Start et prosjekt →" data-en="Start a project →">Start et prosjekt →</a>
+        <a href="/#tjenester" class="btn btn--secondary btn--lg" data-nb="Alle tjenester" data-en="All services">Alle tjenester</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <header class="block__header reveal">
+        <div class="block__eyebrow" data-nb="Det får du" data-en="What you get">Det får du</div>
+        <div class="block__sub-wrap">
+          <h2 class="block__title" data-nb="Fra skisse til App Store." data-en="From sketch to App Store.">Fra skisse til App Store.</h2>
+          <p class="block__sub" data-nb="Hele løpet under ett tak, med samme folk fra idé til publisert app og videre gjennom hver oppdatering." data-en="The whole run under one roof, with the same people from idea to published app and through every release after.">
+            Hele løpet under ett tak, med samme folk fra idé til publisert app og videre gjennom hver oppdatering.
+          </p>
+        </div>
+      </header>
+
+      <div class="caps reveal">
+        <div class="cap">
+          <div class="cap__num">01</div>
+          <div class="cap__body">
+            <h4 data-nb="Design og prototype" data-en="Design and prototype">Design og prototype</h4>
+            <p data-nb="Vi tester ideen som klikkbar prototype før vi bygger. Det er billigere å endre en skisse enn en app." data-en="We test the idea as a clickable prototype before we build. Changing a sketch is cheaper than changing an app.">Vi tester ideen som klikkbar prototype før vi bygger. Det er billigere å endre en skisse enn en app.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">02</div>
+          <div class="cap__body">
+            <h4 data-nb="iOS og Android" data-en="iOS and Android">iOS og Android</h4>
+            <p data-nb="Én kodebase, begge plattformer. Native ytelse der det faktisk betyr noe." data-en="One codebase, both platforms. Native performance where it actually matters.">Én kodebase, begge plattformer. Native ytelse der det faktisk betyr noe.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">03</div>
+          <div class="cap__body">
+            <h4 data-nb="Lansering" data-en="Launch">Lansering</h4>
+            <p data-nb="Vi tar jobben med App Store og Google Play, inkludert gjennomgang og godkjenning." data-en="We handle the App Store and Google Play, including review and approval.">Vi tar jobben med App Store og Google Play, inkludert gjennomgang og godkjenning.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">04</div>
+          <div class="cap__body">
+            <h4 data-nb="Drift og oppdateringer" data-en="Operations and updates">Drift og oppdateringer</h4>
+            <p data-nb="Apper er ferskvare. Vi følger opp med oppdateringer, overvåking og videreutvikling." data-en="Apps are perishable. We follow up with updates, monitoring and further development.">Apper er ferskvare. Vi følger opp med oppdateringer, overvåking og videreutvikling.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2 data-nb="Har du en app i tankene?" data-en="Got an app in mind?">Har du en app i tankene?</h2>
+      <p data-nb="Beskriv den i noen linjer, så svarer vi med hvordan vi ville bygget den, og hva det vil koste." data-en="Describe it in a few lines and we'll reply with how we would build it, and what it would cost.">
+        Beskriv den i noen linjer, så svarer vi med hvordan vi ville bygget den, og hva det vil koste.
+      </p>
+      <div class="cta__row">
+        <a href="mailto:hei@okane.no?subject=Mobilapper" class="btn btn--primary btn--xl" data-nb="Skriv til oss →" data-en="Write to us →">Skriv til oss →</a>
+        <a href="/" class="btn btn--ghost btn--xl" data-nb="Tilbake til forsiden" data-en="Back to the front page">Tilbake til forsiden</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
