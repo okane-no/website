@@ -562,15 +562,24 @@ section.block { padding: var(--space-24) 0; border-top: 1px solid var(--border-s
   .preview__body { padding: var(--space-6); }
 }
 
-/* Products */
-.product + .product { margin-top: var(--space-20); padding-top: var(--space-16); border-top: 1px solid var(--border-subtle); }
-.product__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr); gap: var(--space-8); align-items: start; margin-bottom: var(--space-8); }
-.product__name { display: flex; align-items: baseline; gap: var(--space-3); }
-.product__name h3 { font-size: var(--text-2xl); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
-.product__desc { font-size: var(--text-md); color: var(--text-secondary); line-height: 1.55; }
-.product__link { display: inline-flex; margin-top: var(--space-3); font-size: var(--text-sm); font-weight: 500; }
-.product .hero__device { margin-top: 0; }
-@media (max-width: 880px) { .product__head { grid-template-columns: 1fr; gap: var(--space-3); } }
+/* Product cards (front page) */
+.pcards { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
+.pcard {
+  background: var(--bg-canvas); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg); padding: var(--space-8);
+  display: flex; flex-direction: column; gap: var(--space-3);
+  box-shadow: var(--shadow-sm); color: var(--text-primary);
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+.pcard:hover { border-color: var(--border-strong); text-decoration: none; color: var(--text-primary); }
+.pcard h3 { font-size: var(--text-2xl); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+.pcard p { font-size: var(--text-md); color: var(--text-secondary); line-height: 1.55; }
+.pcard__link { margin-top: auto; padding-top: var(--space-3); font-size: var(--text-sm); font-weight: 500; color: var(--text-link); }
+.pcard:hover .pcard__link { color: var(--text-link-hover); }
+@media (max-width: 720px) { .pcards { grid-template-columns: 1fr; } }
+
+/* Page hero headline (product pages) */
+.hero__headline--page { font-size: clamp(40px, 6vw, 84px); }
 
 /* Sub-product callout */
 .subproduct { margin-top: var(--space-4); display: flex; gap: var(--space-5); align-items: flex-start; background: var(--bg-canvas); border: 1px solid var(--border-subtle); border-left: 3px solid var(--accent-bg); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6); }
@@ -608,52 +617,6 @@ section.block { padding: var(--space-24) 0; border-top: 1px solid var(--border-s
 .faq-list details > p {
   padding: 0 0 var(--space-5); color: var(--text-secondary);
   font-size: var(--text-md); line-height: 1.55; max-width: 70ch;
-}
-
-/* Quote/proof section */
-.quote {
-  padding: var(--space-16) 0;
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
-  text-align: center;
-}
-.quote__mark { font-family: var(--font-mono); color: var(--text-tertiary); font-size: var(--text-sm); letter-spacing: var(--tracking-wide); margin-bottom: var(--space-6); }
-.quote__text {
-  font-size: clamp(28px, 3.5vw, 48px); font-weight: 500;
-  letter-spacing: -0.025em; line-height: 1.15;
-  max-width: 22ch; margin: 0 auto;
-  text-wrap: balance; color: var(--text-primary);
-}
-.quote__attr { margin-top: var(--space-8); font-size: var(--text-sm); color: var(--text-tertiary); }
-.proof {
-  margin-top: var(--space-16);
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-12);
-  border-top: 1px solid var(--border-subtle);
-  padding-top: var(--space-12);
-  text-align: left;
-}
-@media (max-width: 880px) { .proof { grid-template-columns: repeat(2, 1fr); gap: var(--space-8); } }
-.proof__stat .num {
-  font-size: clamp(40px, 4vw, 56px);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  color: var(--text-primary);
-  font-variant-numeric: tabular-nums;
-}
-.proof__stat .num sup {
-  font-size: 0.4em; font-weight: 500;
-  color: var(--text-tertiary);
-  margin-left: 4px; vertical-align: 0.7em;
-  letter-spacing: 0;
-}
-.proof__stat .label {
-  margin-top: var(--space-3);
-  font-size: var(--text-sm);
-  color: var(--text-secondary);
-  line-height: 1.45;
-  max-width: 28ch;
 }
 
 /* CTA */
