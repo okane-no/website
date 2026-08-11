@@ -6,7 +6,7 @@
 }
 
 /* =====================================================================
-   Okane Design System — Tokens
+   Okane Design System: Tokens
    ===================================================================== */
 :root {
   /* Palette */
@@ -126,7 +126,7 @@
   --duration-base:   220ms;
   --duration-slow:   360ms;
 
-  /* Semantic tokens — Light theme */
+  /* Semantic tokens: Light theme */
   --bg-app:        var(--o-ink-50);
   --bg-canvas:     #ffffff;
   --bg-subtle:     var(--o-ink-50);
