@@ -1,12 +1,14 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
+import wgForside from '~/assets/prosjekter/wild-games/forside.webp';
 ---
 
 <Layout
   title="Prosjekter · Okane"
-  description="Et utvalg av arbeid vi kan vise frem: egne produkter, integrasjoner og nettsider."
+  description="Et utvalg av arbeid vi har levert for kunder: nettbutikker, integrasjoner og nettsider."
 >
   <Header />
 
@@ -21,8 +23,8 @@ import Footer from '~/components/layout/Footer.astro';
         <em data-nb="har bygget." data-en="have built.">har bygget.</em>
       </h1>
 
-      <p class="hero__sub" data-nb="Et utvalg av arbeid vi kan vise frem. Mye av det vi bygger for kunder lever bak innlogging, men produktene våre er alltid åpne for en demo." data-en="A selection of work we can show. Much of what we build for clients lives behind a login, but our products are always open for a demo.">
-        Et utvalg av arbeid vi kan vise frem. Mye av det vi bygger for kunder lever bak innlogging, men produktene våre er alltid åpne for en demo.
+      <p class="hero__sub" data-nb="Et utvalg av arbeid vi har levert for kunder. Mye av det vi bygger lever bak innlogging, men her er noe av det som er åpent." data-en="A selection of work we have delivered for clients. Much of what we build lives behind a login, but here is some of what is open.">
+        Et utvalg av arbeid vi har levert for kunder. Mye av det vi bygger lever bak innlogging, men her er noe av det som er åpent.
       </p>
     </div>
   </section>
@@ -30,96 +32,18 @@ import Footer from '~/components/layout/Footer.astro';
   <section class="block" style="padding-top: 0; border-top: 0;">
     <div class="container">
       <div class="proj-grid reveal">
-        <a class="proj" href="/commerce">
-          <div class="proj__thumb">
-            <div class="thumb-win">
-              <div class="thumb-row">
-                <span class="thumb-chip"></span><span class="thumb-chip"></span><span class="thumb-chip"></span>
-              </div>
-              <div class="thumb-bar thumb-bar--accent" style="width: 55%;"></div>
-              <div class="thumb-bar" style="width: 85%;"></div>
-              <div class="thumb-bar" style="width: 70%;"></div>
-              <div class="thumb-bar thumb-bar--strong"></div>
-            </div>
+        <a class="proj" href="/prosjekter/wild-games">
+          <div class="proj__thumb proj__thumb--photo">
+            <Image src={wgForside} alt="Forsiden til nettbutikken wildgames.no" widths={[480, 760, 1200]} sizes="(max-width: 720px) 100vw, 50vw" />
           </div>
           <div class="proj__body">
             <div class="proj__meta">
-              <span class="chip" data-nb="Eget produkt" data-en="Own product">Eget produkt</span>
-              <span class="chip" data-nb="Netthandel" data-en="E-commerce">Netthandel</span>
+              <span class="chip" data-nb="Nettbutikk" data-en="Online store">Nettbutikk</span>
+              <span class="chip">Shopify</span>
             </div>
-            <h3>Okane Commerce</h3>
-            <p data-nb="Netthandelsplattform med nettbutikk, kasse og lager i ett system. I produksjon og i aktiv videreutvikling." data-en="An e-commerce platform with storefront, point of sale and inventory in one system. In production and under active development.">
-              Netthandelsplattform med nettbutikk, kasse og lager i ett system. I produksjon og i aktiv videreutvikling.
-            </p>
-          </div>
-        </a>
-
-        <a class="proj" href="/mailroom">
-          <div class="proj__thumb">
-            <div class="thumb-win">
-              <div class="thumb-bar thumb-bar--accent" style="width: 40%;"></div>
-              <div class="thumb-row"><span class="thumb-chip"></span><span class="thumb-chip" style="flex: 2;"></span></div>
-              <div class="thumb-row"><span class="thumb-chip"></span><span class="thumb-chip" style="flex: 2;"></span></div>
-              <div class="thumb-row"><span class="thumb-chip"></span><span class="thumb-chip" style="flex: 2;"></span></div>
-            </div>
-          </div>
-          <div class="proj__body">
-            <div class="proj__meta">
-              <span class="chip" data-nb="Eget produkt" data-en="Own product">Eget produkt</span>
-              <span class="chip" data-nb="Automatisering" data-en="Automation">Automatisering</span>
-            </div>
-            <h3>Digital Mailroom</h3>
-            <p data-nb="Digitalt postmottak som samler post fra Altinn, EHF og e-post i én strøm og ruter den automatisk til rett person." data-en="A digital mailroom that collects mail from Altinn, EHF and email into one stream and routes it automatically to the right person.">
-              Digitalt postmottak som samler post fra Altinn, EHF og e-post i én strøm og ruter den automatisk til rett person.
-            </p>
-          </div>
-        </a>
-
-        <a class="proj" href="/mailroom">
-          <div class="proj__thumb">
-            <div class="thumb-win">
-              <div class="thumb-row" style="align-items: center;">
-                <div class="thumb-bar thumb-bar--strong" style="width: 30%; margin: 0;"></div>
-                <div class="thumb-bar" style="flex: 1;"></div>
-                <div class="thumb-bar thumb-bar--accent" style="width: 20%;"></div>
-              </div>
-              <div class="thumb-bar" style="width: 90%;"></div>
-              <div class="thumb-bar" style="width: 65%;"></div>
-              <div class="thumb-bar thumb-bar--accent" style="width: 45%;"></div>
-            </div>
-          </div>
-          <div class="proj__body">
-            <div class="proj__meta">
-              <span class="chip" data-nb="Integrasjon" data-en="Integration">Integrasjon</span>
-              <span class="chip">Altinn</span>
-            </div>
-            <h3>Altinn Downloader</h3>
-            <p data-nb="Automatisk nedlasting og arkivering av post fra Altinn. I dag standard subprodukt i Digital Mailroom." data-en="Automatic download and archiving of mail from Altinn. Today a standard sub-product of Digital Mailroom.">
-              Automatisk nedlasting og arkivering av post fra Altinn. I dag standard subprodukt i Digital Mailroom.
-            </p>
-          </div>
-        </a>
-
-        <a class="proj" href="/">
-          <div class="proj__thumb">
-            <div class="thumb-win">
-              <div class="thumb-row">
-                <span class="thumb-dot"></span><span class="thumb-dot"></span><span class="thumb-dot"></span>
-                <span class="thumb-chip" style="flex: 1; height: 10px;"></span>
-              </div>
-              <div class="thumb-bar thumb-bar--accent" style="width: 70%; height: 12px;"></div>
-              <div class="thumb-bar" style="width: 50%;"></div>
-              <div class="thumb-bar thumb-bar--strong"></div>
-            </div>
-          </div>
-          <div class="proj__body">
-            <div class="proj__meta">
-              <span class="chip" data-nb="Nettside" data-en="Website">Nettside</span>
-              <span class="chip">Astro</span>
-            </div>
-            <h3>okane.no</h3>
-            <p data-nb="Vår egen nettside. Statisk bygget, selvdriftet og håndlaget, med samme standard som vi leverer til kunder." data-en="Our own website. Statically built, self-hosted and handmade, to the same standard we deliver to clients.">
-              Vår egen nettside. Statisk bygget, selvdriftet og håndlaget, med samme standard som vi leverer til kunder.
+            <h3>Wild Games</h3>
+            <p data-nb="Nettbutikk for Wild Games, en spesialbutikk for Magic: The Gathering. Bygget på Shopify, med stort sortiment av singles, boosters og tilbehør." data-en="Online store for Wild Games, a specialist Magic: The Gathering shop. Built on Shopify, with a large catalogue of singles, boosters and accessories.">
+              Nettbutikk for Wild Games, en spesialbutikk for Magic: The Gathering. Bygget på Shopify, med stort sortiment av singles, boosters og tilbehør.
             </p>
           </div>
         </a>
