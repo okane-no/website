@@ -4,6 +4,8 @@ import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
 import wgForside from '~/assets/prosjekter/wild-games/forside.webp';
+import spactForside from '~/assets/prosjekter/spact/forside.webp';
+import eluForside from '~/assets/prosjekter/eventlink-unity/forside.webp';
 ---
 
 <Layout
@@ -44,6 +46,38 @@ import wgForside from '~/assets/prosjekter/wild-games/forside.webp';
             <h3>Wild Games</h3>
             <p data-nb="Nettbutikk for Wild Games, en spesialbutikk for Magic: The Gathering. Bygget på Shopify, med stort sortiment av singles, boosters og tilbehør." data-en="Online store for Wild Games, a specialist Magic: The Gathering shop. Built on Shopify, with a large catalogue of singles, boosters and accessories.">
               Nettbutikk for Wild Games, en spesialbutikk for Magic: The Gathering. Bygget på Shopify, med stort sortiment av singles, boosters og tilbehør.
+            </p>
+          </div>
+        </a>
+
+        <a class="proj" href="https://www.spact.no" target="_blank" rel="noopener">
+          <div class="proj__thumb proj__thumb--photo">
+            <Image src={spactForside} alt="Forsiden til spact.no" widths={[480, 760, 1200]} sizes="(max-width: 720px) 100vw, 50vw" />
+          </div>
+          <div class="proj__body">
+            <div class="proj__meta">
+              <span class="chip" data-nb="Medlemsplattform" data-en="Membership platform">Medlemsplattform</span>
+              <span class="chip">SvelteKit</span>
+            </div>
+            <h3>Spact</h3>
+            <p data-nb="Medlems- og arrangementsplattform for Summoner's Pact, en forening for samlekortspill og brettspill. Innmelding med betaling, kalender, ligatabeller og arrangementer på ett sted." data-en="Membership and events platform for Summoner's Pact, a trading card and board game community. Sign-up with payment, calendar, league tables and events in one place.">
+              Medlems- og arrangementsplattform for Summoner's Pact, en forening for samlekortspill og brettspill. Innmelding med betaling, kalender, ligatabeller og arrangementer på ett sted.
+            </p>
+          </div>
+        </a>
+
+        <a class="proj" href="https://www.eventlinktounity.com" target="_blank" rel="noopener">
+          <div class="proj__thumb proj__thumb--photo">
+            <Image src={eluForside} alt="Synkroniseringsveiviseren på eventlinktounity.com" widths={[480, 760, 1200]} sizes="(max-width: 720px) 100vw, 50vw" />
+          </div>
+          <div class="proj__body">
+            <div class="proj__meta">
+              <span class="chip" data-nb="Verktøy" data-en="Tool">Verktøy</span>
+              <span class="chip" data-nb="Chrome-utvidelse" data-en="Chrome extension">Chrome-utvidelse</span>
+            </div>
+            <h3>EventLink → Unity</h3>
+            <p data-nb="Synkroniserer turneringer fra Wizards EventLink til Unity League med ett klikk. Arrangøren velger arrangement, ser over og publiserer, helt uten manuell inntasting. Nettapp med tilhørende Chrome-utvidelse." data-en="Syncs tournaments from Wizards EventLink to Unity League in one click. Organizers pick an event, review and push, with no manual data entry. Web app with a companion Chrome extension.">
+              Synkroniserer turneringer fra Wizards EventLink til Unity League med ett klikk. Arrangøren velger arrangement, ser over og publiserer, helt uten manuell inntasting. Nettapp med tilhørende Chrome-utvidelse.
             </p>
           </div>
         </a>
