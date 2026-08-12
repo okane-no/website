@@ -89,7 +89,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       // Language toggle
       (function () {
         var btns = document.querySelectorAll('.lang button');
-        var stored = localStorage.getItem('okane-lang') || 'nb';
+        var stored = 'nb'; // Language toggle disabled: ignore any stored choice
         function apply(lang) {
           document.documentElement.setAttribute('lang', lang === 'nb' ? 'nb' : 'en');
           document.querySelectorAll('[data-nb]').forEach(function (el) {
