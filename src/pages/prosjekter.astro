@@ -4,6 +4,8 @@ import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
 import wgForside from '~/assets/prosjekter/wild-games/forside.webp';
+import spactForside from '~/assets/prosjekter/spact/forside.webp';
+import eluForside from '~/assets/prosjekter/eventlink-unity/forside.webp';
 ---
 
 <Layout
@@ -49,6 +51,9 @@ import wgForside from '~/assets/prosjekter/wild-games/forside.webp';
         </a>
 
         <a class="proj" href="https://www.spact.no" target="_blank" rel="noopener">
+          <div class="proj__thumb proj__thumb--photo">
+            <Image src={spactForside} alt="Forsiden til spact.no" widths={[480, 760, 1200]} sizes="(max-width: 720px) 100vw, 50vw" />
+          </div>
           <div class="proj__body">
             <div class="proj__meta">
               <span class="chip" data-nb="Medlemsplattform" data-en="Membership platform">Medlemsplattform</span>
@@ -62,6 +67,9 @@ import wgForside from '~/assets/prosjekter/wild-games/forside.webp';
         </a>
 
         <a class="proj" href="https://www.eventlinktounity.com" target="_blank" rel="noopener">
+          <div class="proj__thumb proj__thumb--photo">
+            <Image src={eluForside} alt="Synkroniseringsveiviseren på eventlinktounity.com" widths={[480, 760, 1200]} sizes="(max-width: 720px) 100vw, 50vw" />
+          </div>
           <div class="proj__body">
             <div class="proj__meta">
               <span class="chip" data-nb="Verktøy" data-en="Tool">Verktøy</span>
