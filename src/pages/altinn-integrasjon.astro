@@ -1,0 +1,126 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/layout/Header.astro';
+import Footer from '~/components/layout/Footer.astro';
+import MailNote from '~/components/sections/MailNote.astro';
+import CTA from '~/components/sections/CTA.astro';
+import { mailto, prompts } from '~/lib/contact';
+import { brageForms } from '~/data/brage-skjema';
+
+const contact = mailto('Altinn-integrasjon', prompts.altinn);
+const authorities = new Set(brageForms.map((f) => f.authority)).size;
+---
+
+<Layout
+  title="Altinn-integrasjon for bedrifter · Okane"
+  description="Okane bygger integrasjoner mot Altinn 3: post fra Altinn-innboksen, innsending med systembruker og Maskinporten, og oppslag i Enhetsregisteret."
+>
+  <Header ctaLabel="Be om pris og plan" ctaHref="#kontakt" ctaEvent="pris-og-plan" />
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero__eyebrow">
+        <a href="/integrasjoner">Integrasjoner</a>
+      </div>
+
+      <h1 class="hero__headline hero__headline--page">
+        <span>Altinn-integrasjon</span><br>
+        <em>for bedrifter.</em>
+      </h1>
+
+      <p class="hero__sub">
+        Okane bygger integrasjoner mot Altinn 3. Vi henter post og vedlegg fra Altinn-innboksen automatisk, sender inn skjema med systembruker og Maskinporten, og slår opp selskaper i Enhetsregisteret. Vi drifter dette selv i Digital Mailroom og Brage, så integrasjonen din bygger på kode som allerede kjører i produksjon.
+      </p>
+
+      <div class="hero__cta">
+        <a href={contact} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="pris-og-plan">Be om pris og plan</a>
+        <a href="/mailroom" class="btn btn--secondary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="se-mailroom">Se Digital Mailroom</a>
+      </div>
+      <MailNote location="hero" />
+      <p class="updated">Sist oppdatert 24. november 2026</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="qa reveal">
+        <h2>Hva er en systembruker i Altinn?</h2>
+        <div class="qa__body">
+          <p>En systembruker lar et fagsystem handle på vegne av et selskap i Altinn, med akkurat de tjenestene selskapet har godkjent. Leverandøren registrerer systemet i Altinns systemregister med rettighetene det trenger. Selskapet godkjenner forespørselen én gang, og deretter henter systemet tilgang gjennom Maskinporten som selskapets systembruker.</p>
+          <p>Godkjenningen gjøres av en person som forvalter selskapets tilganger i Altinn, og den kan trekkes tilbake der. Brage ber bare om tjenesten den sender inn til, for eksempel aksjonærregisteroppgaven hos Skatteetaten.</p>
+        </div>
+      </div>
+
+      <div class="qa reveal">
+        <h2>Hvordan henter man post automatisk fra Altinn?</h2>
+        <div class="qa__body">
+          <p>Med en integrasjon som følger med på selskapets innboks i Altinn, laster ned nye meldinger og vedlegg og legger dem der de skal. <a href="/mailroom">Digital Mailroom</a> gjør dette: den overvåker Altinn-innboksen, arkiverer meldingene og ruter dem til rett person etter regler dere styrer selv.</p>
+          <p>Post fra EHF og e-post kan gå inn i samme strøm, så alt som kommer inn, har én rutine og én historikk.</p>
+        </div>
+      </div>
+
+      <div class="qa reveal">
+        <h2>Hvilke skjema kan sendes inn via API?</h2>
+        <div class="qa__body">
+          <p>Mange skjema i Altinn kan sendes inn maskinelt, enten gjennom etatens eget API eller gjennom Altinn 3-appen for skjemaet. Skatteetaten har egne API-er for blant annet aksjonærregisteroppgaven.</p>
+          <p><a href="/brage">Brage</a> sender aksjonærregisteroppgaven (RF-1086) gjennom Skatteetatens API, med hovedskjema, ett underskjema per aksjonær og bekreftelse, og viser Skatteetatens kvittering. Brage fyller ut {brageForms.length} skjema fra {authorities} etater, og <a href="/brage">listen står på Brage-siden</a>.</p>
+        </div>
+      </div>
+
+      <div class="qa reveal">
+        <h2>Hva trenger vi fra dere (Maskinporten-klient, delegering)?</h2>
+        <div class="qa__body">
+          <p>Sender vi inn med vårt system, trenger dere bare å godkjenne systembrukeren i Altinn. Skal integrasjonen kjøre som deres eget system, trenger dere også en Maskinporten-klient. Vi hjelper med det som trengs:</p>
+          <ul>
+            <li>Organisasjonsnummer for selskapene integrasjonen skal gjelde.</li>
+            <li>En person som kan godkjenne systembrukeren i Altinn for hvert selskap.</li>
+            <li>For eget system: en Maskinporten-klient i Digdirs samarbeidsportal, med tilgangene (scopes) Digdir og etaten gir for tjenesten.</li>
+            <li>Tid til å teste i Altinns testmiljø med syntetiske selskaper fra Tenor før vi går i produksjon.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="qa reveal">
+        <h2>Kan dere slå opp selskaper i Enhetsregisteret?</h2>
+        <div class="qa__body">
+          <p>Ja. Brønnøysundregistrene har et åpent API for Enhetsregisteret. Brage slår opp navn, adresse, næringskode, roller og registrert aksjekapital når en kjøring starter, og lenker til selskapets side hos Brønnøysundregistrene så alle kan sjekke oppslaget.</p>
+        </div>
+      </div>
+
+      <div class="qa reveal">
+        <h2>Hva koster en Altinn-integrasjon?</h2>
+        <div class="qa__body">
+          <p>Pris etter et kort møte. Den avhenger av hvilke Altinn-tjenester integrasjonen skal bruke, hvor mange selskaper den gjelder og hvilke systemer den skal kobles til. Du får en fast pris før vi starter.</p>
+        </div>
+      </div>
+
+      <div class="qa reveal">
+        <h2>Ferdig produkt eller skreddersydd?</h2>
+        <div class="qa__body">
+          <p>Skal post fra Altinn hentes og fordeles, finnes det ferdig i <a href="/mailroom">Digital Mailroom</a>. Skal skjema fylles ut fra egne dokumenter og sendes inn, er det <a href="/brage">Brage</a>, nå i pilot. Skal Altinn kobles til egne fagsystemer, bygger vi integrasjonen på den samme koden.</p>
+        </div>
+      </div>
+
+      <div class="qa reveal">
+        <h2>Hvor kan jeg lese mer?</h2>
+        <div class="qa__body">
+          <ul>
+            <li><a href="https://docs.altinn.studio/en/authorization/guides/system-vendor/system-user/">Systembruker for systemleverandører</a> hos Altinn</li>
+            <li><a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_protocol_jwtgrant">Maskinporten og JWT-grant</a> hos Digdir</li>
+            <li><a href="https://www.skatteetaten.no/samarbeidspartnere/sluttbrukersystemer/aksjonarregisteroppgaven-sbs/">Aksjonærregisteroppgaven for sluttbrukersystemer</a> hos Skatteetaten</li>
+            <li><a href="https://data.brreg.no/enhetsregisteret/api/dokumentasjon/no/index.html">API-et for Enhetsregisteret</a> hos Brønnøysundregistrene</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    title="Hva skal dere hente fra eller sende til Altinn?"
+    text="Fortell oss hvilke tjenester og systemer det gjelder, så svarer vi med hvordan vi ville bygget det."
+    primary={{ label: 'Be om pris og plan', href: contact, event: 'pris-og-plan' }}
+    secondary={{ label: 'Se Brage', href: '/brage', event: 'se-brage' }}
+  />
+
+  <Footer />
+</Layout>
