@@ -504,6 +504,7 @@ section.block { padding: var(--space-24) 0; border-top: 1px solid var(--border-s
 .svc__body p { font-size: var(--text-base); color: var(--text-secondary); line-height: 1.55; max-width: 36em; }
 .svc__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--space-4); }
 .svc__link { display: inline-flex; margin-top: var(--space-4); font-size: var(--text-md); font-weight: 600; }
+.svc__links { display: flex; flex-wrap: wrap; column-gap: var(--space-6); }
 @media (max-width: 880px) { .svc { grid-template-columns: 1fr; gap: var(--space-4); } }
 
 /* Chips */
@@ -764,3 +765,19 @@ footer { padding: var(--space-16) 0 var(--space-12); border-top: 1px solid var(-
 .qa--solo, .qa--solo:last-child { padding: 0; border: 0; }
 .nowrap { white-space: nowrap; }
 .qa:first-child { border-top: 0; padding-top: 0; }
+
+/* Where the data lives, on /brage/privat-ki */
+.where-wrap { margin-top: var(--space-10); }
+.where-table th[scope="row"] { width: 22%; text-align: left; font-weight: 600; color: var(--text-primary); vertical-align: top; }
+.where-table td { color: var(--text-secondary); vertical-align: top; }
+@media (max-width: 720px) {
+  .where-table, .where-table tbody, .where-table tr, .where-table th, .where-table td { display: block; width: 100%; }
+  .where-table tr { padding: var(--space-3) var(--space-4); }
+  .where-table th[scope="row"], .where-table td { padding: 0; }
+  .where-table caption { display: block; width: 100%; }
+}
+.caps--three-up { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1024px) { .caps--three-up { grid-template-columns: 1fr; } }
+.privat-note { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-5) var(--space-10); margin-top: var(--space-10); }
+.privat-note p { font-size: var(--text-base); color: var(--text-secondary); line-height: 1.55; max-width: 38em; }
+.cap__body p a { text-decoration: underline; text-underline-offset: 3px; }

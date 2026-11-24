@@ -1,0 +1,337 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/layout/Header.astro';
+import Footer from '~/components/layout/Footer.astro';
+import MailNote from '~/components/sections/MailNote.astro';
+import Proof from '~/components/sections/Proof.astro';
+import CTA from '~/components/sections/CTA.astro';
+import { mailto, prompts } from '~/lib/contact';
+import svar from '~/assets/produkter/brage/svar-med-kilde.webp';
+import dokumenter from '~/assets/produkter/brage/dokumenter.webp';
+import skjema from '~/assets/produkter/brage/skjema.webp';
+
+const pilot = mailto('Pilot Brage: spørsmål og svar', prompts.brageQa);
+const demo = mailto('Demo Brage', prompts.brageDemo);
+
+// The questions on the page, also given to search engines as FAQPage. Answers are HTML.
+const questions = [
+  {
+    q: 'Hva er en privat språkmodell for bedrifter?',
+    a: '<p>En språkmodell som kjører i virksomhetens egen infrastruktur, på egne servere eller i egen sky, i stedet for hos en ekstern KI-tjeneste. Dokumentene og spørsmålene blir der modellen kjører. Brage bruker Ollama til dette, med en åpen modell dere velger, og lager søkeindeksen lokalt med nomic-embed-text.</p>',
+  },
+  {
+    q: 'Hvordan fungerer RAG på egne dokumenter?',
+    a: '<p>RAG (retrieval-augmented generation) betyr at systemet først søker i dokumentene og så lar språkmodellen svare ut fra utdragene det fant. Brage deler dokumentene i utdrag, søker både på betydning og ord, og viser til dokumentet bak hver påstand. Dermed bygger svaret på deres dokumenter, og hver påstand kan sjekkes mot kilden.</p>',
+  },
+  {
+    q: 'Kan vi bruke KI uten at data sendes ut av Norge eller EU?',
+    a: '<p>Ja, hvis språkmodellen og databasen kjører der. Med Ollama på egne servere eller i en sky-region dere velger, blir dokumenter, søkeindeks og spørsmål der Brage kjører. Brage gir ingen egen garanti for hvor data lagres. Det bestemmes av hvor dere kjører den.</p>',
+  },
+  {
+    q: 'Sender dere dataene våre til OpenAI?',
+    a: '<p>Bare hvis dere velger det. Brage kan kjøre på en åpen språkmodell i Ollama på deres egne servere eller i deres egen sky, og lage søkeindeksen lokalt. Da forlater verken dokumenter eller spørsmål infrastrukturen deres. Velger dere OpenAI eller et annet endepunkt, går teksten dit.</p>',
+  },
+  {
+    q: 'Hvem ser hva?',
+    a: '<p>Hvert dokument beholder tilgangsgruppene sine. Søk og samtaler bruker bare dokumenter som personens grupper i Entra ID, eller en direkte deling, gir tilgang til. Fra SharePoint kan Brage lese tilgangene på hver fil gjennom Microsoft Graph.</p>',
+  },
+  {
+    q: 'Hvordan søker man i SharePoint med KI?',
+    a: '<p>Med en tjeneste som leser dokumentbibliotekene gjennom Microsoft Graph, gjør innholdet søkbart og lar en språkmodell svare ut fra treffene. Brage gjør dette for de SharePoint-sidene dere gir den lesetilgang til, og henter bare det som er endret siden sist.</p>',
+  },
+  {
+    q: 'Hva skjer når svaret ikke står i dokumentene?',
+    a: '<p>Da sier Brage at dokumentene ikke inneholder svaret. Den gjetter ikke på tall, datoer, navn eller organisasjonsnumre, og hver påstand i et svar har en kilde dere kan klikke på og sjekke.</p>',
+  },
+  {
+    q: 'Er en lokal modell god nok?',
+    a: '<p>Åpne modeller på egen maskinvare er tregere enn de største skymodellene, og svarene avhenger av hvor stor modell maskinvaren tåler. Det er prisen for å holde dataene hjemme. Fordi modellen er en innstilling, kan dere starte lokalt og bytte senere.</p>',
+  },
+  {
+    q: 'Hvilke dokumenter kan Brage lese?',
+    a: '<p>PDF-filer med tekst, Word-filer (DOCX), tekstfiler og Markdown, fra SharePoint og filområder. Skannede dokumenter uten tekst blir ikke lest. En kobling til Therefore er planlagt.</p>',
+  },
+  {
+    q: 'Hva koster det?',
+    a: '<p>Brage er i pilot. Pris og vilkår avtaler vi i et kort møte, og de avhenger av hvor mange dokumenter og brukere det gjelder, og hvor språkmodellen skal kjøre.</p>',
+  },
+];
+
+const url = 'https://okane.no/brage/privat-ki';
+const plain = (html: string) => html.replace(/<[^>]+>/g, '').trim();
+const schema = [
+  {
+    '@type': 'WebPage',
+    '@id': `${url}#page`,
+    url,
+    name: 'Privat språkmodell på egne dokumenter',
+    inLanguage: 'nb-NO',
+    dateModified: '2026-11-24',
+    about: { '@id': 'https://okane.no/brage#app' },
+    publisher: { '@id': 'https://okane.no/#org' },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Okane', item: 'https://okane.no/' },
+      { '@type': 'ListItem', position: 2, name: 'Brage', item: 'https://okane.no/brage' },
+      { '@type': 'ListItem', position: 3, name: 'Privat språkmodell', item: url },
+    ],
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${url}#faq`,
+    mainEntity: questions.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: plain(item.a) },
+    })),
+  },
+];
+---
+
+<Layout
+  title="Privat språkmodell på egne dokumenter – Brage · Okane"
+  description="Brage svarer på spørsmål fra dokumentene i SharePoint og på filområder, med kilde til hvert svar. Språkmodellen kan kjøre på deres egne servere. I pilot."
+  image="/og/brage.png"
+  imageAlt="Brage: et svar fra egne dokumenter, med kilde"
+  schema={schema}
+>
+  <Header ctaLabel="Søk om pilotplass" ctaHref="#kontakt" ctaEvent="pilot-brage" />
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero__eyebrow">
+        <a href="/brage">Brage, i pilot</a>
+      </div>
+
+      <h1 class="hero__headline hero__headline--page">
+        <span>Spør dokumentene.</span><br>
+        <em>Dataene blir hos dere.</em>
+      </h1>
+
+      <p class="hero__sub">
+        Brage leser dokumentene deres i SharePoint og på filområder, og svarer på spørsmål på norsk med kilde til hver påstand. Språkmodellen kan kjøre på deres egne servere eller i deres egen sky, så dokumenter og spørsmål blir i deres infrastruktur. Hver person får bare svar fra dokumenter de selv har tilgang til.
+      </p>
+
+      <div class="hero__cta">
+        <a href={pilot} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="pilot-brage">Søk om pilotplass</a>
+        <a href={demo} class="btn btn--secondary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="demo-brage">Be om en demo</a>
+      </div>
+      <MailNote location="hero" />
+      <p class="updated">Sist oppdatert 24. november 2026</p>
+
+      <div class="hero__meta">
+        <span><b>Kilde</b> på hvert svar</span>
+        <span><b>Samme tilganger</b> som i SharePoint</span>
+        <span><b>Språkmodellen</b> velger dere</span>
+      </div>
+
+      <div class="hero__device">
+        <div class="preview">
+          <div class="preview__bar">
+            <div class="lights"><span></span><span></span><span></span></div>
+            <div class="preview__url">Samtale</div>
+          </div>
+          <div class="preview__body preview__body--shot">
+            <Image
+              src={svar}
+              alt="En samtale i Brage: spørsmålet om hvem som kjøpte aksjer i Acme AS i juni 2026 besvares med kjøper, antall og pris, og kilden S1 viser til aksjeoverdragelsen"
+              widths={[760, 1200, 2000, 2880]}
+              sizes="(max-width: 880px) 100vw, 1100px"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="privat-sprakmodell">
+    <div class="container">
+      <header class="block__header reveal">
+        <div class="block__sub-wrap">
+          <h2 class="block__title">Dere velger hvor språkmodellen kjører.</h2>
+          <p class="block__sub">
+            Mange vil bruke KI på kundedokumenter og interne avtaler, men kan ikke legge dem i en offentlig KI-tjeneste. I Brage er språkmodellen en innstilling. Start på egne servere, eller bruk et endepunkt dere allerede har avtale om.
+          </p>
+        </div>
+      </header>
+
+      <div class="caps caps--three-up reveal">
+        <div class="cap">
+          <div class="cap__body">
+            <h4>På egne servere</h4>
+            <p>En åpen språkmodell kjører i Ollama på deres maskinvare eller i deres egen sky. Søkeindeksen lages lokalt med nomic-embed-text. Dokumenter, spørsmål og svar går ikke ut av infrastrukturen deres.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__body">
+            <h4>Et endepunkt dere velger</h4>
+            <p>Brage kan bruke et hvilket som helst OpenAI-kompatibelt API, for eksempel Azure OpenAI i en EU-region dere har avtale om. Da kjører modellen under deres egen avtale, i regionen dere har valgt.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__body">
+            <h4>OpenAI</h4>
+            <p>Raskest å komme i gang med. Da sendes dokumenttekst og spørsmål til OpenAI.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-wrap where-wrap reveal">
+        <table class="table where-table">
+          <caption class="forms-caption">Hvor dataene ligger når Brage kjører hos dere</caption>
+          <tbody>
+            <tr>
+              <th scope="row">Dokumentene</th>
+              <td>Der de ligger i dag. Brage leser SharePoint gjennom Microsoft Graph med lesetilgang til de sidene dere velger, og filområder som en mappe.</td>
+            </tr>
+            <tr>
+              <th scope="row">Søkeindeksen</th>
+              <td>Tekst, utdrag og vektorer i en Postgres-database med pgvector, i deres egen infrastruktur.</td>
+            </tr>
+            <tr>
+              <th scope="row">Språkmodellen</th>
+              <td>Ollama på deres servere, eller endepunktet dere har valgt.</td>
+            </tr>
+            <tr>
+              <th scope="row">Innloggingen</th>
+              <td>Microsoft Entra ID. Gruppene derfra bestemmer hvilke dokumenter hver person får svar fra.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="privat-cta reveal">
+        <p class="pilot-terms">I en pilot setter vi opp Brage på dokumentene deres, med den språkmodellen dere velger. Pris og vilkår avtaler vi i et kort møte.</p>
+        <div class="hero__cta">
+          <a href={pilot} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="privat-modell" data-umami-event-label="pilot-brage">Søk om pilotplass</a>
+        </div>
+        <MailNote location="privat-modell" />
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <header class="block__header reveal">
+        <div class="block__sub-wrap">
+          <h2 class="block__title">Fra dokument til svar med kilde.</h2>
+          <p class="block__sub">
+            Teknikken heter RAG (retrieval-augmented generation): Brage søker først i dokumentene, og språkmodellen svarer bare ut fra utdragene den finner.
+          </p>
+        </div>
+      </header>
+
+      <div class="caps caps--steps reveal">
+        <div class="cap">
+          <div class="cap__num">1</div>
+          <div class="cap__body">
+            <h4>Henter dokumentene</h4>
+            <p>Fra SharePoint gjennom Microsoft Graph, og fra filområder. Etter første gang hentes bare det som er endret, så nye og endrede filer kommer raskt med.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">2</div>
+          <div class="cap__body">
+            <h4>Gjør dem søkbare</h4>
+            <p>Teksten i PDF-, Word- og tekstfiler deles i utdrag. Hvert utdrag får en vektor for betydningen og en fulltekstindeks for ordene.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">3</div>
+          <div class="cap__body">
+            <h4>Søker med dine tilganger</h4>
+            <p>Et spørsmål søker både på betydning og på ord, og bare i dokumenter du har tilgang til. De beste treffene fra begge søkene slås sammen.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">4</div>
+          <div class="cap__body">
+            <h4>Svarer med kilde</h4>
+            <p>Hver påstand i svaret viser til dokumentet den bygger på. Står svaret ikke i dokumentene, sier Brage det.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <header class="block__header reveal">
+        <div class="block__sub-wrap">
+          <h2 class="block__title">Se hva Brage har lest.</h2>
+          <p class="block__sub">
+            Dokumentoversikten viser hvert dokument Brage har indeksert, hvilket selskap det hører til, og hvilken modell som har laget søkeindeksen.
+          </p>
+        </div>
+      </header>
+
+      <div class="preview reveal">
+        <div class="preview__bar">
+          <div class="lights"><span></span><span></span><span></span></div>
+          <div class="preview__url">Dokumenter</div>
+        </div>
+        <div class="preview__body preview__body--shot">
+          <Image
+            src={dokumenter}
+            alt="Dokumentoversikten i Brage: 114 dokumenter fra 12 selskaper, med søkeindeks laget lokalt med Ollama og nomic-embed-text, og en tabell med navn, selskap, type og status for hvert dokument"
+            widths={[760, 1200, 2000, 2880]}
+            sizes="(max-width: 880px) 100vw, 1100px"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="sporsmal">
+    <div class="container">
+      <header class="block__header reveal">
+        <div class="block__sub-wrap">
+          <h2 class="block__title">Det IT og ledelse spør om.</h2>
+          <p class="block__sub">Svar på det vi oftest får spørsmål om før en pilot.</p>
+        </div>
+      </header>
+
+      {questions.map((item) => (
+        <div class="qa reveal">
+          <h2>{item.q}</h2>
+          <div class="qa__body" set:html={item.a} />
+        </div>
+      ))}
+
+      <div class="qa reveal">
+        <h2>Hvor kan jeg lese mer?</h2>
+        <div class="qa__body">
+          <ul>
+            <li><a href="https://ollama.com">Ollama</a>, som kjører åpne språkmodeller på egen maskinvare</li>
+            <li><a href="https://ollama.com/library/nomic-embed-text">nomic-embed-text</a>, modellen Brage lager søkeindeksen med lokalt</li>
+            <li><a href="https://github.com/pgvector/pgvector">pgvector</a>, vektorsøk i Postgres</li>
+            <li><a href="https://learn.microsoft.com/en-us/graph/api/driveitem-delta">Endringer i SharePoint gjennom Microsoft Graph</a> hos Microsoft</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Proof
+    title="De samme dokumentene fyller ut skjemaene."
+    text="Brage bruker indeksen til mer enn spørsmål og svar. Den fyller ut skjema i Altinn, som aksjonærregisteroppgaven, med kilde på hvert felt. En saksbehandler godkjenner før noe sendes."
+    href="/brage"
+    label="Se skjemaene i Brage"
+    event="se-brage"
+    image={skjema}
+    alt="Et utkast til aksjonærregisteroppgaven i Brage, med kilde til hvert felt"
+  />
+
+  <CTA
+    title="Prøv Brage på deres egne dokumenter."
+    text="Fortell hvor dokumentene ligger og hvor språkmodellen skal kjøre, så setter vi opp Brage i en pilot. Vil dere se den først, viser vi den gjerne."
+    primary={{ label: 'Søk om pilotplass', href: pilot, event: 'pilot-brage' }}
+    secondary={{ label: 'Be om en demo', href: demo, event: 'demo-brage' }}
+  />
+
+  <Footer />
+</Layout>

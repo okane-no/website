@@ -14,6 +14,7 @@ export const prompts = {
   commerce: ['Hva selger dere, og hvor (nett, butikk eller begge)?', 'Hvilken plattform bruker dere i dag?', 'Når passer det med 20 minutter på video?'],
   mailroom: ['Hvor kommer posten fra i dag (Altinn, EHF, e-post)?', 'Hvor mange selskaper tar dere imot post for?', 'Når passer det med en demo?'],
   bragePilot: ['Hvilke skjema sender dere inn i dag?', 'Hvor ligger dokumentene (SharePoint, filområde)?', 'Hvor mange selskaper?'],
-  brageDemo: ['Hvilke skjema sender dere inn i dag?', 'Når passer det med en demo?'],
+  brageQa: ['Hvor ligger dokumentene (SharePoint, filområde)?', 'Hvor skal språkmodellen kjøre (egne servere, egen sky, OpenAI)?', 'Omtrent hvor mange skal bruke Brage?'],
+  brageDemo:['Hvilke skjema sender dere inn i dag?', 'Når passer det med en demo?'],
   altinn: ['Hva vil dere hente fra eller sende til Altinn?', 'Hvilke systemer skal det kobles til?', 'Når trenger dere det?'],
 };
