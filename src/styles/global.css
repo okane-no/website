@@ -533,7 +533,7 @@ section.block { padding: var(--space-24) 0; border-top: 1px solid var(--border-s
 }
 
 /* Product cards (front page) */
-.pcards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 var(--space-12); border-top: 2px solid var(--text-primary); }
+.pcards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 var(--space-10); border-top: 2px solid var(--text-primary); }
 .pcard {
   display: flex; flex-direction: column; gap: var(--space-3);
   padding: var(--space-8) 0; border-bottom: 1px solid var(--border-subtle);
@@ -544,7 +544,7 @@ section.block { padding: var(--space-24) 0; border-top: 1px solid var(--border-s
 .pcard p { font-size: var(--text-base); color: var(--text-secondary); line-height: 1.55; max-width: 34em; }
 .pcard__link { margin-top: auto; padding-top: var(--space-2); font-size: var(--text-md); font-weight: 600; color: var(--text-link); }
 .pcard:hover .pcard__link { color: var(--text-link-hover); text-decoration: underline; text-underline-offset: 4px; }
-@media (max-width: 720px) { .pcards { grid-template-columns: 1fr; } }
+@media (max-width: 880px) { .pcards { grid-template-columns: 1fr; } }
 
 /* Page hero headline (product pages) */
 .hero__headline--page { font-size: clamp(44px, 7.4vw, var(--text-5xl)); }
@@ -643,6 +643,9 @@ footer { padding: var(--space-16) 0 var(--space-12); border-top: 1px solid var(-
 }
 .shot-phone img { display: block; width: 100%; height: auto; }
 @media (max-width: 880px) { .shot-grid { grid-template-columns: 1fr; } }
+/* Two desktop screenshots side by side */
+.shot-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); align-items: start; }
+@media (max-width: 880px) { .shot-pair { grid-template-columns: 1fr; } }
 
 /* Thumbnail mockup pieces */
 .thumb-win {
