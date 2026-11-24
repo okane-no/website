@@ -35,7 +35,10 @@ const fmt = (d: Date) =>
       </div>
 
       <footer class="article__foot">
-        <a href="/blogg" data-nb="← Alle innlegg" data-en="← All posts">← Alle innlegg</a>
+        {post.data.cta && (
+          <p class="article__cta"><a href={post.data.cta.href} data-umami-event="cta-click" data-umami-event-location="blog-end" data-umami-event-label={post.id}>{post.data.cta.text}</a></p>
+        )}
+        <a href="/blogg" data-nb="Alle innlegg" data-en="All posts">Alle innlegg</a>
       </footer>
     </div>
   </article>

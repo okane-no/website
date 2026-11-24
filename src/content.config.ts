@@ -8,6 +8,8 @@ const blog = defineCollection({
     description: z.string(),
     date: z.coerce.date(),
     tag: z.string().optional(),
+    // What the reader can do next, e.g. { text: 'Se hvordan Brage fyller ut aksjonærregisteroppgaven', href: '/brage' }
+    cta: z.object({ text: z.string(), href: z.string() }).optional(),
   }),
 });
 

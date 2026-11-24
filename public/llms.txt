@@ -1,0 +1,26 @@
+# Okane
+
+> Okane AS (organisasjonsnummer 938 401 934, Tønsberg) er et norsk konsulenthus som bygger og drifter nettsider, nettbutikker, mobilapper, Altinn-integrasjoner og AI-agenter for norske bedrifter. Vi drifter egne produkter i produksjon, og kunden eier koden, dataene og infrastrukturen.
+
+## Produkter
+
+- [Digital Mailroom](https://okane.no/mailroom): digitalt postmottak som henter post fra Altinn, EHF og e-post og ruter den til rett person. Selges også gjennom Canon som Altinn Downloader.
+- [Brage](https://okane.no/brage): fyller ut offentlige skjema i Altinn, som aksjonærregisteroppgaven, fra virksomhetens egne dokumenter, med kilde på hvert felt. En saksbehandler godkjenner før noe sendes inn. I pilot.
+- [Okane Commerce](https://okane.no/commerce): nettbutikk, kasse og lager i ett system for norske merkevarer, med Vipps, Klarna, frakt og regnskap.
+
+## Tjenester
+
+- [Integrasjoner](https://okane.no/integrasjoner): Altinn, Tripletex, Fiken, PowerOffice, Visma, Vipps og Klarna koblet til bedriftens systemer.
+- [Netthandel](https://okane.no/netthandel): nettbutikker på Shopify eller skreddersydd.
+- [Nettsider](https://okane.no/nettsider): raske, tilgjengelige nettsider som er enkle å oppdatere selv.
+- [Mobilapper](https://okane.no/mobilapper): apper for iOS og Android fra én kodebase.
+- [AI-agenter](https://okane.no/ai-agenter): agenter som gjør rutinearbeid i bedriftens systemer, med logg og tilgangsstyring.
+
+## Arbeid
+
+- [Prosjekter](https://okane.no/prosjekter): nettbutikker, plattformer og integrasjoner vi har levert.
+
+## Kontakt
+
+- E-post: hei@okane.no
+- Svar innen en arbeidsdag.
