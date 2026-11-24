@@ -2,6 +2,34 @@
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
+import MailNote from '~/components/sections/MailNote.astro';
+import Proof from '~/components/sections/Proof.astro';
+import Process from '~/components/sections/Process.astro';
+import FAQ from '~/components/sections/FAQ.astro';
+import CTA from '~/components/sections/CTA.astro';
+import { mailto, prompts } from '~/lib/contact';
+import wgForside from '~/assets/prosjekter/wild-games/forside.webp';
+
+const contact = mailto('Netthandel', prompts.project);
+
+const faq = [
+  {
+    q: 'Shopify eller Okane Commerce?',
+    a: 'Shopify passer når standardkassen og appene dekker behovet, som for <a href="/prosjekter/wild-games">Wild Games</a>. <a href="/commerce">Okane Commerce</a> passer når nettbutikk, fysisk kasse og lager skal være ett system. Vi anbefaler etter et arbeidsmøte, når vi vet hva dere selger og hvordan.',
+  },
+  {
+    q: 'Trenger vi egen avtale med Vipps og Klarna?',
+    a: 'Ja. Avtalene står i butikkens navn, så pengene går rett til dere. Vi hjelper med søknadene og kobler betalingen til kassen.',
+  },
+  {
+    q: 'Kan dere flytte nettbutikken vår?',
+    a: 'Ja. Produkter, kunder og ordrehistorikk flyttes med, og vi bytter over når den nye butikken er testet.',
+  },
+  {
+    q: 'Hva koster en nettbutikk?',
+    a: 'Du får en fast pris etter et arbeidsmøte, før vi starter. Prisen avhenger av plattform, sortiment og hvilke systemer butikken skal kobles til.',
+  },
+];
 ---
 
 <Layout
@@ -9,7 +37,7 @@ import Footer from '~/components/layout/Footer.astro';
   description="Vi bygger nettbutikker på Shopify eller skreddersydd, med Vipps, Klarna, frakt og regnskap koblet sammen. Pris før vi starter, og vi blir med i drift."
   schema={[{"@type": "Service", "name": "Netthandel", "serviceType": "Utvikling av nettbutikk", "url": "https://okane.no/netthandel", "description": "Nettbutikker med Vipps, Klarna, frakt og regnskap, på Shopify eller skreddersydd.", "provider": {"@id": "https://okane.no/#org"}, "areaServed": {"@type": "Country", "name": "Norge"}}]}
 >
-  <Header />
+  <Header ctaLabel="Be om pris og plan" ctaHref="#kontakt" ctaEvent="pris-og-plan" />
 
   <section class="hero">
     <div class="container">
@@ -18,17 +46,58 @@ import Footer from '~/components/layout/Footer.astro';
       </div>
 
       <h1 class="hero__headline hero__headline--page">
-        <span data-nb="Netthandel," data-en="E-commerce,">Netthandel,</span><br>
-        <em data-nb="som selger." data-en="that sells.">som selger.</em>
+        <span>Nettbutikk med Vipps,</span><br>
+        <em>frakt og regnskap på plass.</em>
       </h1>
 
-      <p class="hero__sub" data-nb="Fra første nettbutikk til skreddersydd plattform. Vi har bygget vår egen, så vi vet hva som skaper salg og hva som bare skaper kostnader." data-en="From your first webshop to a bespoke platform. We've built our own, so we know what drives sales and what just drives costs.">
-        Fra første nettbutikk til skreddersydd plattform. Vi har bygget vår egen, så vi vet hva som skaper salg og hva som bare skaper kostnader.
+      <p class="hero__sub">
+        Vi setter opp nettbutikken på Shopify, Okane Commerce eller skreddersøm, med betaling, frakt og regnskap koblet til fra start. Etter lansering drifter vi den videre.
       </p>
 
       <div class="hero__cta">
-        <a href="mailto:hei@okane.no?subject=Netthandel" class="btn btn--primary btn--lg" data-nb="Start et prosjekt" data-en="Start a project">Start et prosjekt</a>
-        <a href="/commerce" class="btn btn--secondary btn--lg" data-nb="Se Okane Commerce" data-en="See Okane Commerce">Se Okane Commerce</a>
+        <a href={contact} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="pris-og-plan">Be om pris og plan</a>
+        <a href="/prosjekter/wild-games" class="btn btn--secondary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="se-wild-games">Se Wild Games-butikken</a>
+      </div>
+      <MailNote location="hero" />
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <header class="block__header reveal">
+        <div class="block__sub-wrap">
+          <h2 class="block__title">Hele kjeden, ett ansvar.</h2>
+          <p class="block__sub">
+            Butikk, betaling, frakt, lager og regnskap henger sammen, og vi svarer for hele kjeden.
+          </p>
+        </div>
+      </header>
+
+      <div class="caps reveal">
+        <div class="cap">
+          <div class="cap__body">
+            <h4>Riktig plattform</h4>
+            <p>Shopify, Okane Commerce eller skreddersøm. Vi anbefaler det som passer størrelsen og planene dine, ikke det vi tjener mest på.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__body">
+            <h4>Betaling og frakt</h4>
+            <p>Vipps, Klarna, Posten og Bring satt opp i kassen, med avtalene i butikkens eget navn.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__body">
+            <h4>Regnskap og lager</h4>
+            <p>Toveis integrasjon mot Tripletex, Fiken, PowerOffice eller Visma, og lagertall som er like i butikken og på nett.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__body">
+            <h4>Migrering</h4>
+            <p>Vi flytter butikken med produkter, kunder og ordrehistorikk, og bytter over når den nye er testet.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -37,54 +106,59 @@ import Footer from '~/components/layout/Footer.astro';
     <div class="container">
       <header class="block__header reveal">
         <div class="block__sub-wrap">
-          <h2 class="block__title" data-nb="Hele kjeden, ett ansvar." data-en="The whole chain, one responsibility.">Hele kjeden, ett ansvar.</h2>
-          <p class="block__sub" data-nb="Butikk, betaling, frakt, lager og regnskap som henger sammen. Ikke ti leverandører som peker på hverandre." data-en="Store, payments, shipping, inventory and accounting that fit together. Not ten vendors pointing at each other.">
-            Butikk, betaling, frakt, lager og regnskap som henger sammen. Ikke ti leverandører som peker på hverandre.
+          <h2 class="block__title">Slik setter vi opp Vipps og Klarna i nettbutikken.</h2>
+          <p class="block__sub">
+            Norske kunder venter å se Vipps og Klarna i kassen. Oppsettet tar tre steg, og vi tar dem sammen med dere.
           </p>
         </div>
       </header>
 
-      <div class="caps reveal">
+      <div class="caps caps--steps caps--three reveal">
         <div class="cap">
+          <div class="cap__num">1</div>
           <div class="cap__body">
-            <h4 data-nb="Riktig plattform" data-en="The right platform">Riktig plattform</h4>
-            <p data-nb="Shopify, Okane Commerce eller skreddersøm. Vi anbefaler det som passer størrelsen og planene dine, ikke det vi tjener mest på." data-en="Shopify, Okane Commerce or bespoke. We recommend what fits your size and plans, not what pays us the most.">Shopify, Okane Commerce eller skreddersøm. Vi anbefaler det som passer størrelsen og planene dine, ikke det vi tjener mest på.</p>
+            <h4>Avtalene</h4>
+            <p>Butikken søker om avtale med Vipps MobilePay og Klarna. Vi sier hva de spør om, og fyller ut det tekniske.</p>
           </div>
         </div>
         <div class="cap">
+          <div class="cap__num">2</div>
           <div class="cap__body">
-            <h4 data-nb="Betaling og frakt" data-en="Payments and shipping">Betaling og frakt</h4>
-            <p data-nb="Vipps, Klarna, Posten og Bring ferdig satt opp. Norske kunder får kassen de forventer." data-en="Vipps, Klarna, Posten and Bring set up and ready. Norwegian customers get the checkout they expect.">Vipps, Klarna, Posten og Bring ferdig satt opp. Norske kunder får kassen de forventer.</p>
+            <h4>Kassen</h4>
+            <p>Vi kobler Vipps Hurtigkasse og Klarna til kassen og tester kjøp, refusjon og delvis levering i et testmiljø.</p>
           </div>
         </div>
         <div class="cap">
+          <div class="cap__num">3</div>
           <div class="cap__body">
-            <h4 data-nb="Regnskap og lager" data-en="Accounting and inventory">Regnskap og lager</h4>
-            <p data-nb="Toveis integrasjon mot regnskap og ERP, og lager som stemmer på tvers av kanaler." data-en="Two-way integration with accounting and ERP, and inventory that adds up across channels.">Toveis integrasjon mot regnskap og ERP, og lager som stemmer på tvers av kanaler.</p>
-          </div>
-        </div>
-        <div class="cap">
-          <div class="cap__body">
-            <h4 data-nb="Migrering" data-en="Migration">Migrering</h4>
-            <p data-nb="Vi flytter butikken din med produkter, kunder og ordrehistorikk, uten at salget stopper." data-en="We move your store with products, customers and order history, without stopping sales.">Vi flytter butikken din med produkter, kunder og ordrehistorikk, uten at salget stopper.</p>
+            <h4>Regnskapet</h4>
+            <p>Hver betaling føres mot ordren i regnskapssystemet, så utbetalingene fra Vipps og Klarna kan avstemmes mot salget.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="cta">
-    <div class="container">
-      <h2 data-nb="Hva selger du?" data-en="What do you sell?">Hva selger du?</h2>
-      <p data-nb="Fortell oss om butikken din, så svarer vi med plattformvalg, plan og pris." data-en="Tell us about your store and we'll reply with a platform choice, a plan and a price.">
-        Fortell oss om butikken din, så svarer vi med plattformvalg, plan og pris.
-      </p>
-      <div class="cta__row">
-        <a href="mailto:hei@okane.no?subject=Netthandel" class="btn btn--primary btn--xl" data-nb="Skriv til oss" data-en="Write to us">Skriv til oss</a>
-        <a href="/commerce" class="btn btn--ghost btn--xl" data-nb="Se Okane Commerce" data-en="See Okane Commerce">Se Okane Commerce</a>
-      </div>
-    </div>
-  </section>
+  <Proof
+    title="Wild Games selger Magic-kort fra en Shopify-butikk vi har bygget."
+    text="Wild Games er en spesialbutikk for Magic: The Gathering, med singles, boosters, commander-decks og tilbehør. Nettbutikken drives side om side med den fysiske butikken, og Wild Games styrer produkter og kampanjer selv."
+    href="/prosjekter/wild-games"
+    label="Se Wild Games-butikken"
+    event="se-wild-games"
+    image={wgForside}
+    alt="Forsiden til nettbutikken wildgames.no"
+  />
+
+  <Process />
+
+  <FAQ title="Spørsmål om nettbutikk." sub="Det vi oftest får spørsmål om før en nettbutikk. Lurer du på noe annet, er det bare å spørre." items={faq} />
+
+  <CTA
+    title="Hva selger du?"
+    text="Fortell oss om butikken din, så svarer vi med plattformvalg, plan og pris."
+    primary={{ label: 'Be om pris og plan', href: contact, event: 'pris-og-plan' }}
+    secondary={{ label: 'Se Okane Commerce', href: '/commerce', event: 'se-commerce' }}
+  />
 
   <Footer />
 </Layout>

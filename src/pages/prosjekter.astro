@@ -3,9 +3,13 @@ import { Image } from 'astro:assets';
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
+import MailNote from '~/components/sections/MailNote.astro';
+import { mailto, prompts } from '~/lib/contact';
 import wgForside from '~/assets/prosjekter/wild-games/forside.webp';
 import spactForside from '~/assets/prosjekter/spact/forside.webp';
 import eluForside from '~/assets/prosjekter/eventlink-unity/forside.webp';
+
+const contact = mailto('Prosjekt', prompts.project);
 ---
 
 <Layout
@@ -79,16 +83,15 @@ import eluForside from '~/assets/prosjekter/eventlink-unity/forside.webp';
           </div>
         </a>
 
-        <a class="proj proj--next" href="mailto:hei@okane.no?subject=Prosjekt">
+        <a class="proj proj--next" href={contact} data-umami-event="cta-click" data-umami-event-location="proj-card" data-umami-event-label="pris-og-plan">
           <div class="proj__body">
             <h3 data-nb="Ditt prosjekt?" data-en="Your project?">Ditt prosjekt?</h3>
-            <p data-nb="Det neste kortet her kan være ditt. Fortell oss hva du vil bygge, så svarer vi innen en arbeidsdag." data-en="The next card here could be yours. Tell us what you want to build and we'll reply within one working day.">
-              Det neste kortet her kan være ditt. Fortell oss hva du vil bygge, så svarer vi innen en arbeidsdag.
-            </p>
-            <span class="pcard__link" data-nb="Skriv til oss" data-en="Write to us">Skriv til oss</span>
+            <p>Det neste kortet her kan være ditt. Fortell oss hva du vil bygge, så svarer vi med pris og plan.</p>
+            <span class="pcard__link">Be om pris og plan</span>
           </div>
         </a>
       </div>
+      <MailNote location="proj-card" />
     </div>
   </section>
 

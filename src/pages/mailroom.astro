@@ -2,6 +2,11 @@
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
+import MailNote from '~/components/sections/MailNote.astro';
+import CTA from '~/components/sections/CTA.astro';
+import { mailto, prompts } from '~/lib/contact';
+
+const demo = mailto('Demo Digital Mailroom', prompts.mailroom);
 ---
 
 <Layout
@@ -11,7 +16,7 @@ import Footer from '~/components/layout/Footer.astro';
   imageAlt="Digital Mailroom: All post. Ett mottak."
   schema={[{"@type": "SoftwareApplication", "name": "Digital Mailroom", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "nb", "url": "https://okane.no/mailroom", "description": "Digitalt postmottak som henter post fra Altinn, EHF og e-post og ruter den til rett person.", "publisher": {"@id": "https://okane.no/#org"}}]}
 >
-  <Header />
+  <Header ctaLabel="Be om en demo" ctaHref="#kontakt" ctaEvent="demo-mailroom" />
 
   <section class="hero">
     <div class="container">
@@ -24,14 +29,15 @@ import Footer from '~/components/layout/Footer.astro';
         <em data-nb="Ett mottak." data-en="One mailroom.">Ett mottak.</em>
       </h1>
 
-      <p class="hero__sub" data-nb="Viktig post fra Altinn leses for sent, av feil person, eller ikke i det hele tatt. Digital Mailroom samler post fra Altinn, EHF og e-post i én strøm, sorterer og ruter automatisk til rett person." data-en="Important mail from Altinn gets read too late, by the wrong person, or not at all. Digital Mailroom collects mail from Altinn, EHF and email into one stream, then classifies and routes it automatically to the right person.">
-        Viktig post fra Altinn leses for sent, av feil person, eller ikke i det hele tatt. Digital Mailroom samler post fra Altinn, EHF og e-post i én strøm, sorterer og ruter automatisk til rett person.
+      <p class="hero__sub" data-nb="Viktig post fra Altinn leses for sent, av feil person, eller ikke i det hele tatt. Digital Mailroom samler post fra Altinn, EHF og e-post i én strøm og ruter den til rett person." data-en="Important mail from Altinn gets read too late, by the wrong person, or not at all. Digital Mailroom collects mail from Altinn, EHF and email into one stream and routes it to the right person.">
+        Viktig post fra Altinn leses for sent, av feil person, eller ikke i det hele tatt. Digital Mailroom samler post fra Altinn, EHF og e-post i én strøm og ruter den til rett person.
       </p>
 
       <div class="hero__cta">
-        <a href="mailto:hei@okane.no?subject=Demo%20Digital%20Mailroom" class="btn btn--primary btn--lg" data-nb="Se en demo" data-en="See a demo">Se en demo</a>
-        <a href="/#produkter" class="btn btn--secondary btn--lg" data-nb="Alle produkter" data-en="All products">Alle produkter</a>
+        <a href={demo} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="demo-mailroom">Be om en demo</a>
+        <a href="/altinn-integrasjon" class="btn btn--secondary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="se-altinn-integrasjon">Les om Altinn-integrasjon</a>
       </div>
+      <MailNote location="hero" />
 
       <div class="hero__meta">
         <span><b data-nb="Altinn, EHF og e-post" data-en="Altinn, EHF and email">Altinn, EHF og e-post</b> <span data-nb="i én strøm" data-en="in one stream">i én strøm</span></span>
@@ -63,16 +69,16 @@ import Footer from '~/components/layout/Footer.astro';
                   <td><span class="badge badge--info"><span class="dot"></span><span data-nb="Rutet til økonomi" data-en="Routed to finance">Rutet til økonomi</span></span></td>
                 </tr>
                 <tr>
-                  <td data-nb="Faktura #B-4821" data-en="Invoice #B-4821">Faktura #B-4821</td>
-                  <td>Bring</td>
-                  <td><span class="mono">EHF</span></td>
-                  <td><span class="badge badge--success"><span class="dot"></span><span data-nb="Arkivert" data-en="Archived">Arkivert</span></span></td>
+                  <td data-nb="Varsel om tvangsmulkt" data-en="Notice of coercive fine">Varsel om tvangsmulkt</td>
+                  <td>Brønnøysundregistrene</td>
+                  <td><span class="mono">Altinn</span></td>
+                  <td><span class="badge badge--info"><span class="dot"></span><span data-nb="Rutet til daglig leder" data-en="Routed to the CEO">Rutet til daglig leder</span></span></td>
                 </tr>
                 <tr>
                   <td data-nb="Signert kontrakt" data-en="Signed contract">Signert kontrakt</td>
                   <td>Nordvik Eiendom</td>
                   <td><span class="mono" data-nb="E-post" data-en="Email">E-post</span></td>
-                  <td><span class="badge badge--warning"><span class="dot"></span><span data-nb="Til godkjenning" data-en="Awaiting approval">Til godkjenning</span></span></td>
+                  <td><span class="badge badge--success"><span class="dot"></span><span data-nb="Arkivert" data-en="Archived">Arkivert</span></span></td>
                 </tr>
               </tbody>
             </table>
@@ -87,8 +93,8 @@ import Footer from '~/components/layout/Footer.astro';
       <header class="block__header reveal">
         <div class="block__sub-wrap">
           <h2 class="block__title" data-nb="Fra innboks-kaos&lt;br&gt;til ett arkiv." data-en="From inbox chaos&lt;br&gt;to one archive.">Fra innboks-kaos<br>til ett arkiv.</h2>
-          <p class="block__sub" data-nb="Alt inngående samles, sorteres og spores. Ingen post blir liggende ulest i en innboks noen sluttet å sjekke." data-en="Everything inbound is collected, classified and tracked. No mail left unread in an inbox someone stopped checking.">
-            Alt inngående samles, sorteres og spores. Ingen post blir liggende ulest i en innboks noen sluttet å sjekke.
+          <p class="block__sub" data-nb="All inngående post samles på ett sted og spores til noen har tatt den." data-en="All incoming mail is collected in one place and tracked until someone has picked it up.">
+            All inngående post samles på ett sted og spores til noen har tatt den.
           </p>
         </div>
       </header>
@@ -96,20 +102,20 @@ import Footer from '~/components/layout/Footer.astro';
       <div class="caps reveal">
         <div class="cap">
           <div class="cap__body">
-            <h4>Altinn Downloader <span class="badge badge--info"><span class="dot"></span><span data-nb="Standard subprodukt" data-en="Standard sub-product">Standard subprodukt</span></span></h4>
-            <p data-nb="Følger med. Overvåker Altinn-innboksen, laster ned nye meldinger og vedlegg og arkiverer dem automatisk." data-en="Included. Watches your Altinn inbox, downloads new messages and attachments and archives them automatically.">Følger med. Overvåker Altinn-innboksen, laster ned nye meldinger og vedlegg og arkiverer dem automatisk.</p>
+            <h4 data-nb="Altinn-innboksen" data-en="The Altinn inbox">Altinn-innboksen</h4>
+            <p data-nb="Digital Mailroom overvåker Altinn-innboksen, laster ned nye meldinger og vedlegg og arkiverer dem automatisk." data-en="Digital Mailroom watches your Altinn inbox, downloads new messages and attachments and archives them automatically.">Digital Mailroom overvåker Altinn-innboksen, laster ned nye meldinger og vedlegg og arkiverer dem automatisk.</p>
           </div>
         </div>
         <div class="cap">
           <div class="cap__body">
             <h4 data-nb="Automatisk ruting" data-en="Automatic routing">Automatisk ruting</h4>
-            <p data-nb="Dokumenter klassifiseres og sendes til rett person eller avdeling, etter regler dere styrer selv." data-en="Documents are classified and sent to the right person or department, following rules you control.">Dokumenter klassifiseres og sendes til rett person eller avdeling, etter regler dere styrer selv.</p>
+            <p data-nb="Post rutes til rett person eller avdeling etter regler dere styrer selv." data-en="Mail is routed to the right person or department by rules you control.">Post rutes til rett person eller avdeling etter regler dere styrer selv.</p>
           </div>
         </div>
         <div class="cap">
           <div class="cap__body">
             <h4 data-nb="Ett søkbart arkiv" data-en="One searchable archive">Ett søkbart arkiv</h4>
-            <p data-nb="Alt lagres samlet og søkbart, med historikk på hvem som har sett og godkjent hva." data-en="Everything is stored in one searchable place, with a history of who has seen and approved what.">Alt lagres samlet og søkbart, med historikk på hvem som har sett og godkjent hva.</p>
+            <p data-nb="Alt lagres samlet og søkbart, med historikk på hvem som har sett og håndtert hva." data-en="Everything is stored in one searchable place, with a history of who has seen and handled what.">Alt lagres samlet og søkbart, med historikk på hvem som har sett og håndtert hva.</p>
           </div>
         </div>
         <div class="cap">
@@ -121,31 +127,27 @@ import Footer from '~/components/layout/Footer.astro';
         <div class="cap">
           <div class="cap__body">
             <h4 data-nb="EHF og e-post" data-en="EHF and email">EHF og e-post</h4>
-            <p data-nb="Faktura og annen post går inn i samme strøm, uansett kanal. Én rutine for alt inngående." data-en="Invoices and other mail enter the same stream, whatever the channel. One routine for everything inbound.">Faktura og annen post går inn i samme strøm, uansett kanal. Én rutine for alt inngående.</p>
+            <p data-nb="EHF og e-post havner i samme strøm som Altinn-posten. Én rutine for all inngående post." data-en="EHF and email land in the same stream as your Altinn mail. One routine for all incoming mail.">EHF og e-post havner i samme strøm som Altinn-posten. Én rutine for all inngående post.</p>
           </div>
         </div>
         <div class="cap">
           <div class="cap__body">
             <h4 data-nb="API og eksport" data-en="API and export">API og eksport</h4>
-            <p data-nb="Koble arkivet til fagsystemene deres, eller hent alt ut når dere vil. Ingen innlåsing." data-en="Connect the archive to your line-of-business systems, or export everything whenever you want. No lock-in.">Koble arkivet til fagsystemene deres, eller hent alt ut når dere vil. Ingen innlåsing.</p>
+            <p data-nb="Koble arkivet til fagsystemene deres, eller hent alt ut når dere vil." data-en="Connect the archive to your line-of-business systems, or export everything whenever you want.">Koble arkivet til fagsystemene deres, eller hent alt ut når dere vil.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="cta">
-    <div class="container">
-      <h2 data-nb="Få postmottaket på skinner." data-en="Get your mailroom on rails.">Få postmottaket på skinner.</h2>
-      <p data-nb="Send noen linjer om hvordan posten håndteres i dag, så viser vi hva Digital Mailroom ville gjort med den." data-en="Send a few lines about how your mail is handled today, and we'll show you what Digital Mailroom would do with it.">
-        Send noen linjer om hvordan posten håndteres i dag, så viser vi hva Digital Mailroom ville gjort med den.
-      </p>
-      <div class="cta__row">
-        <a href="mailto:hei@okane.no?subject=Demo%20Digital%20Mailroom" class="btn btn--primary btn--xl" data-nb="Se en demo" data-en="See a demo">Se en demo</a>
-        <a href="/" class="btn btn--ghost btn--xl" data-nb="Tilbake til forsiden" data-en="Back to the front page">Tilbake til forsiden</a>
-      </div>
-    </div>
-  </section>
+  <CTA
+    title="Se hvor posten deres havner i dag."
+    text="Send noen linjer om hvordan posten håndteres i dag, så viser vi hva Digital Mailroom ville gjort med den."
+    primary={{ label: 'Be om en demo', href: demo, event: 'demo-mailroom' }}
+    secondary={{ label: 'Les om Altinn-integrasjon', href: '/altinn-integrasjon', event: 'se-altinn-integrasjon' }}
+  >
+    <p class="cta__aside">Kunde hos Canon? Digital Mailroom selges også gjennom Canon som Altinn Downloader. Spør om den hos din kontakt der.</p>
+  </CTA>
 
   <Footer />
 </Layout>

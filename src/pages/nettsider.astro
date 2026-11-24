@@ -2,6 +2,34 @@
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
+import MailNote from '~/components/sections/MailNote.astro';
+import Proof from '~/components/sections/Proof.astro';
+import Process from '~/components/sections/Process.astro';
+import FAQ from '~/components/sections/FAQ.astro';
+import CTA from '~/components/sections/CTA.astro';
+import { mailto, prompts } from '~/lib/contact';
+import spactForside from '~/assets/prosjekter/spact/forside.webp';
+
+const contact = mailto('Nettsider', prompts.project);
+
+const faq = [
+  {
+    q: 'Kan vi oppdatere nettsiden selv?',
+    a: 'Ja. Dere får et publiseringsverktøy for tekst, bilder og nye sider, og vi viser dere hvordan det brukes før lansering.',
+  },
+  {
+    q: 'Kan dere flytte innholdet fra den gamle siden?',
+    a: 'Ja. Vi flytter tekst og bilder og setter opp videresendinger fra de gamle adressene, så lenker og søkeresultater fortsatt fører til riktig side.',
+  },
+  {
+    q: 'Hvor lang tid tar det?',
+    a: 'Noe kjører i et testmiljø fra første uke. Hvor lang tid resten tar, står i forslaget sammen med prisen.',
+  },
+  {
+    q: 'Hva koster en nettside?',
+    a: 'Det avhenger av antall sider, innhold og hva siden skal kobles til. Du får en fast pris etter et arbeidsmøte, før vi starter.',
+  },
+];
 ---
 
 <Layout
@@ -9,7 +37,7 @@ import Footer from '~/components/layout/Footer.astro';
   description="Raske, tilgjengelige nettsider for bedrifter, bygget for å bli funnet i søk og enkle å oppdatere selv. Vi blir med videre i drift."
   schema={[{"@type": "Service", "name": "Nettsider", "serviceType": "Utvikling av nettsider", "url": "https://okane.no/nettsider", "description": "Raske, tilgjengelige nettsider for bedrifter, enkle å oppdatere selv.", "provider": {"@id": "https://okane.no/#org"}, "areaServed": {"@type": "Country", "name": "Norge"}}]}
 >
-  <Header />
+  <Header ctaLabel="Be om pris og plan" ctaHref="#kontakt" ctaEvent="pris-og-plan" />
 
   <section class="hero">
     <div class="container">
@@ -18,18 +46,19 @@ import Footer from '~/components/layout/Footer.astro';
       </div>
 
       <h1 class="hero__headline hero__headline--page">
-        <span data-nb="Nettsider," data-en="Websites,">Nettsider,</span><br>
-        <em data-nb="som blir funnet." data-en="that get found.">som blir funnet.</em>
+        <span>Nettsider du</span><br>
+        <em>oppdaterer selv.</em>
       </h1>
 
-      <p class="hero__sub" data-nb="Nettsiden er ofte førsteinntrykket. Vi bygger den rask, synlig i søk og enkel å oppdatere selv, uten å ringe et byrå for hver endring." data-en="Your website is often the first impression. We build it fast, visible in search and easy to update yourself, without calling an agency for every change.">
-        Nettsiden er ofte førsteinntrykket. Vi bygger den rask, synlig i søk og enkel å oppdatere selv, uten å ringe et byrå for hver endring.
+      <p class="hero__sub">
+        Vi lager struktur, tekst og design, bygger siden rask og lett å finne i søk, og viser dere hvordan dere publiserer selv. Når dere trenger mer, er vi fortsatt her.
       </p>
 
       <div class="hero__cta">
-        <a href="mailto:hei@okane.no?subject=Nettsider" class="btn btn--primary btn--lg" data-nb="Start et prosjekt" data-en="Start a project">Start et prosjekt</a>
-        <a href="/#tjenester" class="btn btn--secondary btn--lg" data-nb="Alle tjenester" data-en="All services">Alle tjenester</a>
+        <a href={contact} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="pris-og-plan">Be om pris og plan</a>
+        <a href="/prosjekter" class="btn btn--secondary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="se-prosjektene">Se prosjektene</a>
       </div>
+      <MailNote location="hero" />
     </div>
   </section>
 
@@ -37,9 +66,9 @@ import Footer from '~/components/layout/Footer.astro';
     <div class="container">
       <header class="block__header reveal">
         <div class="block__sub-wrap">
-          <h2 class="block__title" data-nb="Bygget for å vare." data-en="Built to last.">Bygget for å vare.</h2>
-          <p class="block__sub" data-nb="En nettside som jobber for deg, og som teamet ditt kan eie selv etter lansering." data-en="A website that works for you, and that your team can own after launch.">
-            En nettside som jobber for deg, og som teamet ditt kan eie selv etter lansering.
+          <h2 class="block__title">Bygget for å vare.</h2>
+          <p class="block__sub">
+            En nettside teamet ditt kan eie og oppdatere selv etter lansering.
           </p>
         </div>
       </header>
@@ -47,44 +76,52 @@ import Footer from '~/components/layout/Footer.astro';
       <div class="caps reveal">
         <div class="cap">
           <div class="cap__body">
-            <h4 data-nb="Design og innhold" data-en="Design and content">Design og innhold</h4>
-            <p data-nb="Struktur, tekst og uttrykk som passer merkevaren din, ikke en mal fra et tema-bibliotek." data-en="Structure, copy and expression that fit your brand, not a template from a theme library.">Struktur, tekst og uttrykk som passer merkevaren din, ikke en mal fra et tema-bibliotek.</p>
+            <h4>Design og innhold</h4>
+            <p>Struktur, tekst og uttrykk laget for merkevaren din.</p>
           </div>
         </div>
         <div class="cap">
           <div class="cap__body">
-            <h4 data-nb="SEO og ytelse" data-en="SEO and performance">SEO og ytelse</h4>
-            <p data-nb="Bygget for å bli funnet i søk og score på Core Web Vitals. Fart er ikke en ettertanke." data-en="Built to be found in search and score on Core Web Vitals. Speed is not an afterthought.">Bygget for å bli funnet i søk og score på Core Web Vitals. Fart er ikke en ettertanke.</p>
+            <h4>SEO og ytelse</h4>
+            <p>Siden bygges for å lastes raskt og bli funnet i søk, og vi måler Core Web Vitals før lansering.</p>
           </div>
         </div>
         <div class="cap">
           <div class="cap__body">
-            <h4 data-nb="Enkel publisering" data-en="Easy publishing">Enkel publisering</h4>
-            <p data-nb="Du oppdaterer innholdet selv, med opplæring inkludert. Ingen byrå på timepris for å bytte et bilde." data-en="You update the content yourself, training included. No agency on hourly rates to swap an image.">Du oppdaterer innholdet selv, med opplæring inkludert. Ingen byrå på timepris for å bytte et bilde.</p>
+            <h4>Enkel publisering</h4>
+            <p>Dere oppdaterer tekst, bilder og sider selv, og opplæringen er med i prisen.</p>
           </div>
         </div>
         <div class="cap">
           <div class="cap__body">
-            <h4 data-nb="Universell utforming" data-en="Accessibility">Universell utforming</h4>
-            <p data-nb="Tilgjengelig for alle og i tråd med kravene, fra første versjon. Ikke en opprydding i etterkant." data-en="Accessible to everyone and compliant with the requirements, from version one. Not a cleanup afterwards.">Tilgjengelig for alle og i tråd med kravene, fra første versjon. Ikke en opprydding i etterkant.</p>
+            <h4>Universell utforming</h4>
+            <p>Følger kravene til universell utforming fra første versjon.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="cta">
-    <div class="container">
-      <h2 data-nb="Klar for en nettside som jobber for deg?" data-en="Ready for a website that works for you?">Klar for en nettside som jobber for deg?</h2>
-      <p data-nb="Send oss dagens nettside, så svarer vi med hva vi ville gjort annerledes. Helt uforpliktende." data-en="Send us your current website and we'll reply with what we would do differently. No strings attached.">
-        Send oss dagens nettside, så svarer vi med hva vi ville gjort annerledes. Helt uforpliktende.
-      </p>
-      <div class="cta__row">
-        <a href="mailto:hei@okane.no?subject=Nettsider" class="btn btn--primary btn--xl" data-nb="Skriv til oss" data-en="Write to us">Skriv til oss</a>
-        <a href="/" class="btn btn--ghost btn--xl" data-nb="Tilbake til forsiden" data-en="Back to the front page">Tilbake til forsiden</a>
-      </div>
-    </div>
-  </section>
+  <Proof
+    title="Spact samler innmelding, kalender og ligatabeller på ett sted."
+    text="Medlems- og arrangementsplattform for Summoner's Pact, en forening for samlekortspill og brettspill. Nye medlemmer melder seg inn og betaler på siden, og arrangementer og ligatabeller ligger ved siden av."
+    href="https://www.spact.no"
+    label="Se spact.no"
+    event="se-spact"
+    image={spactForside}
+    alt="Forsiden til spact.no"
+  />
+
+  <Process />
+
+  <FAQ title="Spørsmål om nettsider." sub="Det vi oftest får spørsmål om før en ny nettside. Lurer du på noe annet, er det bare å spørre." items={faq} />
+
+  <CTA
+    title="Klar for en nettside dere styrer selv?"
+    text="Send oss adressen til dagens nettside, så svarer vi med hva vi ville gjort annerledes og hva det vil koste."
+    primary={{ label: 'Be om pris og plan', href: contact, event: 'pris-og-plan' }}
+    secondary={{ label: 'Se prosjektene', href: '/prosjekter', event: 'se-prosjektene' }}
+  />
 
   <Footer />
 </Layout>

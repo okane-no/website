@@ -2,6 +2,11 @@
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
+import MailNote from '~/components/sections/MailNote.astro';
+import CTA from '~/components/sections/CTA.astro';
+import { mailto, prompts } from '~/lib/contact';
+
+const demo = mailto('Demo Okane Commerce', prompts.commerce);
 ---
 
 <Layout
@@ -9,7 +14,7 @@ import Footer from '~/components/layout/Footer.astro';
   description="Okane Commerce samler nettbutikk, kasse og lager i ett system for norske merkevarer, med Vipps og Klarna. Driftes av oss."
   schema={[{"@type": "SoftwareApplication", "name": "Okane Commerce", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "nb", "url": "https://okane.no/commerce", "description": "Nettbutikk, kasse og lager i ett system for norske merkevarer, med Vipps, Klarna, frakt og regnskap.", "publisher": {"@id": "https://okane.no/#org"}}]}
 >
-  <Header />
+  <Header ctaLabel="Be om en demo" ctaHref="#kontakt" ctaEvent="demo-commerce" />
 
   <section class="hero">
     <div class="container">
@@ -27,9 +32,10 @@ import Footer from '~/components/layout/Footer.astro';
       </p>
 
       <div class="hero__cta">
-        <a href="mailto:hei@okane.no?subject=Demo%20Okane%20Commerce" class="btn btn--primary btn--lg" data-nb="Be om en demo" data-en="Request a demo">Be om en demo</a>
-        <a href="/#produkter" class="btn btn--secondary btn--lg" data-nb="Alle produkter" data-en="All products">Alle produkter</a>
+        <a href={demo} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="demo-commerce">Be om en demo</a>
+        <a href="/netthandel" class="btn btn--secondary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="se-netthandel">Les om netthandel</a>
       </div>
+      <MailNote location="hero" lead="20 minutter på video." />
 
       <div class="hero__meta">
         <span><b data-nb="Vipps og Klarna" data-en="Vipps and Klarna">Vipps og Klarna</b> <span data-nb="innebygd" data-en="built in">innebygd</span></span>
@@ -156,7 +162,7 @@ import Footer from '~/components/layout/Footer.astro';
         <div class="cap">
           <div class="cap__body">
             <h4 data-nb="Vipps Hurtigkasse" data-en="Vipps Fast Checkout">Vipps Hurtigkasse</h4>
-            <p data-nb="Ferdig integrert, uten ekstra avtale. Norske kunder konverterer best med Vipps." data-en="Fully integrated, no extra contract. Norwegian customers convert best with Vipps.">Ferdig integrert, uten ekstra avtale. Norske kunder konverterer best med Vipps.</p>
+            <p data-nb="Ferdig satt opp i kassen. Du trenger bare en avtale med Vipps MobilePay." data-en="Set up in the checkout. All you need is an agreement with Vipps MobilePay.">Ferdig satt opp i kassen. Du trenger bare en avtale med Vipps MobilePay.</p>
           </div>
         </div>
         <div class="cap">
@@ -180,7 +186,7 @@ import Footer from '~/components/layout/Footer.astro';
         <div class="cap">
           <div class="cap__body">
             <h4 data-nb="Lager i sanntid" data-en="Real-time inventory">Lager i sanntid</h4>
-            <p data-nb="Selg i butikk og på nett uten dobbeltføring. Varsler om lavt lager når det gjelder, ikke i en mappe." data-en="Sell in-store and online without double counting. Low-stock alerts when it matters, not in a folder.">Selg i butikk og på nett uten dobbeltføring. Varsler om lavt lager når det gjelder, ikke i en mappe.</p>
+            <p data-nb="Selg i butikk og på nett fra samme lager. Du får varsel når en vare går under grensen du har satt." data-en="Sell in-store and online from the same stock. You're alerted when an item drops below the limit you set.">Selg i butikk og på nett fra samme lager. Du får varsel når en vare går under grensen du har satt.</p>
           </div>
         </div>
         <div class="cap">
@@ -193,18 +199,12 @@ import Footer from '~/components/layout/Footer.astro';
     </div>
   </section>
 
-  <section class="cta">
-    <div class="container">
-      <h2 data-nb="Se den med dine produkter." data-en="See it with your products.">Se den med dine produkter.</h2>
-      <p data-nb="20 minutter på video. Du får se plattformen, en pris og en plan før du legger på." data-en="20 minutes on a video call. You leave with a look at the platform, a price and a plan.">
-        20 minutter på video. Du får se plattformen, en pris og en plan før du legger på.
-      </p>
-      <div class="cta__row">
-        <a href="mailto:hei@okane.no?subject=Demo%20Okane%20Commerce" class="btn btn--primary btn--xl" data-nb="Be om en demo" data-en="Request a demo">Be om en demo</a>
-        <a href="/" class="btn btn--ghost btn--xl" data-nb="Tilbake til forsiden" data-en="Back to the front page">Tilbake til forsiden</a>
-      </div>
-    </div>
-  </section>
+  <CTA
+    title="Se den med dine produkter."
+    text="20 minutter på video. Du får se plattformen, en pris og en plan før du legger på."
+    primary={{ label: 'Be om en demo', href: demo, event: 'demo-commerce' }}
+    secondary={{ label: 'Les om netthandel', href: '/netthandel', event: 'se-netthandel' }}
+  />
 
   <Footer />
 </Layout>

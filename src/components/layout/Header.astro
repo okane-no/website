@@ -1,4 +1,14 @@
 ---
+// The header button goes to the page's own contact section and is named after the page's main
+// action: "Be om pris og plan" on service pages, "Be om en demo" on Commerce and Mailroom, and so on.
+interface Props {
+  ctaLabel?: string;
+  ctaHref?: string;
+  // data-umami-event-label for the header button
+  ctaEvent?: string;
+}
+
+const { ctaLabel = 'Kontakt oss', ctaHref = '/#kontakt', ctaEvent = 'kontakt' } = Astro.props;
 ---
 
 <nav class="topnav">
@@ -28,9 +38,9 @@
       <div class="navdrop">
         <a href="/#produkter" data-nb="Produkter" data-en="Products">Produkter</a>
         <div class="navdrop__menu">
-          <a href="/commerce">Okane Commerce</a>
-          <a href="/mailroom">Digital Mailroom</a>
-          <a href="/brage">Brage</a>
+          <a href="/commerce" data-umami-event="nav-product" data-umami-event-location="header" data-umami-event-label="commerce">Okane Commerce</a>
+          <a href="/mailroom" data-umami-event="nav-product" data-umami-event-location="header" data-umami-event-label="mailroom">Digital Mailroom</a>
+          <a href="/brage" data-umami-event="nav-product" data-umami-event-location="header" data-umami-event-label="brage">Brage</a>
         </div>
       </div>
       <a href="/prosjekter" data-nb="Prosjekter" data-en="Projects">Prosjekter</a>
@@ -43,7 +53,7 @@
           <circle cx="8" cy="8" r="3"/>
         </svg>
       </button>
-      <a class="btn btn--primary btn--sm" href="/#kontakt" data-nb="Start et prosjekt" data-en="Start a project">Start et prosjekt</a>
+      <a class="btn btn--primary btn--sm topnav__cta" href={ctaHref} data-umami-event="cta-click" data-umami-event-location="header" data-umami-event-label={ctaEvent}>{ctaLabel}</a>
       <button class="menu-btn" id="menu-btn" aria-label="Meny" aria-expanded="false" aria-controls="mobile-menu">
         <svg id="menu-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
           <path d="M2 4.5h12M2 8h12M2 11.5h12"/>
@@ -61,12 +71,12 @@
       <a href="/integrasjoner" data-nb="Integrasjoner" data-en="Integrations">Integrasjoner</a>
       <a href="/ai-agenter" data-nb="AI-agenter" data-en="AI agents">AI-agenter</a>
       <div class="mobilenav__label" data-nb="Produkter" data-en="Products">Produkter</div>
-      <a href="/commerce">Okane Commerce</a>
-      <a href="/mailroom">Digital Mailroom</a>
-      <a href="/brage">Brage</a>
+      <a href="/commerce" data-umami-event="nav-product" data-umami-event-location="header" data-umami-event-label="commerce">Okane Commerce</a>
+      <a href="/mailroom" data-umami-event="nav-product" data-umami-event-location="header" data-umami-event-label="mailroom">Digital Mailroom</a>
+      <a href="/brage" data-umami-event="nav-product" data-umami-event-location="header" data-umami-event-label="brage">Brage</a>
       <div class="mobilenav__label" data-nb="Selskapet" data-en="Company">Selskapet</div>
       <a href="/prosjekter" data-nb="Prosjekter" data-en="Projects">Prosjekter</a>
-      <a href="/#kontakt" data-nb="Kontakt" data-en="Contact">Kontakt</a>
+      <a href={ctaHref} data-nb="Kontakt" data-en="Contact">Kontakt</a>
     </div>
   </div>
 </nav>
