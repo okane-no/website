@@ -1,4 +1,8 @@
 ---
+import MailNote from '~/components/sections/MailNote.astro';
+import { mailto, prompts } from '~/lib/contact';
+
+const project = mailto('Prosjekt', prompts.project);
 ---
 
 <section class="hero">
@@ -9,19 +13,20 @@
         <em data-nb="vi skal drifte det." data-en="we'll run it.">vi skal drifte det.</em>
       </h1>
 
-      <p class="hero__sub" data-nb="Fordi vi faktisk gjør det. Okane er et konsulenthus med egne produkter i produksjon, og den standarden får du i alt vi leverer: nettsider, netthandel, mobilapper, integrasjoner og AI-agenter." data-en="Because we actually do. Okane is a consultancy with its own products in production, and that standard is what you get in everything we deliver: websites, e-commerce, mobile apps, integrations and AI agents.">
-        Fordi vi faktisk gjør det. Okane er et konsulenthus med egne produkter i produksjon, og den standarden får du i alt vi leverer: nettsider, netthandel, mobilapper, integrasjoner og AI-agenter.
+      <p class="hero__sub" data-nb="Vi drifter Okane Commerce og Digital Mailroom selv, med overvåking og beredskap. Det samme oppsettet får du når vi bygger nettside, nettbutikk, app, integrasjon eller AI-agent for deg." data-en="We run Okane Commerce and Digital Mailroom ourselves, with monitoring and on-call. You get the same setup when we build a website, online store, app, integration or AI agent for you.">
+        Vi drifter Okane Commerce og Digital Mailroom selv, med overvåking og beredskap. Det samme oppsettet får du når vi bygger nettside, nettbutikk, app, integrasjon eller AI-agent for deg.
       </p>
 
       <div class="hero__cta">
-        <a href="#kontakt" class="btn btn--primary btn--lg" data-nb="Start et prosjekt" data-en="Start a project">Start et prosjekt</a>
-        <a href="#tjenester" class="btn btn--secondary btn--lg" data-nb="Se tjenestene" data-en="See our services">Se tjenestene</a>
+        <a href={project} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="pris-og-plan">Be om pris og plan</a>
+        <a href="#tjenester" class="btn btn--secondary btn--lg" data-nb="Se tjenestene" data-en="See our services" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="se-tjenestene">Se tjenestene</a>
       </div>
+      <MailNote location="hero" />
 
       <div class="hero__meta">
         <span><b data-nb="Kjørende kode" data-en="Running code">Kjørende kode</b> <span data-nb="første uke" data-en="in week one">første uke</span></span>
         <span><b data-nb="Forutsigbar" data-en="Predictable">Forutsigbar</b> <span data-nb="pris" data-en="pricing">pris</span></span>
-        <span><b data-nb="Ingen innlåsing" data-en="No lock-in">Ingen innlåsing</b> <span data-nb="i våre systemer" data-en="to our systems">i våre systemer</span></span>
+        <span><b data-nb="Du eier" data-en="You own">Du eier</b> <span data-nb="koden" data-en="the code">koden</span></span>
       </div>
     </div>
 
@@ -32,11 +37,11 @@
       </div>
       <div class="livecard">
         <b>Digital Mailroom</b>
-        <small data-nb="Automatisk postmottak med Altinn Downloader" data-en="Automated mailroom with Altinn Downloader">Automatisk postmottak med Altinn Downloader</small>
+        <small data-nb="Post fra Altinn, EHF og e-post, rutet til rett person" data-en="Mail from Altinn, EHF and email, routed to the right person">Post fra Altinn, EHF og e-post, rutet til rett person</small>
       </div>
       <div class="livecard livecard--next">
         <b data-nb="Ditt prosjekt?" data-en="Your project?">Ditt prosjekt?</b>
-        <a href="#kontakt" data-nb="Start et prosjekt" data-en="Start a project">Start et prosjekt</a>
+        <a href={project} data-umami-event="cta-click" data-umami-event-location="livecard" data-umami-event-label="pris-og-plan">Be om pris og plan</a>
       </div>
     </div>
   </div>
