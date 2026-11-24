@@ -705,3 +705,62 @@ footer { padding: var(--space-16) 0 var(--space-12); border-top: 1px solid var(-
 .reveal { opacity: 1; }
 
 [data-en], [data-nb] { transition: opacity 200ms var(--ease-standard); }
+
+/* Under a button that opens an email: what happens, and the address to copy */
+.mailnote { margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-tertiary); line-height: 1.5; }
+.cta .mailnote { margin-top: var(--space-4); max-width: none; font-size: var(--text-sm); color: var(--text-secondary); }
+.mailnote__addr { color: var(--text-primary); font-weight: 600; }
+.mailnote__copy {
+  margin-left: var(--space-1); padding: 0; border: 0; background: none;
+  font: inherit; font-weight: 600; color: var(--text-link); cursor: pointer;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.mailnote__copy:hover { color: var(--text-link-hover); }
+
+/* One piece of proof on a service page */
+.proof { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-12); align-items: center; }
+.proof--text { grid-template-columns: minmax(0, 1fr); }
+.proof h2 { font-size: clamp(var(--text-2xl), 4.8vw, var(--text-4xl)); font-weight: 800; letter-spacing: var(--tracking-display); line-height: 1.0; text-wrap: balance; }
+.proof p { margin-top: var(--space-5); font-size: var(--text-base); color: var(--text-secondary); line-height: 1.55; max-width: 34em; }
+.proof .btn { margin-top: var(--space-6); }
+.proof__shot { border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; }
+.proof__shot img { display: block; width: 100%; height: auto; }
+@media (max-width: 880px) { .proof { grid-template-columns: 1fr; gap: var(--space-8); } }
+
+/* Question-and-answer sections, as on /altinn-integrasjon */
+.qa { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-12); padding: var(--space-10) 0; border-top: 1px solid var(--border-subtle); }
+.qa:last-child { border-bottom: 1px solid var(--border-subtle); }
+.qa h2 { font-size: var(--text-xl); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; text-wrap: balance; }
+.qa__body { font-size: var(--text-base); color: var(--text-secondary); line-height: 1.6; max-width: 38em; }
+.qa__body p + p, .qa__body p + ul, .qa__body ul + p { margin-top: var(--space-4); }
+.qa__body ul { padding-left: 1.2em; list-style: disc; }
+.qa__body li { margin-bottom: var(--space-2); }
+.qa__body a { text-decoration: underline; text-underline-offset: 3px; }
+.qa__body strong { color: var(--text-primary); }
+@media (max-width: 880px) { .qa { grid-template-columns: 1fr; gap: var(--space-4); } }
+.updated { margin-top: var(--space-6); font-size: var(--text-sm); color: var(--text-tertiary); }
+
+/* Brage's forms as a table */
+.forms-table td:first-child { font-weight: 600; color: var(--text-primary); }
+.forms-table td { vertical-align: top; }
+.forms-table .mono { white-space: nowrap; }
+@media (max-width: 720px) {
+  .forms-table thead { display: none; }
+  .forms-table, .forms-table tbody, .forms-table tr, .forms-table td { display: block; width: 100%; }
+  .forms-table tr { padding: var(--space-3) var(--space-4); }
+  .forms-table td { padding: 0; }
+  .forms-table td + td { color: var(--text-secondary); font-size: var(--text-xs); }
+  .forms-table td[data-label]::before { content: attr(data-label) ": "; color: var(--text-tertiary); }
+}
+
+/* Pilot steps on /brage */
+.pilot-terms { margin-top: var(--space-10); font-size: var(--text-base); color: var(--text-secondary); max-width: 40em; line-height: 1.55; }
+.cta .cta__aside { margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--border-default); font-size: var(--text-md); max-width: 40em; }
+.forms-wrap { margin-top: var(--space-10); }
+.forms-caption { caption-side: top; text-align: left; padding: var(--space-4); font-size: var(--text-md); font-weight: 700; color: var(--text-primary); border-bottom: 1px solid var(--border-subtle); }
+.caps--steps.caps--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1024px) { .caps--steps.caps--three { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .caps--steps.caps--three { grid-template-columns: 1fr; } }
+.qa--solo, .qa--solo:last-child { padding: 0; border: 0; }
+.nowrap { white-space: nowrap; }
+.qa:first-child { border-top: 0; padding-top: 0; }

@@ -1,15 +1,58 @@
 ---
+// The closing section on every page. The header button links here (#kontakt).
+import MailNote from '~/components/sections/MailNote.astro';
+import { mailto, prompts } from '~/lib/contact';
+
+interface Action {
+  label: string;
+  href: string;
+  // data-umami-event-label: what the click does, the same on every page
+  event: string;
+}
+
+interface Props {
+  title?: string;
+  text?: string;
+  primary?: Action;
+  secondary?: Action;
+  // Shown before the address under the primary button, e.g. "20 minutter på video."
+  lead?: string;
+}
+
+const {
+  title = 'Fortell oss hva du vil bygge.',
+  text = 'Send noen linjer om hva du trenger, så svarer vi med hvordan vi ville løst det og hva det vil koste.',
+  primary = { label: 'Be om pris og plan', href: mailto('Prosjekt', prompts.project), event: 'pris-og-plan' },
+  secondary = { label: 'Les vanlige spørsmål', href: '#faq', event: 'les-faq' },
+  lead,
+} = Astro.props;
+
+const isMail = primary.href.startsWith('mailto:');
 ---
 
 <section class="cta" id="kontakt">
   <div class="container">
-    <h2 data-nb="Fortell oss hva du vil bygge." data-en="Tell us what you want to build.">Fortell oss hva du vil bygge.</h2>
-    <p data-nb="Send noen linjer til hei@okane.no. Innen en arbeidsdag får du svar med hvordan vi ville løst det, og hva det vil koste." data-en="Send a few lines to hei@okane.no. Within one working day you'll get a reply with how we would solve it, and what it would cost.">
-      Send noen linjer til hei@okane.no. Innen en arbeidsdag får du svar med hvordan vi ville løst det, og hva det vil koste.
-    </p>
+    <h2>{title}</h2>
+    <p>{text}</p>
     <div class="cta__row">
-      <a href="mailto:hei@okane.no" class="btn btn--primary btn--xl" data-nb="Skriv til oss" data-en="Write to us">Skriv til oss</a>
-      <a href="#faq" class="btn btn--ghost btn--xl" data-nb="Les vanlige spørsmål" data-en="Read the FAQ">Les vanlige spørsmål</a>
+      <a
+        href={primary.href}
+        class="btn btn--primary btn--xl"
+        data-umami-event="cta-click"
+        data-umami-event-location="cta"
+        data-umami-event-label={primary.event}
+      >{primary.label}</a>
+      {secondary && (
+        <a
+          href={secondary.href}
+          class="btn btn--ghost btn--xl"
+          data-umami-event="cta-click"
+          data-umami-event-location="cta"
+          data-umami-event-label={secondary.event}
+        >{secondary.label}</a>
+      )}
     </div>
+    {isMail && <MailNote location="cta" lead={lead} />}
+    <slot />
   </div>
 </section>
