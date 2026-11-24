@@ -2,6 +2,32 @@
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
+import MailNote from '~/components/sections/MailNote.astro';
+import Process from '~/components/sections/Process.astro';
+import FAQ from '~/components/sections/FAQ.astro';
+import CTA from '~/components/sections/CTA.astro';
+import { mailto, prompts } from '~/lib/contact';
+
+const contact = mailto('Mobilapper', prompts.project);
+
+const faq = [
+  {
+    q: 'Trenger vi en app, eller holder en nettside?',
+    a: 'Ofte holder en nettside som fungerer godt på mobil. En app lønner seg når brukerne kommer tilbake ofte, trenger varsler eller skal jobbe uten dekning. Mener vi at en nettside holder, sier vi det.',
+  },
+  {
+    q: 'Hvem eier appen i App Store og Google Play?',
+    a: 'Dere. Appen publiseres på deres egne utviklerkontoer hos Apple og Google, og kildekoden er deres.',
+  },
+  {
+    q: 'Hva skjer etter lansering?',
+    a: 'Apple og Google gir ut nye versjoner av iOS og Android hvert år, og appen må følge med. Vi kan fortsette på en løpende avtale med oppdateringer, overvåking og ny funksjonalitet.',
+  },
+  {
+    q: 'Hva koster en app?',
+    a: 'Det avhenger av hvor mange skjermer appen har og hvilke systemer den skal snakke med. Du får en fast pris etter et arbeidsmøte, før vi starter.',
+  },
+];
 ---
 
 <Layout
@@ -9,7 +35,7 @@ import Footer from '~/components/layout/Footer.astro';
   description="Apper for kundene dine eller for feltarbeid, på iOS og Android fra én kodebase. Fra skisse til App Store, og drift etterpå."
   schema={[{"@type": "Service", "name": "Mobilapper", "serviceType": "Apputvikling", "url": "https://okane.no/mobilapper", "description": "Apper for iOS og Android fra én kodebase.", "provider": {"@id": "https://okane.no/#org"}, "areaServed": {"@type": "Country", "name": "Norge"}}]}
 >
-  <Header />
+  <Header ctaLabel="Be om pris og plan" ctaHref="#kontakt" ctaEvent="pris-og-plan" />
 
   <section class="hero">
     <div class="container">
@@ -18,18 +44,19 @@ import Footer from '~/components/layout/Footer.astro';
       </div>
 
       <h1 class="hero__headline hero__headline--page">
-        <span data-nb="Apper," data-en="Apps,">Apper,</span><br>
-        <em data-nb="som brukes." data-en="that get used.">som brukes.</em>
+        <span>Én app for iOS og Android,</span><br>
+        <em>fra skisse til App Store.</em>
       </h1>
 
-      <p class="hero__sub" data-nb="For kundene dine eller for feltarbeid og drift internt. iOS og Android fra én kodebase, fra første skisse til App Store." data-en="For your customers or for field work and internal operations. iOS and Android from one codebase, from first sketch to the App Store.">
-        For kundene dine eller for feltarbeid og drift internt. iOS og Android fra én kodebase, fra første skisse til App Store.
+      <p class="hero__sub">
+        For kundene dine eller for feltarbeid. Vi tester ideen som klikkbar prototype, bygger appen fra én kodebase og tar den gjennom godkjenningen i App Store og Google Play.
       </p>
 
       <div class="hero__cta">
-        <a href="mailto:hei@okane.no?subject=Mobilapper" class="btn btn--primary btn--lg" data-nb="Start et prosjekt" data-en="Start a project">Start et prosjekt</a>
-        <a href="/#tjenester" class="btn btn--secondary btn--lg" data-nb="Alle tjenester" data-en="All services">Alle tjenester</a>
+        <a href={contact} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="pris-og-plan">Be om pris og plan</a>
+        <a href="#prosess" class="btn btn--secondary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="slik-jobber-vi">Slik jobber vi</a>
       </div>
+      <MailNote location="hero" />
     </div>
   </section>
 
@@ -37,9 +64,9 @@ import Footer from '~/components/layout/Footer.astro';
     <div class="container">
       <header class="block__header reveal">
         <div class="block__sub-wrap">
-          <h2 class="block__title" data-nb="Fra skisse til App Store." data-en="From sketch to App Store.">Fra skisse til App Store.</h2>
-          <p class="block__sub" data-nb="Hele løpet under ett tak, med samme folk fra idé til publisert app og videre gjennom hver oppdatering." data-en="The whole run under one roof, with the same people from idea to published app and through every release after.">
-            Hele løpet under ett tak, med samme folk fra idé til publisert app og videre gjennom hver oppdatering.
+          <h2 class="block__title">Samme folk hele veien.</h2>
+          <p class="block__sub">
+            Fra idé til publisert app, og videre gjennom hver oppdatering.
           </p>
         </div>
       </header>
@@ -47,44 +74,42 @@ import Footer from '~/components/layout/Footer.astro';
       <div class="caps reveal">
         <div class="cap">
           <div class="cap__body">
-            <h4 data-nb="Design og prototype" data-en="Design and prototype">Design og prototype</h4>
-            <p data-nb="Vi tester ideen som klikkbar prototype før vi bygger. Det er billigere å endre en skisse enn en app." data-en="We test the idea as a clickable prototype before we build. Changing a sketch is cheaper than changing an app.">Vi tester ideen som klikkbar prototype før vi bygger. Det er billigere å endre en skisse enn en app.</p>
+            <h4>Design og prototype</h4>
+            <p>Vi tester ideen som klikkbar prototype før vi bygger. Det er billigere å endre en skisse enn en app.</p>
           </div>
         </div>
         <div class="cap">
           <div class="cap__body">
-            <h4 data-nb="iOS og Android" data-en="iOS and Android">iOS og Android</h4>
-            <p data-nb="Én kodebase, begge plattformer. Native ytelse der det faktisk betyr noe." data-en="One codebase, both platforms. Native performance where it actually matters.">Én kodebase, begge plattformer. Native ytelse der det faktisk betyr noe.</p>
+            <h4>iOS og Android</h4>
+            <p>Én kodebase for begge plattformer, så nye funksjoner kommer ut på iPhone og Android samtidig.</p>
           </div>
         </div>
         <div class="cap">
           <div class="cap__body">
-            <h4 data-nb="Lansering" data-en="Launch">Lansering</h4>
-            <p data-nb="Vi tar jobben med App Store og Google Play, inkludert gjennomgang og godkjenning." data-en="We handle the App Store and Google Play, including review and approval.">Vi tar jobben med App Store og Google Play, inkludert gjennomgang og godkjenning.</p>
+            <h4>Lansering</h4>
+            <p>Vi tar jobben med App Store og Google Play, inkludert gjennomgang og godkjenning.</p>
           </div>
         </div>
         <div class="cap">
           <div class="cap__body">
-            <h4 data-nb="Drift og oppdateringer" data-en="Operations and updates">Drift og oppdateringer</h4>
-            <p data-nb="Apper er ferskvare. Vi følger opp med oppdateringer, overvåking og videreutvikling." data-en="Apps are perishable. We follow up with updates, monitoring and further development.">Apper er ferskvare. Vi følger opp med oppdateringer, overvåking og videreutvikling.</p>
+            <h4>Drift og oppdateringer</h4>
+            <p>Apper er ferskvare. Vi følger opp med oppdateringer, overvåking og videreutvikling.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="cta">
-    <div class="container">
-      <h2 data-nb="Har du en app i tankene?" data-en="Got an app in mind?">Har du en app i tankene?</h2>
-      <p data-nb="Beskriv den i noen linjer, så svarer vi med hvordan vi ville bygget den, og hva det vil koste." data-en="Describe it in a few lines and we'll reply with how we would build it, and what it would cost.">
-        Beskriv den i noen linjer, så svarer vi med hvordan vi ville bygget den, og hva det vil koste.
-      </p>
-      <div class="cta__row">
-        <a href="mailto:hei@okane.no?subject=Mobilapper" class="btn btn--primary btn--xl" data-nb="Skriv til oss" data-en="Write to us">Skriv til oss</a>
-        <a href="/" class="btn btn--ghost btn--xl" data-nb="Tilbake til forsiden" data-en="Back to the front page">Tilbake til forsiden</a>
-      </div>
-    </div>
-  </section>
+  <Process />
+
+  <FAQ title="Spørsmål om apper." sub="Det vi oftest får spørsmål om før en app. Lurer du på noe annet, er det bare å spørre." items={faq} />
+
+  <CTA
+    title="Har du en app i tankene?"
+    text="Beskriv den i noen linjer, så svarer vi med hvordan vi ville bygget den, og hva det vil koste."
+    primary={{ label: 'Be om pris og plan', href: contact, event: 'pris-og-plan' }}
+    secondary={{ label: 'Les vanlige spørsmål', href: '#faq', event: 'les-faq' }}
+  />
 
   <Footer />
 </Layout>

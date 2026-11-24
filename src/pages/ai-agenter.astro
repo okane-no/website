@@ -2,6 +2,34 @@
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
+import MailNote from '~/components/sections/MailNote.astro';
+import Proof from '~/components/sections/Proof.astro';
+import Process from '~/components/sections/Process.astro';
+import FAQ from '~/components/sections/FAQ.astro';
+import CTA from '~/components/sections/CTA.astro';
+import { mailto, prompts } from '~/lib/contact';
+import bragePreview from '~/assets/produkter/brage/skjema.webp';
+
+const contact = mailto('AI-agenter', prompts.project);
+
+const faq = [
+  {
+    q: 'Hva skjer når agenten tar feil?',
+    a: 'Vi bygger agentene slik vi har bygget <a href="/brage">Brage</a>. De oppgir kilden og hvor sikre de er, lar felt stå tomme når de ikke finner belegg, og et menneske godkjenner før noe sendes.',
+  },
+  {
+    q: 'Hvem ser hva?',
+    a: 'Agenten følger tilgangene dere allerede har, så hver person bare får svar fra dokumenter og data de selv har tilgang til.',
+  },
+  {
+    q: 'Kan agenten kjøre på våre egne servere?',
+    a: 'Ja. Agentene kan bruke lokale språkmodeller, så dokumentene blir i deres egen infrastruktur. Brage kan kjøres slik.',
+  },
+  {
+    q: 'Hva koster en AI-agent?',
+    a: 'Du får en fast pris for å bygge agenten etter et arbeidsmøte, før vi starter. Bruken av språkmodellen kommer i tillegg, og vi anslår den i forslaget.',
+  },
+];
 ---
 
 <Layout
@@ -9,7 +37,7 @@ import Footer from '~/components/layout/Footer.astro';
   description="AI-agenter som gjør rutinearbeid i systemene dine, med tilgangsstyring og full logg over hva de gjorde og hvorfor."
   schema={[{"@type": "Service", "name": "AI-agenter", "serviceType": "Utvikling av AI-agenter", "url": "https://okane.no/ai-agenter", "description": "AI-agenter som gjør rutinearbeid i bedriftens systemer, med logg og tilgangsstyring.", "provider": {"@id": "https://okane.no/#org"}, "areaServed": {"@type": "Country", "name": "Norge"}}]}
 >
-  <Header />
+  <Header ctaLabel="Be om pris og plan" ctaHref="#kontakt" ctaEvent="pris-og-plan" />
 
   <section class="hero">
     <div class="container">
@@ -18,18 +46,19 @@ import Footer from '~/components/layout/Footer.astro';
       </div>
 
       <h1 class="hero__headline hero__headline--page">
-        <span data-nb="AI-agenter," data-en="AI agents,">AI-agenter,</span><br>
-        <em data-nb="som gjør jobben." data-en="that do the work.">som gjør jobben.</em>
+        <span>Agenter som tar rutinearbeidet</span><br>
+        <em>og viser hva de gjorde.</em>
       </h1>
 
-      <p class="hero__sub" data-nb="Automatiser rutinearbeid som i dag krever et menneske i loopen. Agentene leser dokumenter, svarer kunder og holder systemer oppdatert, trygt koblet til dine data." data-en="Automate routine work that needs a human in the loop today. The agents read documents, answer customers and keep systems up to date, safely connected to your data.">
-        Automatiser rutinearbeid som i dag krever et menneske i loopen. Agentene leser dokumenter, svarer kunder og holder systemer oppdatert, trygt koblet til dine data.
+      <p class="hero__sub">
+        Vi bygger AI-agenter som svarer på spørsmål, fyller ut skjema og holder systemene dine oppdatert. Hver handling logges med kilde, og et menneske godkjenner der det trengs.
       </p>
 
       <div class="hero__cta">
-        <a href="mailto:hei@okane.no?subject=AI-agenter" class="btn btn--primary btn--lg" data-nb="Start et prosjekt" data-en="Start a project">Start et prosjekt</a>
-        <a href="/#tjenester" class="btn btn--secondary btn--lg" data-nb="Alle tjenester" data-en="All services">Alle tjenester</a>
+        <a href={contact} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="pris-og-plan">Be om pris og plan</a>
+        <a href="/brage" class="btn btn--secondary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="se-brage">Se Brage</a>
       </div>
+      <MailNote location="hero" />
     </div>
   </section>
 
@@ -37,9 +66,9 @@ import Footer from '~/components/layout/Footer.astro';
     <div class="container">
       <header class="block__header reveal">
         <div class="block__sub-wrap">
-          <h2 class="block__title" data-nb="Automatisering du kan stole på." data-en="Automation you can trust.">Automatisering du kan stole på.</h2>
-          <p class="block__sub" data-nb="Ikke en chatbot limt på nettsiden, men agenter som utfører faktisk arbeid, med kontroll og sporbarhet innebygd." data-en="Not a chatbot glued to your website, but agents doing actual work, with control and traceability built in.">
-            Ikke en chatbot limt på nettsiden, men agenter som utfører faktisk arbeid, med kontroll og sporbarhet innebygd.
+          <h2 class="block__title">Automatisering du kan stole på.</h2>
+          <p class="block__sub">
+            Agentene gjør arbeid i systemene dine og logger hva de gjorde og hvorfor.
           </p>
         </div>
       </header>
@@ -47,44 +76,52 @@ import Footer from '~/components/layout/Footer.astro';
       <div class="caps reveal">
         <div class="cap">
           <div class="cap__body">
-            <h4 data-nb="Dokumentforståelse" data-en="Document understanding">Dokumentforståelse</h4>
-            <p data-nb="Agenter som leser, tolker og registrerer innhold fra faktura, kontrakter og skjema, med menneskelig kontroll der det trengs." data-en="Agents that read, interpret and register content from invoices, contracts and forms, with human review where it matters.">Agenter som leser, tolker og registrerer innhold fra faktura, kontrakter og skjema, med menneskelig kontroll der det trengs.</p>
+            <h4>Skjema og rapporter</h4>
+            <p>Agenter som fyller ut skjema og rapporter fra dokumentene dine, med kilde på hvert felt.</p>
           </div>
         </div>
         <div class="cap">
           <div class="cap__body">
-            <h4 data-nb="Kundeservice" data-en="Customer support">Kundeservice</h4>
-            <p data-nb="Svar på vanlige henvendelser i din tone, med full logg og eskalering til mennesker når det trengs." data-en="Answers to common enquiries in your tone, with a full log and escalation to humans when needed.">Svar på vanlige henvendelser i din tone, med full logg og eskalering til mennesker når det trengs.</p>
+            <h4>Kundeservice</h4>
+            <p>Svar på vanlige henvendelser i din tone, med full logg og eskalering til mennesker når det trengs.</p>
           </div>
         </div>
         <div class="cap">
           <div class="cap__body">
-            <h4 data-nb="Automatiserte arbeidsflyter" data-en="Automated workflows">Automatiserte arbeidsflyter</h4>
-            <p data-nb="Flertrinns prosesser på tvers av systemene dine, overvåket og sporbare fra start til slutt." data-en="Multi-step processes across your systems, monitored and traceable from start to finish.">Flertrinns prosesser på tvers av systemene dine, overvåket og sporbare fra start til slutt.</p>
+            <h4>Automatiserte arbeidsflyter</h4>
+            <p>Flertrinns prosesser på tvers av systemene dine, overvåket og sporbare fra start til slutt.</p>
           </div>
         </div>
         <div class="cap">
           <div class="cap__body">
-            <h4 data-nb="Trygghet og kontroll" data-en="Safety and control">Trygghet og kontroll</h4>
-            <p data-nb="Tilgangsstyring på dine data, og full oversikt over hva agenten gjorde og hvorfor." data-en="Access control on your data, and full visibility into what the agent did and why.">Tilgangsstyring på dine data, og full oversikt over hva agenten gjorde og hvorfor.</p>
+            <h4>Trygghet og kontroll</h4>
+            <p>Agenten ser bare data den har fått tilgang til, og du ser hva den gjorde og hvorfor.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="cta">
-    <div class="container">
-      <h2 data-nb="Hva gjør folkene dine på repeat?" data-en="What do your people do on repeat?">Hva gjør folkene dine på repeat?</h2>
-      <p data-nb="Beskriv rutinearbeidet, så svarer vi med hva en agent kan ta over, og hva som fortsatt bør gjøres av mennesker." data-en="Describe the routine work and we'll reply with what an agent can take over, and what should stay with humans.">
-        Beskriv rutinearbeidet, så svarer vi med hva en agent kan ta over, og hva som fortsatt bør gjøres av mennesker.
-      </p>
-      <div class="cta__row">
-        <a href="mailto:hei@okane.no?subject=AI-agenter" class="btn btn--primary btn--xl" data-nb="Skriv til oss" data-en="Write to us">Skriv til oss</a>
-        <a href="/" class="btn btn--ghost btn--xl" data-nb="Tilbake til forsiden" data-en="Back to the front page">Tilbake til forsiden</a>
-      </div>
-    </div>
-  </section>
+  <Proof
+    title="Brage fyller ut offentlige skjema fra dokumentene deres."
+    text="Brage er vår egen agent, nå i pilot. Den fyller ut skjema i Altinn med kilde på hvert felt og svarer på spørsmål om dokumentene. En saksbehandler godkjenner før noe sendes."
+    href="/brage"
+    label="Se Brage"
+    event="se-brage"
+    image={bragePreview}
+    alt="Et utkast til aksjonærregisteroppgaven i Brage, med kilde til hvert felt"
+  />
+
+  <Process />
+
+  <FAQ title="Spørsmål om AI-agenter." sub="Det vi oftest får spørsmål om før en agent. Lurer du på noe annet, er det bare å spørre." items={faq} />
+
+  <CTA
+    title="Hva gjør folkene dine på repeat?"
+    text="Beskriv rutinearbeidet, så svarer vi med hva en agent kan ta over, og hva som fortsatt bør gjøres av mennesker."
+    primary={{ label: 'Be om pris og plan', href: contact, event: 'pris-og-plan' }}
+    secondary={{ label: 'Se Brage', href: '/brage', event: 'se-brage' }}
+  />
 
   <Footer />
 </Layout>
