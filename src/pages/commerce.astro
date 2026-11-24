@@ -5,15 +5,16 @@ import Footer from '~/components/layout/Footer.astro';
 ---
 
 <Layout
-  title="Okane Commerce · Netthandel, uten støy."
-  description="Nettbutikk, kasse og lager i ett system, bygget for norske merkevarer. Vipps, Klarna, frakt og regnskap ferdig integrert."
+  title="Okane Commerce – nettbutikkplattform for merkevarer"
+  description="Okane Commerce samler nettbutikk, kasse og lager i ett system for norske merkevarer, med Vipps og Klarna. Driftes av oss."
+  schema={[{"@type": "SoftwareApplication", "name": "Okane Commerce", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "nb", "url": "https://okane.no/commerce", "description": "Nettbutikk, kasse og lager i ett system for norske merkevarer, med Vipps, Klarna, frakt og regnskap.", "publisher": {"@id": "https://okane.no/#org"}}]}
 >
   <Header />
 
   <section class="hero">
     <div class="container">
       <div class="hero__eyebrow">
-        <span data-nb="Produkt fra Okane · I produksjon" data-en="A product by Okane · In production">Produkt fra Okane · I produksjon</span>
+        <span data-nb="Produkt fra Okane, i drift" data-en="A product by Okane, in production">Produkt fra Okane, i drift</span>
       </div>
 
       <h1 class="hero__headline hero__headline--page">
@@ -26,7 +27,7 @@ import Footer from '~/components/layout/Footer.astro';
       </p>
 
       <div class="hero__cta">
-        <a href="mailto:hei@okane.no?subject=Demo%20Okane%20Commerce" class="btn btn--primary btn--lg" data-nb="Be om en demo →" data-en="Request a demo →">Be om en demo →</a>
+        <a href="mailto:hei@okane.no?subject=Demo%20Okane%20Commerce" class="btn btn--primary btn--lg" data-nb="Be om en demo" data-en="Request a demo">Be om en demo</a>
         <a href="/#produkter" class="btn btn--secondary btn--lg" data-nb="Alle produkter" data-en="All products">Alle produkter</a>
       </div>
 
@@ -143,7 +144,6 @@ import Footer from '~/components/layout/Footer.astro';
   <section class="block">
     <div class="container">
       <header class="block__header reveal">
-        <div class="block__eyebrow" data-nb="Funksjoner" data-en="Capabilities">Funksjoner</div>
         <div class="block__sub-wrap">
           <h2 class="block__title" data-nb="Alt inkludert.&lt;br&gt;Ingen plugin-jakt." data-en="All included.&lt;br&gt;No plugin hunting.">Alt inkludert.<br>Ingen plugin-jakt.</h2>
           <p class="block__sub" data-nb="Det du trenger for å drive netthandel er med fra start. Trenger du noe spesielt, bygger vi det." data-en="What you need to run commerce is there from the start. Need something specific? We build it.">
@@ -154,42 +154,36 @@ import Footer from '~/components/layout/Footer.astro';
 
       <div class="caps reveal">
         <div class="cap">
-          <div class="cap__num">01</div>
           <div class="cap__body">
             <h4 data-nb="Vipps Hurtigkasse" data-en="Vipps Fast Checkout">Vipps Hurtigkasse</h4>
             <p data-nb="Ferdig integrert, uten ekstra avtale. Norske kunder konverterer best med Vipps." data-en="Fully integrated, no extra contract. Norwegian customers convert best with Vipps.">Ferdig integrert, uten ekstra avtale. Norske kunder konverterer best med Vipps.</p>
           </div>
         </div>
         <div class="cap">
-          <div class="cap__num">02</div>
           <div class="cap__body">
             <h4 data-nb="Klarna i tre klikk" data-en="Klarna in three clicks">Klarna i tre klikk</h4>
             <p data-nb="Faktura og delbetaling slått på fra adminpanelet. Fungerer på nett og i butikk." data-en="Invoice and part payment toggled from admin. Works online and in-store.">Faktura og delbetaling slått på fra adminpanelet. Fungerer på nett og i butikk.</p>
           </div>
         </div>
         <div class="cap">
-          <div class="cap__num">03</div>
           <div class="cap__body">
             <h4 data-nb="Posten og Bring" data-en="Posten and Bring">Posten og Bring</h4>
             <p data-nb="Etiketter genereres automatisk, sporing sendes til kunden, og returer håndteres i samme strøm." data-en="Labels generated automatically, tracking sent to the customer, and returns handled in the same flow.">Etiketter genereres automatisk, sporing sendes til kunden, og returer håndteres i samme strøm.</p>
           </div>
         </div>
         <div class="cap">
-          <div class="cap__num">04</div>
           <div class="cap__body">
             <h4 data-nb="Regnskap og ERP" data-en="Accounting and ERP">Regnskap og ERP</h4>
             <p data-nb="Toveis synkronisering mot Tripletex, Fiken, PowerOffice og Visma. Ordrer, faktura, lager og produkter holdes oppdatert begge veier." data-en="Two-way sync with Tripletex, Fiken, PowerOffice and Visma. Orders, invoices, stock and products stay in sync both ways.">Toveis synkronisering mot Tripletex, Fiken, PowerOffice og Visma. Ordrer, faktura, lager og produkter holdes oppdatert begge veier.</p>
           </div>
         </div>
         <div class="cap">
-          <div class="cap__num">05</div>
           <div class="cap__body">
             <h4 data-nb="Lager i sanntid" data-en="Real-time inventory">Lager i sanntid</h4>
             <p data-nb="Selg i butikk og på nett uten dobbeltføring. Varsler om lavt lager når det gjelder, ikke i en mappe." data-en="Sell in-store and online without double counting. Low-stock alerts when it matters, not in a folder.">Selg i butikk og på nett uten dobbeltføring. Varsler om lavt lager når det gjelder, ikke i en mappe.</p>
           </div>
         </div>
         <div class="cap">
-          <div class="cap__num">06</div>
           <div class="cap__body">
             <h4 data-nb="API og webhooks" data-en="API and webhooks">API og webhooks</h4>
             <p data-nb="Alt i adminpanelet finnes også som API-kall. Bygg dine egne integrasjoner, eller la oss gjøre det for deg." data-en="Everything in admin is also an API call. Build your own integrations, or let us do it for you.">Alt i adminpanelet finnes også som API-kall. Bygg dine egne integrasjoner, eller la oss gjøre det for deg.</p>
@@ -206,7 +200,7 @@ import Footer from '~/components/layout/Footer.astro';
         20 minutter på video. Du får se plattformen, en pris og en plan før du legger på.
       </p>
       <div class="cta__row">
-        <a href="mailto:hei@okane.no?subject=Demo%20Okane%20Commerce" class="btn btn--primary btn--xl" data-nb="Be om en demo →" data-en="Request a demo →">Be om en demo →</a>
+        <a href="mailto:hei@okane.no?subject=Demo%20Okane%20Commerce" class="btn btn--primary btn--xl" data-nb="Be om en demo" data-en="Request a demo">Be om en demo</a>
         <a href="/" class="btn btn--ghost btn--xl" data-nb="Tilbake til forsiden" data-en="Back to the front page">Tilbake til forsiden</a>
       </div>
     </div>

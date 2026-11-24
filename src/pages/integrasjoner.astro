@@ -5,15 +5,16 @@ import Footer from '~/components/layout/Footer.astro';
 ---
 
 <Layout
-  title="Integrasjoner · Okane"
-  description="Vi kobler systemene dine sammen så data flyter automatisk og sporbart. Altinn, ERP, regnskap og betaling."
+  title="Altinn-integrasjon og systemintegrasjon · Okane"
+  description="Vi kobler Altinn, Tripletex, Fiken, PowerOffice og Visma til systemene dine, så data flyter automatisk og sporbart. Pris før oppstart."
+  schema={[{"@type": "Service", "name": "Systemintegrasjon", "serviceType": "Systemintegrasjon", "url": "https://okane.no/integrasjoner", "description": "Integrasjoner mot Altinn, regnskap, ERP og betaling, bygget og driftet av Okane.", "provider": {"@id": "https://okane.no/#org"}, "areaServed": {"@type": "Country", "name": "Norge"}}]}
 >
   <Header />
 
   <section class="hero">
     <div class="container">
       <div class="hero__eyebrow">
-        <span data-nb="Tjeneste fra Okane" data-en="A service by Okane">Tjeneste fra Okane</span>
+        <a href="/#tjenester" data-nb="Tjenester" data-en="Services">Tjenester</a>
       </div>
 
       <h1 class="hero__headline hero__headline--page">
@@ -26,7 +27,7 @@ import Footer from '~/components/layout/Footer.astro';
       </p>
 
       <div class="hero__cta">
-        <a href="mailto:hei@okane.no?subject=Integrasjoner" class="btn btn--primary btn--lg" data-nb="Start et prosjekt →" data-en="Start a project →">Start et prosjekt →</a>
+        <a href="mailto:hei@okane.no?subject=Integrasjoner" class="btn btn--primary btn--lg" data-nb="Start et prosjekt" data-en="Start a project">Start et prosjekt</a>
         <a href="/#tjenester" class="btn btn--secondary btn--lg" data-nb="Alle tjenester" data-en="All services">Alle tjenester</a>
       </div>
     </div>
@@ -35,7 +36,6 @@ import Footer from '~/components/layout/Footer.astro';
   <section class="block">
     <div class="container">
       <header class="block__header reveal">
-        <div class="block__eyebrow" data-nb="Det får du" data-en="What you get">Det får du</div>
         <div class="block__sub-wrap">
           <h2 class="block__title" data-nb="Data dit de skal.&lt;br&gt;Av seg selv." data-en="Data where it belongs.&lt;br&gt;By itself.">Data dit de skal.<br>Av seg selv.</h2>
           <p class="block__sub" data-nb="Hver manuell overføring er en feilkilde og en flaskehals. Vi fjerner dem, én integrasjon om gangen." data-en="Every manual transfer is an error source and a bottleneck. We remove them, one integration at a time.">
@@ -46,28 +46,24 @@ import Footer from '~/components/layout/Footer.astro';
 
       <div class="caps reveal">
         <div class="cap">
-          <div class="cap__num">01</div>
           <div class="cap__body">
             <h4>Altinn</h4>
             <p data-nb="Vi henter, tolker og arkiverer post og data fra Altinn automatisk. Trenger du en ferdig løsning, finnes den i Digital Mailroom." data-en="We fetch, interpret and archive mail and data from Altinn automatically. If you need a ready-made solution, it exists in Digital Mailroom.">Vi henter, tolker og arkiverer post og data fra Altinn automatisk. Trenger du en ferdig løsning, finnes den i Digital Mailroom.</p>
           </div>
         </div>
         <div class="cap">
-          <div class="cap__num">02</div>
           <div class="cap__body">
             <h4 data-nb="ERP og regnskap" data-en="ERP and accounting">ERP og regnskap</h4>
             <p data-nb="Tripletex, Fiken, PowerOffice, Visma og flere. Ordrer, faktura og lager i synk begge veier." data-en="Tripletex, Fiken, PowerOffice, Visma and more. Orders, invoices and inventory in sync both ways.">Tripletex, Fiken, PowerOffice, Visma og flere. Ordrer, faktura og lager i synk begge veier.</p>
           </div>
         </div>
         <div class="cap">
-          <div class="cap__num">03</div>
           <div class="cap__body">
             <h4 data-nb="Betaling" data-en="Payments">Betaling</h4>
             <p data-nb="Vipps, Klarna og kort integrert i dine systemer, med avstemming som faktisk stemmer." data-en="Vipps, Klarna and cards integrated into your systems, with reconciliation that actually reconciles.">Vipps, Klarna og kort integrert i dine systemer, med avstemming som faktisk stemmer.</p>
           </div>
         </div>
         <div class="cap">
-          <div class="cap__num">04</div>
           <div class="cap__body">
             <h4 data-nb="Egne API-er" data-en="Custom APIs">Egne API-er</h4>
             <p data-nb="Vi bygger og dokumenterer API-er slik at systemene dine kan brukes av andre, trygt og versjonert." data-en="We build and document APIs so your systems can be used by others, safely and versioned.">Vi bygger og dokumenterer API-er slik at systemene dine kan brukes av andre, trygt og versjonert.</p>
@@ -84,7 +80,7 @@ import Footer from '~/components/layout/Footer.astro';
         Fortell oss hvor data i dag flyttes for hånd, så svarer vi med hvordan vi ville automatisert det.
       </p>
       <div class="cta__row">
-        <a href="mailto:hei@okane.no?subject=Integrasjoner" class="btn btn--primary btn--xl" data-nb="Skriv til oss →" data-en="Write to us →">Skriv til oss →</a>
+        <a href="mailto:hei@okane.no?subject=Integrasjoner" class="btn btn--primary btn--xl" data-nb="Skriv til oss" data-en="Write to us">Skriv til oss</a>
         <a href="/mailroom" class="btn btn--ghost btn--xl" data-nb="Se Digital Mailroom" data-en="See Digital Mailroom">Se Digital Mailroom</a>
       </div>
     </div>

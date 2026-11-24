@@ -1,0 +1,195 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/layout/Header.astro';
+import Footer from '~/components/layout/Footer.astro';
+import skjema from '~/assets/produkter/brage/skjema.webp';
+import sporsmal from '~/assets/produkter/brage/sporsmal.webp';
+import skjemaer from '~/assets/produkter/brage/skjemaer.webp';
+import arbeidsflyt from '~/assets/produkter/brage/arbeidsflyt.webp';
+---
+
+<Layout
+  title="Brage – Altinn-skjema og aksjonærregisteroppgaven"
+  description="Brage fyller ut skjema i Altinn, som aksjonærregisteroppgaven, fra virksomhetens egne dokumenter. Kilde på hvert felt, og ingenting sendes uten godkjenning."
+  image="/og/brage.png"
+  imageAlt="Brage: et utkast til aksjonærregisteroppgaven med kilde på hvert felt"
+  schema={[{"@type": "SoftwareApplication", "name": "Brage", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "nb", "url": "https://okane.no/brage", "description": "Fyller ut offentlige skjema i Altinn fra virksomhetens egne dokumenter, med kilde på hvert felt. En saksbehandler godkjenner før innsending.", "publisher": {"@id": "https://okane.no/#org"}}]}
+>
+  <Header />
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero__eyebrow">
+        <span data-nb="Produkt fra Okane, i pilot" data-en="A product by Okane, in pilot">Produkt fra Okane, i pilot</span>
+      </div>
+
+      <h1 class="hero__headline hero__headline--page">
+        <span data-nb="Skjemaene fylles ut." data-en="The forms fill themselves.">Skjemaene fylles ut.</span><br>
+        <em data-nb="Du godkjenner." data-en="You approve.">Du godkjenner.</em>
+      </h1>
+
+      <p class="hero__sub" data-nb="Aksjonærregisteroppgaven, a-meldingen, lusetellingen: opplysningene ligger allerede i dokumentene deres. Brage leser dem, fyller ut skjemaet i Altinn og viser hvor hvert tall kommer fra. En saksbehandler går gjennom, godkjenner og sender." data-en="The shareholder register statement, the a-melding, the sea lice count: the information is already in your documents. Brage reads them, fills in the Altinn form and shows where every figure comes from. A case worker reviews, approves and submits.">
+        Aksjonærregisteroppgaven, a-meldingen, lusetellingen: opplysningene ligger allerede i dokumentene deres. Brage leser dem, fyller ut skjemaet i Altinn og viser hvor hvert tall kommer fra. En saksbehandler går gjennom, godkjenner og sender.
+      </p>
+
+      <div class="hero__cta">
+        <a href="mailto:hei@okane.no?subject=Demo%20Brage" class="btn btn--primary btn--lg" data-nb="Se en demo" data-en="See a demo">Se en demo</a>
+        <a href="/#produkter" class="btn btn--secondary btn--lg" data-nb="Alle produkter" data-en="All products">Alle produkter</a>
+      </div>
+
+      <div class="hero__meta">
+        <span><b data-nb="34 skjema" data-en="34 forms">34 skjema</b> <span data-nb="fra 17 etater" data-en="from 17 agencies">fra 17 etater</span></span>
+        <span><b data-nb="Kilde" data-en="A source">Kilde</b> <span data-nb="på hvert felt" data-en="for every field">på hvert felt</span></span>
+        <span><b data-nb="Ingenting sendes" data-en="Nothing is sent">Ingenting sendes</b> <span data-nb="uten godkjenning" data-en="without approval">uten godkjenning</span></span>
+      </div>
+
+      <div class="hero__device">
+        <div class="preview">
+          <div class="preview__bar">
+            <div class="lights"><span></span><span></span><span></span></div>
+            <div class="preview__url" data-nb="Skjema" data-en="Form">Skjema</div>
+          </div>
+          <div class="preview__body preview__body--shot">
+            <Image
+              src={skjema}
+              alt="Et utkast til aksjonærregisteroppgaven i Brage: feltene er fylt ut med kilde til hvert, kontrollene er bestått, og agenten forklarer hva den har gjort i et panel til høyre"
+              widths={[760, 1200, 2000, 2880]}
+              sizes="(max-width: 880px) 100vw, 1100px"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <header class="block__header reveal">
+        <div class="block__sub-wrap">
+          <h2 class="block__title" data-nb="Fra dokumenter&lt;br&gt;til innsendt skjema." data-en="From documents&lt;br&gt;to a filed form.">Fra dokumenter<br>til innsendt skjema.</h2>
+          <p class="block__sub" data-nb="Brage gjør grovarbeidet og lar fagpersonen ta beslutningene. Alt den fyller ut kan spores tilbake til et dokument." data-en="Brage does the groundwork and leaves the decisions to the professional. Everything it fills in can be traced back to a document.">
+            Brage gjør grovarbeidet og lar fagpersonen ta beslutningene. Alt den fyller ut kan spores tilbake til et dokument.
+          </p>
+        </div>
+      </header>
+
+      <div class="caps reveal">
+        <div class="cap">
+          <div class="cap__body">
+            <h4 data-nb="Utkast med kilder" data-en="Drafts with sources">Utkast med kilder</h4>
+            <p data-nb="Agenten søker i dokumentene, fyller ut feltene og oppgir kilden og hvor sikker den er for hvert av dem. Det den ikke finner belegg for, lar den stå tomt." data-en="The agent searches the documents, fills in the fields and gives the source and its confidence for each one. Where it finds no evidence, it leaves the field empty.">Agenten søker i dokumentene, fyller ut feltene og oppgir kilden og hvor sikker den er for hvert av dem. Det den ikke finner belegg for, lar den stå tomt.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__body">
+            <h4 data-nb="Kontroller per skjema" data-en="Checks for each form">Kontroller per skjema</h4>
+            <p data-nb="Aksjer som må gå opp, mva som må stemme med grunnlaget, frister som ikke må passeres. Feilene vises før noen godkjenner." data-en="Shares that must reconcile, VAT that must match its base, deadlines that must not pass. Errors show before anyone approves.">Aksjer som må gå opp, mva som må stemme med grunnlaget, frister som ikke må passeres. Feilene vises før noen godkjenner.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__body">
+            <h4 data-nb="Du har siste ord" data-en="You have the final say">Du har siste ord</h4>
+            <p data-nb="Rett et felt, eller be agenten sjekke noe på nytt. Ingenting sendes før en person har godkjent, og alle endringer står i historikken." data-en="Correct a field, or ask the agent to check something again. Nothing is sent until a person has approved, and every change is in the history.">Rett et felt, eller be agenten sjekke noe på nytt. Ingenting sendes før en person har godkjent, og alle endringer står i historikken.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__body">
+            <h4 data-nb="Spør dokumentene" data-en="Ask the documents">Spør dokumentene</h4>
+            <p data-nb="Still spørsmål på norsk og få svar med henvisning til dokumentet. Hver person ser bare dokumentene de har tilgang til." data-en="Ask in plain language and get answers that point to the document. Each person only sees the documents they have access to.">Still spørsmål på norsk og få svar med henvisning til dokumentet. Hver person ser bare dokumentene de har tilgang til.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__body">
+            <h4 data-nb="Faste innsendinger" data-en="Recurring filings">Faste innsendinger</h4>
+            <p data-nb="Sett opp et skjema til å fylles ut hver uke, måned eller år for hvert selskap, med de dokumentene det trenger lagt ved." data-en="Set a form to be filled in every week, month or year for each company, with the documents it needs attached.">Sett opp et skjema til å fylles ut hver uke, måned eller år for hvert selskap, med de dokumentene det trenger lagt ved.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__body">
+            <h4 data-nb="Der dokumentene ligger" data-en="Where your documents are">Der dokumentene ligger</h4>
+            <p data-nb="Leser fra SharePoint og filområder, slår opp selskaper i Enhetsregisteret og sender inn med systembruker i Altinn. Kan kjøres med lokale språkmodeller." data-en="Reads from SharePoint and file shares, looks companies up in Enhetsregisteret and files with an Altinn system user. Can run on local language models.">Leser fra SharePoint og filområder, slår opp selskaper i Enhetsregisteret og sender inn med systembruker i Altinn. Kan kjøres med lokale språkmodeller.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <header class="block__header reveal">
+        <div class="block__sub-wrap">
+          <h2 class="block__title" data-nb="Svar du kan&lt;br&gt;sjekke selv." data-en="Answers you can&lt;br&gt;check yourself.">Svar du kan<br>sjekke selv.</h2>
+          <p class="block__sub" data-nb="Hvem kjøpte aksjer i juni, og til hvilken pris? Brage finner det i protokollene og avtalene, og lenker til dokumentet svaret bygger på." data-en="Who bought shares in June, and at what price? Brage finds it in the minutes and agreements, and links to the document the answer is based on.">
+            Hvem kjøpte aksjer i juni, og til hvilken pris? Brage finner det i protokollene og avtalene, og lenker til dokumentet svaret bygger på.
+          </p>
+        </div>
+      </header>
+
+      <div class="preview reveal">
+        <div class="preview__bar">
+          <div class="lights"><span></span><span></span><span></span></div>
+          <div class="preview__url">Chat</div>
+        </div>
+        <div class="preview__body preview__body--shot">
+          <Image
+            src={sporsmal}
+            alt="Et spørsmål i Brage om hvem som kjøpte aksjer i Acme AS i juni 2026, med svar og henvisning til aksjeoverdragelsen"
+            widths={[760, 1200, 2000, 2880]}
+            sizes="(max-width: 880px) 100vw, 1100px"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <header class="block__header reveal">
+        <div class="block__sub-wrap">
+          <h2 class="block__title" data-nb="Fra Skatteetaten&lt;br&gt;til Mattilsynet." data-en="From the Tax Administration&lt;br&gt;to the Food Safety Authority.">Fra Skatteetaten<br>til Mattilsynet.</h2>
+          <p class="block__sub" data-nb="Regnskap, lønn, akvakultur, byggesak, helse og finans. Velg et skjema, eller la det fylles ut på fast tidspunkt for selskapene dere fører." data-en="Accounting, payroll, aquaculture, building permits, health and finance. Pick a form, or have it filled in on a schedule for the companies you handle.">
+            Regnskap, lønn, akvakultur, byggesak, helse og finans. Velg et skjema, eller la det fylles ut på fast tidspunkt for selskapene dere fører.
+          </p>
+        </div>
+      </header>
+
+      <div class="shot-pair reveal">
+        <div class="preview">
+          <div class="preview__bar">
+            <div class="lights"><span></span><span></span><span></span></div>
+            <div class="preview__url" data-nb="Skjemaer" data-en="Forms">Skjemaer</div>
+          </div>
+          <div class="preview__body preview__body--shot">
+            <Image src={skjemaer} alt="Skjemaoversikten i Brage, gruppert etter etat" widths={[760, 1200, 2000]} sizes="(max-width: 880px) 100vw, 560px" />
+          </div>
+        </div>
+        <div class="preview">
+          <div class="preview__bar">
+            <div class="lights"><span></span><span></span><span></span></div>
+            <div class="preview__url" data-nb="Ny arbeidsflyt" data-en="New workflow">Ny arbeidsflyt</div>
+          </div>
+          <div class="preview__body preview__body--shot">
+            <Image src={arbeidsflyt} alt="Oppsett av en arbeidsflyt i Brage: skjema, selskaper, tidsplan og dokumenttyper som legges ved" widths={[760, 1200, 2000]} sizes="(max-width: 880px) 100vw, 560px" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2 data-nb="La skjemaene komme til deg." data-en="Let the forms come to you.">La skjemaene komme til deg.</h2>
+      <p data-nb="Fortell hvilke skjema dere sender inn i dag, så viser vi hvordan Brage fyller dem ut fra deres egne dokumenter." data-en="Tell us which forms you file today, and we'll show you how Brage fills them in from your own documents.">
+        Fortell hvilke skjema dere sender inn i dag, så viser vi hvordan Brage fyller dem ut fra deres egne dokumenter.
+      </p>
+      <div class="cta__row">
+        <a href="mailto:hei@okane.no?subject=Demo%20Brage" class="btn btn--primary btn--xl" data-nb="Se en demo" data-en="See a demo">Se en demo</a>
+        <a href="/" class="btn btn--ghost btn--xl" data-nb="Tilbake til forsiden" data-en="Back to the front page">Tilbake til forsiden</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

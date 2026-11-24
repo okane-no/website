@@ -5,15 +5,16 @@ import Footer from '~/components/layout/Footer.astro';
 ---
 
 <Layout
-  title="Nettsider · Okane"
-  description="Raske, tilgjengelige nettsider som blir funnet i søk og er enkle å oppdatere selv."
+  title="Nettsider for bedrifter, raske og synlige i søk · Okane"
+  description="Raske, tilgjengelige nettsider for bedrifter, bygget for å bli funnet i søk og enkle å oppdatere selv. Vi blir med videre i drift."
+  schema={[{"@type": "Service", "name": "Nettsider", "serviceType": "Utvikling av nettsider", "url": "https://okane.no/nettsider", "description": "Raske, tilgjengelige nettsider for bedrifter, enkle å oppdatere selv.", "provider": {"@id": "https://okane.no/#org"}, "areaServed": {"@type": "Country", "name": "Norge"}}]}
 >
   <Header />
 
   <section class="hero">
     <div class="container">
       <div class="hero__eyebrow">
-        <span data-nb="Tjeneste fra Okane" data-en="A service by Okane">Tjeneste fra Okane</span>
+        <a href="/#tjenester" data-nb="Tjenester" data-en="Services">Tjenester</a>
       </div>
 
       <h1 class="hero__headline hero__headline--page">
@@ -26,7 +27,7 @@ import Footer from '~/components/layout/Footer.astro';
       </p>
 
       <div class="hero__cta">
-        <a href="mailto:hei@okane.no?subject=Nettsider" class="btn btn--primary btn--lg" data-nb="Start et prosjekt →" data-en="Start a project →">Start et prosjekt →</a>
+        <a href="mailto:hei@okane.no?subject=Nettsider" class="btn btn--primary btn--lg" data-nb="Start et prosjekt" data-en="Start a project">Start et prosjekt</a>
         <a href="/#tjenester" class="btn btn--secondary btn--lg" data-nb="Alle tjenester" data-en="All services">Alle tjenester</a>
       </div>
     </div>
@@ -35,7 +36,6 @@ import Footer from '~/components/layout/Footer.astro';
   <section class="block">
     <div class="container">
       <header class="block__header reveal">
-        <div class="block__eyebrow" data-nb="Det får du" data-en="What you get">Det får du</div>
         <div class="block__sub-wrap">
           <h2 class="block__title" data-nb="Bygget for å vare." data-en="Built to last.">Bygget for å vare.</h2>
           <p class="block__sub" data-nb="En nettside som jobber for deg, og som teamet ditt kan eie selv etter lansering." data-en="A website that works for you, and that your team can own after launch.">
@@ -46,28 +46,24 @@ import Footer from '~/components/layout/Footer.astro';
 
       <div class="caps reveal">
         <div class="cap">
-          <div class="cap__num">01</div>
           <div class="cap__body">
             <h4 data-nb="Design og innhold" data-en="Design and content">Design og innhold</h4>
             <p data-nb="Struktur, tekst og uttrykk som passer merkevaren din, ikke en mal fra et tema-bibliotek." data-en="Structure, copy and expression that fit your brand, not a template from a theme library.">Struktur, tekst og uttrykk som passer merkevaren din, ikke en mal fra et tema-bibliotek.</p>
           </div>
         </div>
         <div class="cap">
-          <div class="cap__num">02</div>
           <div class="cap__body">
             <h4 data-nb="SEO og ytelse" data-en="SEO and performance">SEO og ytelse</h4>
             <p data-nb="Bygget for å bli funnet i søk og score på Core Web Vitals. Fart er ikke en ettertanke." data-en="Built to be found in search and score on Core Web Vitals. Speed is not an afterthought.">Bygget for å bli funnet i søk og score på Core Web Vitals. Fart er ikke en ettertanke.</p>
           </div>
         </div>
         <div class="cap">
-          <div class="cap__num">03</div>
           <div class="cap__body">
             <h4 data-nb="Enkel publisering" data-en="Easy publishing">Enkel publisering</h4>
             <p data-nb="Du oppdaterer innholdet selv, med opplæring inkludert. Ingen byrå på timepris for å bytte et bilde." data-en="You update the content yourself, training included. No agency on hourly rates to swap an image.">Du oppdaterer innholdet selv, med opplæring inkludert. Ingen byrå på timepris for å bytte et bilde.</p>
           </div>
         </div>
         <div class="cap">
-          <div class="cap__num">04</div>
           <div class="cap__body">
             <h4 data-nb="Universell utforming" data-en="Accessibility">Universell utforming</h4>
             <p data-nb="Tilgjengelig for alle og i tråd med kravene, fra første versjon. Ikke en opprydding i etterkant." data-en="Accessible to everyone and compliant with the requirements, from version one. Not a cleanup afterwards.">Tilgjengelig for alle og i tråd med kravene, fra første versjon. Ikke en opprydding i etterkant.</p>
@@ -84,7 +80,7 @@ import Footer from '~/components/layout/Footer.astro';
         Send oss dagens nettside, så svarer vi med hva vi ville gjort annerledes. Helt uforpliktende.
       </p>
       <div class="cta__row">
-        <a href="mailto:hei@okane.no?subject=Nettsider" class="btn btn--primary btn--xl" data-nb="Skriv til oss →" data-en="Write to us →">Skriv til oss →</a>
+        <a href="mailto:hei@okane.no?subject=Nettsider" class="btn btn--primary btn--xl" data-nb="Skriv til oss" data-en="Write to us">Skriv til oss</a>
         <a href="/" class="btn btn--ghost btn--xl" data-nb="Tilbake til forsiden" data-en="Back to the front page">Tilbake til forsiden</a>
       </div>
     </div>
