@@ -778,6 +778,7 @@ footer { padding: var(--space-16) 0 var(--space-12); border-top: 1px solid var(-
 }
 .caps--three-up { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 1024px) { .caps--three-up { grid-template-columns: 1fr; } }
+.brain-caps { margin-top: var(--space-10); }
 .privat-note { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-5) var(--space-10); margin-top: var(--space-10); }
 .privat-note p { font-size: var(--text-base); color: var(--text-secondary); line-height: 1.55; max-width: 38em; }
 .cap__body p a { text-decoration: underline; text-underline-offset: 3px; }
