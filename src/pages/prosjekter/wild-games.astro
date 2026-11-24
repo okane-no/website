@@ -3,9 +3,13 @@ import { Image } from 'astro:assets';
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
+import CTA from '~/components/sections/CTA.astro';
+import { mailto, prompts } from '~/lib/contact';
 import wgForside from '~/assets/prosjekter/wild-games/forside.webp';
 import wgProdukter from '~/assets/prosjekter/wild-games/produkter.webp';
 import wgMobil from '~/assets/prosjekter/wild-games/mobil.webp';
+
+const contact = mailto('Nettbutikk', prompts.project);
 ---
 
 <Layout
@@ -13,7 +17,7 @@ import wgMobil from '~/assets/prosjekter/wild-games/mobil.webp';
   description="Nettbutikk for Wild Games, en spesialbutikk for Magic: The Gathering, bygget på Shopify med stort sortiment av singles, boosters og tilbehør."
   schema={[{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Forside", "item": "https://okane.no/"}, {"@type": "ListItem", "position": 2, "name": "Prosjekter", "item": "https://okane.no/prosjekter"}, {"@type": "ListItem", "position": 3, "name": "Wild Games", "item": "https://okane.no/prosjekter/wild-games"}]}]}
 >
-  <Header />
+  <Header ctaLabel="Be om pris og plan" ctaHref="#kontakt" ctaEvent="pris-og-plan" />
 
   <section class="hero">
     <div class="container">
@@ -104,18 +108,12 @@ import wgMobil from '~/assets/prosjekter/wild-games/mobil.webp';
     </div>
   </section>
 
-  <section class="cta">
-    <div class="container">
-      <h2 data-nb="Vil du ha en nettbutikk som denne?" data-en="Want a store like this?">Vil du ha en nettbutikk som denne?</h2>
-      <p data-nb="Fortell oss hva du selger, så svarer vi innen en arbeidsdag." data-en="Tell us what you sell and we'll reply within one working day.">
-        Fortell oss hva du selger, så svarer vi innen en arbeidsdag.
-      </p>
-      <div class="cta__row">
-        <a href="mailto:hei@okane.no?subject=Nettbutikk" class="btn btn--primary btn--xl" data-nb="Start et prosjekt" data-en="Start a project">Start et prosjekt</a>
-        <a href="/prosjekter" class="btn btn--ghost btn--xl" data-nb="Tilbake til prosjekter" data-en="Back to projects">Tilbake til prosjekter</a>
-      </div>
-    </div>
-  </section>
+  <CTA
+    title="Vil du ha en nettbutikk som denne?"
+    text="Fortell oss hva du selger, så svarer vi med plattformvalg, plan og pris."
+    primary={{ label: 'Be om pris og plan', href: contact, event: 'pris-og-plan' }}
+    secondary={{ label: 'Les om netthandel', href: '/netthandel', event: 'se-netthandel' }}
+  />
 
   <Footer />
 </Layout>
