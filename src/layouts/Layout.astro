@@ -4,14 +4,45 @@ import '~/styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  // Share image under public/, 1200×630
+  image?: string;
+  imageAlt?: string;
+  // Structured data for this page, added to the organisation's own
+  schema?: Record<string, unknown>[];
+  // Pages that shouldn't be in search yet
+  noindex?: boolean;
 }
 
 const {
-  title = 'Okane · Vi bygger som om vi skal drifte det.',
-  description = 'Konsulenthus med egne produkter i produksjon. Vi bygger nettsider, netthandel, mobilapper, integrasjoner og AI-agenter, og blir med videre i drift.',
+  title = 'Okane – IT-byrå i Vestfold for nett, apper og Altinn',
+  description = 'Konsulenthus i Tønsberg som bygger nettsider, nettbutikker, apper og Altinn-integrasjoner, og drifter dem etterpå.',
+  image = '/og/okane.png',
+  imageAlt = 'Okane: Vi bygger som om vi skal drifte det.',
+  schema = [],
+  noindex = false,
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, Astro.site);
+// Pages are served without a trailing slash (nginx redirects to that form), so the canonical matches the URL that answers
+const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site);
+const imageUrl = new URL(image, Astro.site);
+
+// Who Okane is, on every page, so search engines and AI answers can tie the site to the registered company
+const organisation = {
+  '@type': 'Organization',
+  '@id': 'https://okane.no/#org',
+  name: 'Okane',
+  legalName: 'Okane AS',
+  url: 'https://okane.no/',
+  logo: 'https://okane.no/og/logo.png',
+  email: 'hei@okane.no',
+  identifier: { '@type': 'PropertyValue', propertyID: 'Organisasjonsnummer', value: '938401934' },
+  address: { '@type': 'PostalAddress', addressLocality: 'Tønsberg', addressRegion: 'Vestfold', addressCountry: 'NO' },
+  areaServed: { '@type': 'Country', name: 'Norge' },
+  knowsAbout: ['Altinn-integrasjon', 'Netthandel', 'Systemintegrasjon', 'AI-agenter', 'Nettsider', 'Mobilapper'],
+  sameAs: ['https://virksomhet.brreg.no/nb/oppslag/enheter/938401934'],
+};
+const website = { '@type': 'WebSite', '@id': 'https://okane.no/#website', url: 'https://okane.no/', name: 'Okane', inLanguage: 'nb-NO', publisher: { '@id': 'https://okane.no/#org' } };
+const graph = { '@context': 'https://schema.org', '@graph': [organisation, website, ...schema] };
 ---
 
 <!doctype html>
@@ -22,6 +53,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -30,11 +62,18 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="nb_NO" />
     <meta property="og:site_name" content="Okane" />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(graph)} />
 
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />

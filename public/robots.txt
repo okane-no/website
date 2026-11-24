@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://okane.no/sitemap-index.xml
