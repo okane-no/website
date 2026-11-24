@@ -21,7 +21,7 @@ const demo = mailto('Demo Brage', prompts.brageDemo);
   description="Brage fyller ut skjema i Altinn, som aksjonærregisteroppgaven, fra virksomhetens egne dokumenter. Kilde på hvert felt, og ingenting sendes uten godkjenning."
   image="/og/brage.png"
   imageAlt="Brage: et utkast til aksjonærregisteroppgaven med kilde på hvert felt"
-  schema={[{"@type": "SoftwareApplication", "name": "Brage", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "nb", "url": "https://okane.no/brage", "description": "Fyller ut offentlige skjema i Altinn fra virksomhetens egne dokumenter, med kilde på hvert felt. En saksbehandler godkjenner før innsending.", "publisher": {"@id": "https://okane.no/#org"}}]}
+  schema={[{"@type": "SoftwareApplication", "@id": "https://okane.no/brage#app", "name": "Brage", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "nb", "url": "https://okane.no/brage", "description": "Fyller ut offentlige skjema i Altinn fra virksomhetens egne dokumenter, med kilde på hvert felt. En saksbehandler godkjenner før innsending.", "featureList": ["Fyller ut skjema i Altinn fra egne dokumenter, med kilde på hvert felt", "Sender aksjonærregisteroppgaven (RF-1086) til Skatteetaten med systembruker i Altinn", "Spørsmål og svar på egne dokumenter, med kilde til hver påstand", "Leser dokumenter fra SharePoint gjennom Microsoft Graph og fra filområder", "Hver person får bare svar fra dokumenter Entra ID-gruppene eller en direkte deling gir tilgang til", "Kan kjøre på en privat språkmodell i Ollama, i egen infrastruktur", "Hybrid søk med vektorer (pgvector) og fulltekst"], "publisher": {"@id": "https://okane.no/#org"}}]}
 >
   <Header ctaLabel="Søk om pilotplass" ctaHref="#kontakt" ctaEvent="pilot-brage" />
 
@@ -117,7 +117,7 @@ const demo = mailto('Demo Brage', prompts.brageDemo);
         <div class="cap">
           <div class="cap__body">
             <h4 data-nb="Der dokumentene ligger" data-en="Where your documents are">Der dokumentene ligger</h4>
-            <p data-nb="Leser fra SharePoint og filområder, slår opp selskaper i Enhetsregisteret og sender inn med systembruker i Altinn. Kan kjøres med lokale språkmodeller." data-en="Reads from SharePoint and file shares, looks companies up in Enhetsregisteret and files with an Altinn system user. Can run on local language models.">Leser fra SharePoint og filområder, slår opp selskaper i Enhetsregisteret og sender inn med systembruker i Altinn. Kan kjøres med lokale språkmodeller.</p>
+            <p data-nb="Leser fra SharePoint og filområder, slår opp selskaper i Enhetsregisteret og sender inn med systembruker i Altinn. Kan kjøres med lokale språkmodeller." data-en="Reads from SharePoint and file shares, looks companies up in Enhetsregisteret and files with an Altinn system user. Can run on local language models.">Leser fra SharePoint og filområder, slår opp selskaper i Enhetsregisteret og sender inn med systembruker i Altinn. Kan kjøres på <a href="/brage/privat-ki">en privat språkmodell</a>.</p>
           </div>
         </div>
       </div>
@@ -166,6 +166,11 @@ const demo = mailto('Demo Brage', prompts.brageDemo);
             sizes="(max-width: 880px) 100vw, 1100px"
           />
         </div>
+      </div>
+
+      <div class="privat-note reveal">
+        <p>Språkmodellen kan kjøre på deres egne servere, så dokumentene og spørsmålene blir hos dere. Hver person får bare svar fra dokumenter de har tilgang til.</p>
+        <a href="/brage/privat-ki" class="btn btn--secondary btn--lg" data-umami-event="cta-click" data-umami-event-location="sporsmal" data-umami-event-label="se-privat-ki">Se hvor dataene ligger</a>
       </div>
     </div>
   </section>
