@@ -3,10 +3,17 @@ import { Image } from 'astro:assets';
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
+import MailNote from '~/components/sections/MailNote.astro';
+import CTA from '~/components/sections/CTA.astro';
+import { mailto, prompts } from '~/lib/contact';
+import { brageForms } from '~/data/brage-skjema';
 import skjema from '~/assets/produkter/brage/skjema.webp';
 import sporsmal from '~/assets/produkter/brage/sporsmal.webp';
 import skjemaer from '~/assets/produkter/brage/skjemaer.webp';
 import arbeidsflyt from '~/assets/produkter/brage/arbeidsflyt.webp';
+
+const pilot = mailto('Pilot Brage', prompts.bragePilot);
+const demo = mailto('Demo Brage', prompts.brageDemo);
 ---
 
 <Layout
@@ -16,7 +23,7 @@ import arbeidsflyt from '~/assets/produkter/brage/arbeidsflyt.webp';
   imageAlt="Brage: et utkast til aksjonærregisteroppgaven med kilde på hvert felt"
   schema={[{"@type": "SoftwareApplication", "name": "Brage", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "nb", "url": "https://okane.no/brage", "description": "Fyller ut offentlige skjema i Altinn fra virksomhetens egne dokumenter, med kilde på hvert felt. En saksbehandler godkjenner før innsending.", "publisher": {"@id": "https://okane.no/#org"}}]}
 >
-  <Header />
+  <Header ctaLabel="Søk om pilotplass" ctaHref="#kontakt" ctaEvent="pilot-brage" />
 
   <section class="hero">
     <div class="container">
@@ -34,9 +41,10 @@ import arbeidsflyt from '~/assets/produkter/brage/arbeidsflyt.webp';
       </p>
 
       <div class="hero__cta">
-        <a href="mailto:hei@okane.no?subject=Demo%20Brage" class="btn btn--primary btn--lg" data-nb="Se en demo" data-en="See a demo">Se en demo</a>
-        <a href="/#produkter" class="btn btn--secondary btn--lg" data-nb="Alle produkter" data-en="All products">Alle produkter</a>
+        <a href={pilot} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="pilot-brage">Søk om pilotplass</a>
+        <a href={demo} class="btn btn--secondary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="demo-brage">Be om en demo</a>
       </div>
+      <MailNote location="hero" />
 
       <div class="hero__meta">
         <span><b data-nb="34 skjema" data-en="34 forms">34 skjema</b> <span data-nb="fra 17 etater" data-en="from 17 agencies">fra 17 etater</span></span>
@@ -85,13 +93,13 @@ import arbeidsflyt from '~/assets/produkter/brage/arbeidsflyt.webp';
         <div class="cap">
           <div class="cap__body">
             <h4 data-nb="Kontroller per skjema" data-en="Checks for each form">Kontroller per skjema</h4>
-            <p data-nb="Aksjer som må gå opp, mva som må stemme med grunnlaget, frister som ikke må passeres. Feilene vises før noen godkjenner." data-en="Shares that must reconcile, VAT that must match its base, deadlines that must not pass. Errors show before anyone approves.">Aksjer som må gå opp, mva som må stemme med grunnlaget, frister som ikke må passeres. Feilene vises før noen godkjenner.</p>
+            <p data-nb="Aksjer som må gå opp, mva som må stemme med grunnlaget, frister som må holdes. Feilene vises før noen godkjenner." data-en="Shares that must reconcile, VAT that must match its base, deadlines that must be met. Errors show before anyone approves.">Aksjer som må gå opp, mva som må stemme med grunnlaget, frister som må holdes. Feilene vises før noen godkjenner.</p>
           </div>
         </div>
         <div class="cap">
           <div class="cap__body">
             <h4 data-nb="Du har siste ord" data-en="You have the final say">Du har siste ord</h4>
-            <p data-nb="Rett et felt, eller be agenten sjekke noe på nytt. Ingenting sendes før en person har godkjent, og alle endringer står i historikken." data-en="Correct a field, or ask the agent to check something again. Nothing is sent until a person has approved, and every change is in the history.">Rett et felt, eller be agenten sjekke noe på nytt. Ingenting sendes før en person har godkjent, og alle endringer står i historikken.</p>
+            <p data-nb="Rett et felt, eller be agenten sjekke noe på nytt. En person godkjenner før noe sendes, og alle endringer står i historikken." data-en="Correct a field, or ask the agent to check something again. A person approves before anything is sent, and every change is in the history.">Rett et felt, eller be agenten sjekke noe på nytt. En person godkjenner før noe sendes, og alle endringer står i historikken.</p>
           </div>
         </div>
         <div class="cap">
@@ -111,6 +119,24 @@ import arbeidsflyt from '~/assets/produkter/brage/arbeidsflyt.webp';
             <h4 data-nb="Der dokumentene ligger" data-en="Where your documents are">Der dokumentene ligger</h4>
             <p data-nb="Leser fra SharePoint og filområder, slår opp selskaper i Enhetsregisteret og sender inn med systembruker i Altinn. Kan kjøres med lokale språkmodeller." data-en="Reads from SharePoint and file shares, looks companies up in Enhetsregisteret and files with an Altinn system user. Can run on local language models.">Leser fra SharePoint og filområder, slår opp selskaper i Enhetsregisteret og sender inn med systembruker i Altinn. Kan kjøres med lokale språkmodeller.</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="qa qa--solo reveal">
+        <h2>Aksjonærregisteroppgaven <span class="nowrap">(RF-1086)</span> fra protokoller og avtaler</h2>
+        <div class="qa__body">
+          <p>Brage fyller ut aksjonærregisteroppgaven fra generalforsamlingsprotokoller, aksjeoverdragelser og fjorårets oppgave. Den avstemmer beholdningen for hver aksjonær, lager én RF-1086-U per aksjonær og sender oppgaven til Skatteetaten med selskapets systembruker i Altinn når dere har godkjent. Fristen er 31. januar.</p>
+          <ul>
+            <li>Inngående beholdning hentes fra fjorårets oppgave, sendt gjennom Brage eller hentet fra Skatteetaten.</li>
+            <li>Kapitalendringer, overdragelser og utbytte hentes fra dokumentene, med kilde på hvert tall.</li>
+            <li>Kontrollene stopper oppgaven til aksjene går opp, for selskapet og for hver aksjonær.</li>
+            <li>Skatteetatens kvittering vises på kjøringen. Avviser Skatteetaten oppgaven, står begrunnelsen der, så dere kan rette og sende på nytt.</li>
+          </ul>
+          <p><a href="/altinn-integrasjon">Slik sender vi inn skjema med systembruker og Maskinporten</a>.</p>
         </div>
       </div>
     </div>
@@ -175,21 +201,89 @@ import arbeidsflyt from '~/assets/produkter/brage/arbeidsflyt.webp';
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="cta">
-    <div class="container">
-      <h2 data-nb="La skjemaene komme til deg." data-en="Let the forms come to you.">La skjemaene komme til deg.</h2>
-      <p data-nb="Fortell hvilke skjema dere sender inn i dag, så viser vi hvordan Brage fyller dem ut fra deres egne dokumenter." data-en="Tell us which forms you file today, and we'll show you how Brage fills them in from your own documents.">
-        Fortell hvilke skjema dere sender inn i dag, så viser vi hvordan Brage fyller dem ut fra deres egne dokumenter.
-      </p>
-      <div class="cta__row">
-        <a href="mailto:hei@okane.no?subject=Demo%20Brage" class="btn btn--primary btn--xl" data-nb="Se en demo" data-en="See a demo">Se en demo</a>
-        <a href="/" class="btn btn--ghost btn--xl" data-nb="Tilbake til forsiden" data-en="Back to the front page">Tilbake til forsiden</a>
+      <div class="table-wrap forms-wrap reveal">
+        <table class="table forms-table">
+          <caption class="forms-caption">Skjemaene Brage fyller ut, etter etat</caption>
+          <thead>
+            <tr>
+              <th scope="col">Skjema</th>
+              <th scope="col">Etat</th>
+              <th scope="col">Skjemanummer</th>
+              <th scope="col">Frekvens</th>
+            </tr>
+          </thead>
+          <tbody>
+            {brageForms.map((form) => (
+              <tr>
+                <td>{form.title}</td>
+                <td data-label="Etat">{form.authority}</td>
+                <td data-label="Skjemanummer"><span class="mono">{form.formId ?? '–'}</span></td>
+                <td data-label="Frekvens">{form.period}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
+
+  <section class="block">
+    <div class="container">
+      <header class="block__header reveal">
+        <div class="block__sub-wrap">
+          <h2 class="block__title">Slik fungerer piloten.</h2>
+          <p class="block__sub">
+            For virksomheter som sender de samme skjemaene igjen og igjen, for ett selskap eller for mange.
+          </p>
+        </div>
+      </header>
+
+      <div class="caps caps--steps reveal">
+        <div class="cap">
+          <div class="cap__num">1</div>
+          <div class="cap__body">
+            <h4>Velg skjemaene</h4>
+            <p>Vi setter opp Brage på 1–3 av skjemaene dere sender inn i dag.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">2</div>
+          <div class="cap__body">
+            <h4>Koble til dokumentene</h4>
+            <p>Brage leser fra SharePoint eller et filområde. Hver person ser bare dokumentene de har tilgang til.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">3</div>
+          <div class="cap__body">
+            <h4>Gi Brage en systembruker</h4>
+            <p>Noen som forvalter selskapets rettigheter i Altinn, godkjenner Brage én gang per selskap.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__num">4</div>
+          <div class="cap__body">
+            <h4>Godkjenn og send</h4>
+            <p>Dere går gjennom hvert utkast og godkjenner alt før noe sendes.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="pilot-terms">Pris og vilkår avtaler vi i et kort møte.</p>
+      <div class="hero__cta">
+        <a href={pilot} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="pilot" data-umami-event-label="pilot-brage">Søk om pilotplass</a>
+      </div>
+      <MailNote location="pilot" />
+    </div>
+  </section>
+
+  <CTA
+    title="Se Brage fylle ut et av skjemaene deres."
+    text="Fortell hvilke skjema dere sender inn i dag, så setter vi opp Brage på dem i en pilot. Vil dere se Brage først, viser vi den gjerne."
+    primary={{ label: 'Søk om pilotplass', href: pilot, event: 'pilot-brage' }}
+    secondary={{ label: 'Be om en demo', href: demo, event: 'demo-brage' }}
+  />
 
   <Footer />
 </Layout>
