@@ -6,7 +6,6 @@ import Footer from '~/components/layout/Footer.astro';
 import MailNote from '~/components/sections/MailNote.astro';
 import CTA from '~/components/sections/CTA.astro';
 import { mailto, prompts } from '~/lib/contact';
-import { brageForms } from '~/data/brage-skjema';
 import skjema from '~/assets/produkter/brage/skjema.webp';
 import sporsmal from '~/assets/produkter/brage/sporsmal.webp';
 import skjemaer from '~/assets/produkter/brage/skjemaer.webp';
@@ -36,8 +35,8 @@ const demo = mailto('Demo Brage', prompts.brageDemo);
         <em data-nb="Du godkjenner." data-en="You approve.">Du godkjenner.</em>
       </h1>
 
-      <p class="hero__sub" data-nb="Aksjonærregisteroppgaven, a-meldingen, lusetellingen: opplysningene ligger allerede i dokumentene deres. Brage leser dem, fyller ut skjemaet i Altinn og viser hvor hvert tall kommer fra. En saksbehandler går gjennom, godkjenner og sender." data-en="The shareholder register statement, the a-melding, the sea lice count: the information is already in your documents. Brage reads them, fills in the Altinn form and shows where every figure comes from. A case worker reviews, approves and submits.">
-        Aksjonærregisteroppgaven, a-meldingen, lusetellingen: opplysningene ligger allerede i dokumentene deres. Brage leser dem, fyller ut skjemaet i Altinn og viser hvor hvert tall kommer fra. En saksbehandler går gjennom, godkjenner og sender.
+      <p class="hero__sub" data-nb="Opplysningene ligger allerede i dokumentene deres. Brage leser dem, fyller ut skjemaet i Altinn og viser hvor hvert tall kommer fra, og en saksbehandler godkjenner før noe sendes. Den samme kunnskapsbasen svarer på spørsmål om alt dere har i SharePoint og på filområdene, på en språkmodell som kan kjøre hos dere." data-en="The information is already in your documents. Brage reads them, fills in the Altinn form and shows where every figure comes from, and a case worker approves before anything is sent. The same knowledge base answers questions about everything in SharePoint and your file shares, on a language model that can run on your own servers.">
+        Opplysningene ligger allerede i dokumentene deres. Brage leser dem, fyller ut skjemaet i Altinn og viser hvor hvert tall kommer fra, og en saksbehandler godkjenner før noe sendes. Den samme kunnskapsbasen svarer på spørsmål om alt dere har i SharePoint og på filområdene, på en språkmodell som kan kjøre hos dere.
       </p>
 
       <div class="hero__cta">
@@ -48,8 +47,8 @@ const demo = mailto('Demo Brage', prompts.brageDemo);
 
       <div class="hero__meta">
         <span><b data-nb="34 skjema" data-en="34 forms">34 skjema</b> <span data-nb="fra 17 etater" data-en="from 17 agencies">fra 17 etater</span></span>
-        <span><b data-nb="Kilde" data-en="A source">Kilde</b> <span data-nb="på hvert felt" data-en="for every field">på hvert felt</span></span>
-        <span><b data-nb="Ingenting sendes" data-en="Nothing is sent">Ingenting sendes</b> <span data-nb="uten godkjenning" data-en="without approval">uten godkjenning</span></span>
+        <span><b data-nb="Svar med kilde" data-en="Answers with sources">Svar med kilde</b> <span data-nb="fra egne dokumenter" data-en="from your own documents">fra egne dokumenter</span></span>
+        <span><b data-nb="Privat språkmodell" data-en="A private language model">Privat språkmodell</b> <span data-nb="på egne servere" data-en="on your own servers">på egne servere</span></span>
       </div>
 
       <div class="hero__device">
@@ -126,29 +125,11 @@ const demo = mailto('Demo Brage', prompts.brageDemo);
 
   <section class="block">
     <div class="container">
-      <div class="qa qa--solo reveal">
-        <h2>Aksjonærregisteroppgaven <span class="nowrap">(RF-1086)</span> fra protokoller og avtaler</h2>
-        <div class="qa__body">
-          <p>Brage fyller ut aksjonærregisteroppgaven fra generalforsamlingsprotokoller, aksjeoverdragelser og fjorårets oppgave. Den avstemmer beholdningen for hver aksjonær, lager én RF-1086-U per aksjonær og sender oppgaven til Skatteetaten med selskapets systembruker i Altinn når dere har godkjent. Fristen er 31. januar.</p>
-          <ul>
-            <li>Inngående beholdning hentes fra fjorårets oppgave, sendt gjennom Brage eller hentet fra Skatteetaten.</li>
-            <li>Kapitalendringer, overdragelser og utbytte hentes fra dokumentene, med kilde på hvert tall.</li>
-            <li>Kontrollene stopper oppgaven til aksjene går opp, for selskapet og for hver aksjonær.</li>
-            <li>Skatteetatens kvittering vises på kjøringen. Avviser Skatteetaten oppgaven, står begrunnelsen der, så dere kan rette og sende på nytt.</li>
-          </ul>
-          <p><a href="/altinn-integrasjon">Slik sender vi inn skjema med systembruker og Maskinporten</a>.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block">
-    <div class="container">
       <header class="block__header reveal">
         <div class="block__sub-wrap">
-          <h2 class="block__title" data-nb="Svar du kan&lt;br&gt;sjekke selv." data-en="Answers you can&lt;br&gt;check yourself.">Svar du kan<br>sjekke selv.</h2>
-          <p class="block__sub" data-nb="Hvem kjøpte aksjer i juni, og til hvilken pris? Brage finner det i protokollene og avtalene, og lenker til dokumentet svaret bygger på." data-en="Who bought shares in June, and at what price? Brage finds it in the minutes and agreements, and links to the document the answer is based on.">
-            Hvem kjøpte aksjer i juni, og til hvilken pris? Brage finner det i protokollene og avtalene, og lenker til dokumentet svaret bygger på.
+          <h2 class="block__title" data-nb="Kunnskapsbasen&lt;br&gt;til hele virksomheten." data-en="A knowledge base&lt;br&gt;for the whole business.">Kunnskapsbasen<br>til hele virksomheten.</h2>
+          <p class="block__sub" data-nb="Brage indekserer avtaler, protokoller, rutiner og rapporter fra SharePoint og filområdene, og svarer på spørsmål på norsk med lenke til dokumentet svaret bygger på. Hvem kjøpte aksjer i juni, og til hvilken pris? Hva sier leieavtalen om oppsigelse?" data-en="Brage indexes agreements, minutes, procedures and reports from SharePoint and your file shares, and answers questions in Norwegian with a link to the document behind each answer. Who bought shares in June, and at what price? What does the lease say about termination?">
+            Brage indekserer avtaler, protokoller, rutiner og rapporter fra SharePoint og filområdene, og svarer på spørsmål på norsk med lenke til dokumentet svaret bygger på. Hvem kjøpte aksjer i juni, og til hvilken pris? Hva sier leieavtalen om oppsigelse?
           </p>
         </div>
       </header>
@@ -168,9 +149,30 @@ const demo = mailto('Demo Brage', prompts.brageDemo);
         </div>
       </div>
 
+      <div class="caps brain-caps reveal">
+        <div class="cap">
+          <div class="cap__body">
+            <h4>Søker i alt dere har</h4>
+            <p>Dokumentene deles opp, indekseres og søkes både på ord og på mening. Svaret bygger bare på utdragene Brage finner, og hver påstand har kilde.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__body">
+            <h4>Samme tilgang som i dag</h4>
+            <p>Hver person får bare svar fra dokumenter Entra ID-gruppene eller en direkte deling gir dem tilgang til. Styrepapirer blir hos styret.</p>
+          </div>
+        </div>
+        <div class="cap">
+          <div class="cap__body">
+            <h4>Privat språkmodell</h4>
+            <p>Språkmodellen kan kjøre på deres egne servere eller i deres egen sky. Dokumentene, spørsmålene og søkeindeksen forlater ikke infrastrukturen deres.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="privat-note reveal">
-        <p>Språkmodellen kan kjøre på deres egne servere, så dokumentene og spørsmålene blir hos dere. Hver person får bare svar fra dokumenter de har tilgang til.</p>
-        <a href="/brage/privat-ki" class="btn btn--secondary btn--lg" data-umami-event="cta-click" data-umami-event-location="sporsmal" data-umami-event-label="se-privat-ki">Se hvor dataene ligger</a>
+        <p>Se hvor dataene ligger, hvilke modeller Brage kan bruke, og hva IT pleier å spørre om før en pilot.</p>
+        <a href="/brage/privat-ki" class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="sporsmal" data-umami-event-label="se-privat-ki">Les om privat KI i Brage</a>
       </div>
     </div>
   </section>
@@ -207,29 +209,6 @@ const demo = mailto('Demo Brage', prompts.brageDemo);
         </div>
       </div>
 
-      <div class="table-wrap forms-wrap reveal">
-        <table class="table forms-table">
-          <caption class="forms-caption">Skjemaene Brage fyller ut, etter etat</caption>
-          <thead>
-            <tr>
-              <th scope="col">Skjema</th>
-              <th scope="col">Etat</th>
-              <th scope="col">Skjemanummer</th>
-              <th scope="col">Frekvens</th>
-            </tr>
-          </thead>
-          <tbody>
-            {brageForms.map((form) => (
-              <tr>
-                <td>{form.title}</td>
-                <td data-label="Etat">{form.authority}</td>
-                <td data-label="Skjemanummer"><span class="mono">{form.formId ?? '–'}</span></td>
-                <td data-label="Frekvens">{form.period}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
     </div>
   </section>
 
