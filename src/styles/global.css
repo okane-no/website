@@ -637,6 +637,12 @@ footer { padding: var(--space-16) 0 var(--space-12); border-top: 1px solid var(-
 /* Project detail screenshots */
 .preview__body--shot { padding: 0; }
 .preview__body--shot img { display: block; width: 100%; height: auto; }
+.zoomable { cursor: zoom-in; }
+.zoomable:focus-visible { outline: 2px solid var(--text-link); outline-offset: -2px; }
+.zoom { max-width: none; max-height: none; width: 100vw; height: 100dvh; margin: 0; padding: 2vmin; border: 0; background: transparent; cursor: zoom-out; }
+.zoom[open] { display: grid; place-items: center; }
+.zoom::backdrop { background: rgb(0 0 0 / 0.82); }
+.zoom img { max-width: 96vw; max-height: 96dvh; width: auto; height: auto; border-radius: var(--radius-md, 8px); box-shadow: 0 12px 48px rgb(0 0 0 / 0.4); }
 .shot-grid { display: grid; grid-template-columns: 1.7fr 1fr; gap: var(--space-6); align-items: stretch; margin-top: var(--space-10); }
 .shot-grid .preview { align-self: start; }
 .shot-phone {

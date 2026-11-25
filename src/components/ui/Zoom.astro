@@ -1,0 +1,40 @@
+---
+// Opens a screenshot (.preview__body--shot img) full screen on click. The dialog reuses the image's srcset,
+// so the browser picks the largest version that fits.
+---
+
+<dialog class="zoom" aria-label="Skjermbilde">
+  <img alt="" />
+</dialog>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('dialog.zoom');
+  const large = dialog?.querySelector('img');
+
+  if (dialog && large) {
+    const open = (img: HTMLImageElement) => {
+      large.srcset = img.srcset;
+      large.sizes = '96vw';
+      large.src = img.currentSrc || img.src;
+      large.alt = img.alt;
+      dialog.showModal();
+    };
+
+    document.querySelectorAll<HTMLImageElement>('.preview__body--shot img').forEach((img) => {
+      img.classList.add('zoomable');
+      img.tabIndex = 0;
+      img.setAttribute('role', 'button');
+      img.setAttribute('aria-label', `Vis større: ${img.alt}`);
+      img.addEventListener('click', () => open(img));
+      img.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          open(img);
+        }
+      });
+    });
+
+    // Any click closes it, on the image or around it; Escape is handled by the dialog
+    dialog.addEventListener('click', () => dialog.close());
+  }
+</script>
