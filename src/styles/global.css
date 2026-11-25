@@ -707,17 +707,6 @@ footer { padding: var(--space-16) 0 var(--space-12); border-top: 1px solid var(-
 
 [data-en], [data-nb] { transition: opacity 200ms var(--ease-standard); }
 
-/* Under a button that opens an email: what happens, and the address to copy */
-.mailnote { margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-tertiary); line-height: 1.5; }
-.cta .mailnote { margin-top: var(--space-4); max-width: none; font-size: var(--text-sm); color: var(--text-secondary); }
-.mailnote__addr { color: var(--text-primary); font-weight: 600; }
-.mailnote__copy {
-  margin-left: var(--space-1); padding: 0; border: 0; background: none;
-  font: inherit; font-weight: 600; color: var(--text-link); cursor: pointer;
-  text-decoration: underline; text-underline-offset: 3px;
-}
-.mailnote__copy:hover { color: var(--text-link-hover); }
-
 /* One piece of proof on a service page */
 .proof { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-12); align-items: center; }
 .proof--text { grid-template-columns: minmax(0, 1fr); }
@@ -754,8 +743,8 @@ footer { padding: var(--space-16) 0 var(--space-12); border-top: 1px solid var(-
   .forms-table td[data-label]::before { content: attr(data-label) ": "; color: var(--text-tertiary); }
 }
 
-/* Pilot steps on /brage */
-.pilot-terms { margin-top: var(--space-10); font-size: var(--text-base); color: var(--text-secondary); max-width: 40em; line-height: 1.55; }
+/* Getting started on /brage */
+.start-terms { margin-top: var(--space-10); font-size: var(--text-base); color: var(--text-secondary); max-width: 40em; line-height: 1.55; }
 .cta .cta__aside { margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--border-default); font-size: var(--text-md); max-width: 40em; }
 .forms-wrap { margin-top: var(--space-10); }
 .forms-caption { caption-side: top; text-align: left; padding: var(--space-4); font-size: var(--text-md); font-weight: 700; color: var(--text-primary); border-bottom: 1px solid var(--border-subtle); }

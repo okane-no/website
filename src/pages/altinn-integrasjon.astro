@@ -2,7 +2,6 @@
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
-import MailNote from '~/components/sections/MailNote.astro';
 import CTA from '~/components/sections/CTA.astro';
 import { mailto, prompts } from '~/lib/contact';
 import { brageForms } from '~/data/brage-skjema';
@@ -36,7 +35,6 @@ const authorities = new Set(brageForms.map((f) => f.authority)).size;
         <a href={contact} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="pris-og-plan">Be om pris og plan</a>
         <a href="/mailroom" class="btn btn--secondary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="se-mailroom">Se Digital Mailroom</a>
       </div>
-      <MailNote location="hero" />
       <p class="updated">Sist oppdatert 24. november 2026</p>
     </div>
   </section>
@@ -97,7 +95,7 @@ const authorities = new Set(brageForms.map((f) => f.authority)).size;
       <div class="qa reveal">
         <h2>Ferdig produkt eller skreddersydd?</h2>
         <div class="qa__body">
-          <p>Skal post fra Altinn hentes og fordeles, finnes det ferdig i <a href="/mailroom">Digital Mailroom</a>. Skal skjema fylles ut fra egne dokumenter og sendes inn, er det <a href="/brage">Brage</a>, nå i pilot. Skal Altinn kobles til egne fagsystemer, bygger vi integrasjonen på den samme koden.</p>
+          <p>Skal post fra Altinn hentes og fordeles, finnes det ferdig i <a href="/mailroom">Digital Mailroom</a>. Skal skjema fylles ut fra egne dokumenter og sendes inn, er det <a href="/brage">Brage</a>. Skal Altinn kobles til egne fagsystemer, bygger vi integrasjonen på den samme koden.</p>
         </div>
       </div>
 

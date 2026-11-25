@@ -2,7 +2,6 @@
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
-import MailNote from '~/components/sections/MailNote.astro';
 import CTA from '~/components/sections/CTA.astro';
 import { mailto, prompts } from '~/lib/contact';
 
@@ -35,7 +34,6 @@ const demo = mailto('Demo Okane Commerce', prompts.commerce);
         <a href={demo} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="demo-commerce">Be om en demo</a>
         <a href="/netthandel" class="btn btn--secondary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="se-netthandel">Les om netthandel</a>
       </div>
-      <MailNote location="hero" lead="20 minutter på video." />
 
       <div class="hero__meta">
         <span><b data-nb="Vipps og Klarna" data-en="Vipps and Klarna">Vipps og Klarna</b> <span data-nb="innebygd" data-en="built in">innebygd</span></span>

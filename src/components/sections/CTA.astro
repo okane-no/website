@@ -1,6 +1,5 @@
 ---
 // The closing section on every page. The header button links here (#kontakt).
-import MailNote from '~/components/sections/MailNote.astro';
 import { mailto, prompts } from '~/lib/contact';
 
 interface Action {
@@ -15,8 +14,6 @@ interface Props {
   text?: string;
   primary?: Action;
   secondary?: Action;
-  // Shown before the address under the primary button, e.g. "20 minutter på video."
-  lead?: string;
 }
 
 const {
@@ -24,10 +21,7 @@ const {
   text = 'Send noen linjer om hva du trenger, så svarer vi med hvordan vi ville løst det og hva det vil koste.',
   primary = { label: 'Be om pris og plan', href: mailto('Prosjekt', prompts.project), event: 'pris-og-plan' },
   secondary = { label: 'Les vanlige spørsmål', href: '#faq', event: 'les-faq' },
-  lead,
 } = Astro.props;
-
-const isMail = primary.href.startsWith('mailto:');
 ---
 
 <section class="cta" id="kontakt">
@@ -52,7 +46,6 @@ const isMail = primary.href.startsWith('mailto:');
         >{secondary.label}</a>
       )}
     </div>
-    {isMail && <MailNote location="cta" lead={lead} />}
     <slot />
   </div>
 </section>
