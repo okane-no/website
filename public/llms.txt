@@ -5,8 +5,8 @@
 ## Produkter
 
 - [Digital Mailroom](https://okane.no/mailroom): digitalt postmottak som henter post fra Altinn, EHF og e-post og ruter den til rett person. Selges også gjennom Canon som Altinn Downloader.
-- [Brage](https://okane.no/brage): fyller ut offentlige skjema i Altinn, som aksjonærregisteroppgaven, fra virksomhetens egne dokumenter, med kilde på hvert felt. En saksbehandler godkjenner før noe sendes inn. I pilot.
-- [Brage: privat språkmodell på egne dokumenter](https://okane.no/brage/privat-ki): spørsmål og svar på dokumenter i SharePoint og filområder, med kilde til hver påstand. Språkmodellen kan kjøre i Ollama på kundens egne servere eller i egen sky, med søkeindeks laget lokalt, eller på OpenAI eller et OpenAI-kompatibelt endepunkt kunden velger. Hver person får bare svar fra dokumenter Entra ID-gruppene gir tilgang til. I pilot.
+- [Brage](https://okane.no/brage): fyller ut offentlige skjema i Altinn, som aksjonærregisteroppgaven, fra virksomhetens egne dokumenter, med kilde på hvert felt. En saksbehandler godkjenner før noe sendes inn.
+- [Brage: privat språkmodell på egne dokumenter](https://okane.no/brage/privat-ki): spørsmål og svar på dokumenter i SharePoint og filområder, med kilde til hver påstand. Språkmodellen kan kjøre i Ollama på kundens egne servere eller i egen sky, med søkeindeks laget lokalt, eller på OpenAI eller et OpenAI-kompatibelt endepunkt kunden velger. Hver person får bare svar fra dokumenter Entra ID-gruppene gir tilgang til..
 - [Okane Commerce](https://okane.no/commerce): nettbutikk, kasse og lager i ett system for norske merkevarer, med Vipps, Klarna, frakt og regnskap.
 
 ## Tjenester

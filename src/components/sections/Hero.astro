@@ -1,5 +1,4 @@
 ---
-import MailNote from '~/components/sections/MailNote.astro';
 import { mailto, prompts } from '~/lib/contact';
 
 const project = mailto('Prosjekt', prompts.project);
@@ -21,7 +20,6 @@ const project = mailto('Prosjekt', prompts.project);
         <a href={project} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="pris-og-plan">Be om pris og plan</a>
         <a href="#tjenester" class="btn btn--secondary btn--lg" data-nb="Se tjenestene" data-en="See our services" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="se-tjenestene">Se tjenestene</a>
       </div>
-      <MailNote location="hero" />
 
       <div class="hero__meta">
         <span><b data-nb="Kjørende kode" data-en="Running code">Kjørende kode</b> <span data-nb="første uke" data-en="in week one">første uke</span></span>

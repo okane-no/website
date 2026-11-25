@@ -2,7 +2,6 @@
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
-import MailNote from '~/components/sections/MailNote.astro';
 import CTA from '~/components/sections/CTA.astro';
 import { mailto, prompts } from '~/lib/contact';
 
@@ -37,7 +36,6 @@ const demo = mailto('Demo Digital Mailroom', prompts.mailroom);
         <a href={demo} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="demo-mailroom">Be om en demo</a>
         <a href="/altinn-integrasjon" class="btn btn--secondary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="se-altinn-integrasjon">Les om Altinn-integrasjon</a>
       </div>
-      <MailNote location="hero" />
 
       <div class="hero__meta">
         <span><b data-nb="Altinn, EHF og e-post" data-en="Altinn, EHF and email">Altinn, EHF og e-post</b> <span data-nb="i én strøm" data-en="in one stream">i én strøm</span></span>

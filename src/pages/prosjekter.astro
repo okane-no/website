@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
-import MailNote from '~/components/sections/MailNote.astro';
 import { mailto, prompts } from '~/lib/contact';
 import wgForside from '~/assets/prosjekter/wild-games/forside.webp';
 import spactForside from '~/assets/prosjekter/spact/forside.webp';
@@ -91,7 +90,6 @@ const contact = mailto('Prosjekt', prompts.project);
           </div>
         </a>
       </div>
-      <MailNote location="proj-card" />
     </div>
   </section>
 

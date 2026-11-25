@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
-import MailNote from '~/components/sections/MailNote.astro';
 import Proof from '~/components/sections/Proof.astro';
 import CTA from '~/components/sections/CTA.astro';
 import { mailto, prompts } from '~/lib/contact';
@@ -11,7 +10,7 @@ import svar from '~/assets/produkter/brage/svar-med-kilde.webp';
 import dokumenter from '~/assets/produkter/brage/dokumenter.webp';
 import skjema from '~/assets/produkter/brage/skjema.webp';
 
-const pilot = mailto('Pilot Brage: spørsmål og svar', prompts.brageQa);
+const start = mailto('Brage: spørsmål og svar', prompts.brageQa);
 const demo = mailto('Demo Brage', prompts.brageDemo);
 
 // The questions on the page, also given to search engines as FAQPage. Answers are HTML.
@@ -50,11 +49,11 @@ const questions = [
   },
   {
     q: 'Hvilke dokumenter kan Brage lese?',
-    a: '<p>PDF-filer med tekst, Word-filer (DOCX), tekstfiler og Markdown, fra SharePoint og filområder. Skannede dokumenter uten tekst blir ikke lest. En kobling til Therefore er planlagt.</p>',
+    a: '<p>PDF-filer med tekst, Word-filer (DOCX), tekstfiler og Markdown, fra SharePoint og filområder. Skannede dokumenter uten tekst blir ikke lest. Dokumenter i Therefore kan også kobles til.</p>',
   },
   {
     q: 'Hva koster det?',
-    a: '<p>Brage er i pilot. Pris og vilkår avtaler vi i et kort møte, og de avhenger av hvor mange dokumenter og brukere det gjelder, og hvor språkmodellen skal kjøre.</p>',
+    a: '<p>Det avhenger av hvor mange dokumenter og brukere det gjelder, og hvor språkmodellen skal kjøre. Etter en demo får dere en fast pris.</p>',
   },
 ];
 
@@ -93,17 +92,17 @@ const schema = [
 
 <Layout
   title="Privat språkmodell på egne dokumenter – Brage · Okane"
-  description="Brage svarer på spørsmål fra dokumentene i SharePoint og på filområder, med kilde til hvert svar. Språkmodellen kan kjøre på deres egne servere. I pilot."
+  description="Brage svarer på spørsmål fra dokumentene i SharePoint og på filområder, med kilde til hvert svar. Språkmodellen kan kjøre på deres egne servere. "
   image="/og/brage.png"
   imageAlt="Brage: et svar fra egne dokumenter, med kilde"
   schema={schema}
 >
-  <Header ctaLabel="Søk om pilotplass" ctaHref="#kontakt" ctaEvent="pilot-brage" />
+  <Header ctaLabel="Be om en demo" ctaHref="#kontakt" ctaEvent="demo-brage" />
 
   <section class="hero">
     <div class="container">
       <div class="hero__eyebrow">
-        <a href="/brage">Brage, i pilot</a>
+        <a href="/brage">Brage</a>
       </div>
 
       <h1 class="hero__headline hero__headline--page">
@@ -116,10 +115,9 @@ const schema = [
       </p>
 
       <div class="hero__cta">
-        <a href={pilot} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="pilot-brage">Søk om pilotplass</a>
-        <a href={demo} class="btn btn--secondary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="demo-brage">Be om en demo</a>
+        <a href={demo} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="demo-brage">Be om en demo</a>
+        <a href={start} class="btn btn--secondary btn--lg" data-umami-event="cta-click" data-umami-event-location="hero" data-umami-event-label="start-brage">Prøv på egne dokumenter</a>
       </div>
-      <MailNote location="hero" />
       <p class="updated">Sist oppdatert 24. november 2026</p>
 
       <div class="hero__meta">
@@ -205,11 +203,10 @@ const schema = [
       </div>
 
       <div class="privat-cta reveal">
-        <p class="pilot-terms">I en pilot setter vi opp Brage på dokumentene deres, med den språkmodellen dere velger. Pris og vilkår avtaler vi i et kort møte.</p>
+        <p class="start-terms">Vi setter opp Brage på dokumentene deres, med den språkmodellen dere velger. Dere betaler først når dere vil fortsette.</p>
         <div class="hero__cta">
-          <a href={pilot} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="privat-modell" data-umami-event-label="pilot-brage">Søk om pilotplass</a>
+          <a href={start} class="btn btn--primary btn--lg" data-umami-event="cta-click" data-umami-event-location="privat-modell" data-umami-event-label="start-brage">Prøv på egne dokumenter</a>
         </div>
-        <MailNote location="privat-modell" />
       </div>
     </div>
   </section>
@@ -291,7 +288,7 @@ const schema = [
       <header class="block__header reveal">
         <div class="block__sub-wrap">
           <h2 class="block__title">Det IT og ledelse spør om.</h2>
-          <p class="block__sub">Svar på det vi oftest får spørsmål om før en pilot.</p>
+          <p class="block__sub">Svar på det vi oftest får spørsmål om.</p>
         </div>
       </header>
 
@@ -328,8 +325,8 @@ const schema = [
 
   <CTA
     title="Prøv Brage på deres egne dokumenter."
-    text="Fortell hvor dokumentene ligger og hvor språkmodellen skal kjøre, så setter vi opp Brage i en pilot. Vil dere se den først, viser vi den gjerne."
-    primary={{ label: 'Søk om pilotplass', href: pilot, event: 'pilot-brage' }}
+    text="Fortell hvor dokumentene ligger og hvor språkmodellen skal kjøre, så setter vi opp Brage på dem."
+    primary={{ label: 'Prøv på egne dokumenter', href: start, event: 'start-brage' }}
     secondary={{ label: 'Be om en demo', href: demo, event: 'demo-brage' }}
   />
 
