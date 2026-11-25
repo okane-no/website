@@ -4,6 +4,7 @@ import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/layout/Header.astro';
 import Footer from '~/components/layout/Footer.astro';
 import CTA from '~/components/sections/CTA.astro';
+import Zoom from '~/components/ui/Zoom.astro';
 import { mailto, prompts } from '~/lib/contact';
 import skjema from '~/assets/produkter/brage/skjema.webp';
 import sporsmal from '~/assets/produkter/brage/sporsmal.webp';
@@ -267,4 +268,5 @@ const demo = mailto('Demo Brage', prompts.brageDemo);
   />
 
   <Footer />
+  <Zoom />
 </Layout>
